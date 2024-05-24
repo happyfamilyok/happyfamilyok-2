@@ -1,0 +1,13 @@
+
+  #topic_navigation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(246, 255, 0, 0.456);
+  }
+
+  #topic_navigation li {
+    display: inline-block;
+  }
+
+  
