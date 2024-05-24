@@ -8,11 +8,43 @@
         <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PSKN1R7CLW"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
+    //checks
+function getCookie(name) {
+    // Get all cookies in a single string
+    const cookies = document.cookie;
+    
+    // Split the cookies string into individual cookies
+    const cookieArr = cookies.split(';');
+    
+    // Loop through the cookies array
+    for (let i = 0; i < cookieArr.length; i++) {
+        let cookie = cookieArr[i].trim();
+        
+        // Check if this cookie starts with the name we are looking for
+        if (cookie.startsWith(name + '=')) {
+            // Extract the cookie value
+            return cookie.substring((name.length + 1), cookie.length);
+        }
+    }
+    
+    // If the cookie is not found, return null
+    return null;
+}
+
+// Use the function to check for the _ga cookie
+const gaCookie = getCookie('_ga');
+
+if (gaCookie) {
+    console.log(`_ga cookie is present: ${gaCookie}`);
+} else {
+    console.log('_ga cookie is not present');
+    window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-PSKN1R7CLW');
+}
+getCookie(); //init
 </script>
 </head>
 <body>
