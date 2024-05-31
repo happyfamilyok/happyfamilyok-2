@@ -16,3 +16,18 @@
     background-repeat: no-repeat;
     background-position: left;
   }
+
+  /* disabled because I can't figure out how to isolate styles
+  #h11-sesamechk:hover, #housesplomein:hover, #hunanbeef:hover, #mixedveg:hover, #dumplings:hover, #shrimpwlobstersc:hover, #singaporemeifun:hover, #generaltsos:hover, #shrimpwchineseveg:hover, #happyfamilydish:hover, #seafooddelight:hover, #shrimpwcashewnuts:hover {
+    background-color: green;
+  }
+  */
+
+  
+    /* Define a highlight class */
+    .highlight {
+      background-color: yellow;
+      transition: background-color 0.5s ease;
+      padding-top: 40px;
+      padding-bottom: 40px;
+  }
