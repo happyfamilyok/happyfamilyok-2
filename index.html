@@ -63,6 +63,22 @@ getCookie(); //init
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 
+<!-- Button Magic -->
+<script>
+  function highlightParagraph(id) {
+      // Remove the highlight class from any previously highlighted paragraph
+      var highlighted = document.querySelector('.highlight');
+      if (highlighted) {
+          highlighted.classList.remove('highlight');
+      }
+
+      // Add the highlight class to the target paragraph
+      var paragraph = document.getElementById(id);
+      paragraph.classList.add('highlight');
+  }
+</script>
+
+
 
 </head>
 <body style="background-color: #d1f8ff; margin-top: 0; text-align: center; ">
@@ -91,7 +107,7 @@ getCookie(); //init
   </header>
   <nav id="topic_navigation">
     <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home">[Back to Top]</a></li>
         <li><a href="#kidsmenu">Kids Menu</a></li>
         <li><a href="#lunchspecial">Lunch Special</a></li>
         <li><a href="#appetizers">Appetizers</a></li>
@@ -139,18 +155,18 @@ getCookie(); //init
         </section>
         <section>
                 <ul style="display: flex; flex-wrap: wrap; list-style-type: none;padding: 0;">
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.02.05 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.02.10 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.02.14 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.02.22 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.02.29 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.02.34 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.02.39 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.02.46 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.02.49 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.02.54 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.03.00 PM.png"></li>
-                    <li><img src="/stock/Screenshot 2024-05-23 at 7.03.18 PM.png"></li>
+                    <li><a href="#housesplomein" onclick="highlightParagraph('housesplomein');" ><img src="/stock/Screenshot 2024-05-23 at 7.02.05 PM.png"></a></li>
+                    <li><a href="#h11-sesamechk" onclick="highlightParagraph('h11-sesamechk');"><img src="/stock/Screenshot 2024-05-23 at 7.02.10 PM.png"></a></li>
+                    <li><a href="#hunanbeef"  onclick="highlightParagraph('hunanbeef');"><img src="/stock/Screenshot 2024-05-23 at 7.02.14 PM.png"></a></li>
+                    <li><a href="#mixedveg"  onclick="highlightParagraph('mixedveg');"><img src="/stock/Screenshot 2024-05-23 at 7.02.22 PM.png"></a></li>
+                    <li><a href="#dumplings"  onclick="highlightParagraph('dumplings');"><img src="/stock/Screenshot 2024-05-23 at 7.02.29 PM.png"></a></li>
+                    <li><a href="#shrimpwlobstersc"  onclick="highlightParagraph('shrimpwlobstersc');"><img src="/stock/Screenshot 2024-05-23 at 7.02.34 PM.png"></a></li>
+                    <li><a href="#singaporemeifun"  onclick="highlightParagraph('singaporemeifun');"><img src="/stock/Screenshot 2024-05-23 at 7.02.39 PM.png"></a></li>
+                    <li><a href="#generaltsos"  onclick="highlightParagraph('generaltsos');"><img src="/stock/Screenshot 2024-05-23 at 7.02.46 PM.png"></a></li>
+                    <li><a href="#shrimpwchineseveg"  onclick="highlightParagraph('shrimpwchineseveg');"><img src="/stock/Screenshot 2024-05-23 at 7.02.49 PM.png"></a></li>
+                    <li><a href="#happyfamilydish"  onclick="highlightParagraph('happyfamilydish');"><img src="/stock/Screenshot 2024-05-23 at 7.02.54 PM.png"></a></li>
+                    <li><a href="#seafooddelight"  onclick="highlightParagraph('seafooddelight');"><img src="/stock/Screenshot 2024-05-23 at 7.03.00 PM.png"></a></li>
+                    <li><a href="#shrimpwcashewnuts"  onclick="highlightParagraph('shrimpwcashewnuts');"><img src="/stock/Screenshot 2024-05-23 at 7.03.18 PM.png"></a></li>
                 </ul>
             </div>
 
@@ -178,12 +194,12 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
             <li>青椒牛 L9. Pepper Steak With Onion. 5.50</li>
             <li>白菜叉燒 L 10. Roast Pork With Chinese Vegs...5.50</li>
             <li>磨菇雞片 L11. Moo Goo Gai Pan.. 5.50</li>
-            <li>白菜蝦 L 12. Shrimp With Chinese Vegs 5.50</li>
+            <li id="shrimpwchineseveg">白菜蝦 L 12. Shrimp With Chinese Vegs 5.50</li>
             <li>白菜牛 L13. Beef With Chinese Vegs. 5.50</li>
             <li>甜酸雞或肉 L 14. Sweet & Sour Chicken or Pork.5.50</li>
-            <li>蝦龍糊 L 15. Shrimp With Lobster Sauce. 5.50</li>
+            <li id="shrimpwlobstersc">蝦龍糊 L 15. Shrimp With Lobster Sauce. 5.50</li>
             <li>什菜 L 16. Mixed Vegs With Brown Sauce .5.50</li>
-            <li>腰果蝦 L17. Shrimp With Cashew Nuts 5.50</li>
+            <li id="shrimpwcashewnuts">腰果蝦 L17. Shrimp With Cashew Nuts 5.50</li>
             <li>腰果雞 L 18. Chicken With Cashew Nuts 5.50</li>
             <li>芝麻雞 L 19. Sesame Chicken 5.50</li>
             <li style="color: rgb(160, 41, 41);"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper"> L 20. General Tso's Chicken 5.50</li>
@@ -215,7 +231,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <li>5. Crab Rangoon (8) (Cheese Wonton)..3.95</li> 
                 <li>6. Fried Jumbo Shrimp(5)...5.50</li> 
                 <li>7. Shrimp Toast.3.95</li>
-                <li>8. Fried or Steamed Dumplings (8) 5.50</li>
+                <li id="dumplings">8. Fried or Steamed Dumplings (8) 5.50</li>
                 <li>9. Barbecued Spare Ribs...(5)5.55(L)9.95</li>
                 <li>10. Boneless Spare Ribs...(S)5.50(L)9.95</li>           
                 <li>11. Fried Baby Shrimp(15)...5.50</li>
@@ -449,7 +465,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <td>7.55</td>
                 </tr>
                 <tr>
-                <td>45. House Special Lo Mein<br /> (Chicken, Shrimp &amp; Pork)</td>
+                <td id="housesplomein">45. House Special Lo Mein<br /> (Chicken, Shrimp &amp; Pork)</td>
                 <td>&nbsp;5.50</td>
                 <td>7.95</td>
                 </tr>
@@ -492,7 +508,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <td style="height: 23px;">7.55</td>
                 </tr>
                 <tr style="height: 23.5px;">
-                <td style="height: 23.5px;color: rgb(160, 41, 41);"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">52. Singapore Chow Mai Fun</td>
+                <td style="height: 23.5px;color: rgb(160, 41, 41);" id="singaporemeifun"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">52. Singapore Chow Mai Fun</td>
                 <td style="height: 23.5px;">7.95</td>
                 </tr>
                 <tr style="height: 23px;">
@@ -569,7 +585,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <td>8.95</td>
                 </tr>
                 <tr>
-                <td>63. Beef w. Mixed Vegetables</td>
+                <td id="mixedveg">63. Beef w. Mixed Vegetables</td>
                 <td>5.50</td>
                 <td>8.95</td>
                 </tr>
@@ -584,7 +600,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <td>8.95</td>
                 </tr>
                 <tr>
-                <td style="color: rgb(160, 41, 41);"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">66. Hunan Beef</td>
+                <td style="color: rgb(160, 41, 41);" id="hunanbeef"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">66. Hunan Beef</td>
                 <td style="color: rgb(160, 41, 41);">&nbsp;</td>
                 <td style="color: rgb(160, 41, 41);">8.95</td>
                 </tr>
@@ -642,7 +658,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <td>8.55</td>
                 </tr>
                 <tr>
-                <td>75. Chicken w. Mixed Vegs</td>
+                <td id="mixedveg">75. Chicken w. Mixed Vegs</td>
                 <td>6.25</td>
                 <td>8.55</td>
                 </tr>
@@ -726,7 +742,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <td>8.55</td>
                 </tr>
                 <tr>
-                <td>88. Roast Pork w. Mixed Vegs.</td>
+                <td id="mixedveg">88. Roast Pork w. Mixed Vegs.</td>
                 <td>5.25</td>
                 <td>8.55</td>
                 </tr>
@@ -856,7 +872,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <li>C18. Shrimp w. Mix Vegetables... 7.95</li>
                 <li>С19. Chicken w. Cashew Nuts... 7.55</li>
                 <li>C20. Sesame Chicken 7.55</li>
-                <li style="color: rgb(160, 41, 41);"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">C21. General Tso's Chicken 7.55</li>
+                <li style="color: rgb(160, 41, 41);" id="generaltsos"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">C21. General Tso's Chicken 7.55</li>
                 <li style="color: rgb(160, 41, 41);"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">C22. Chicken w. Szechuan Style 7.55</li>
                 <li style="color: rgb(160, 41, 41);"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">C23. Shrimp w. Szechuan Style... .7.95</li>
                 <li style="color: rgb(160, 41, 41);"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">C24. Beef w. Hunan Style 7.75</li>
@@ -882,7 +898,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <td style="color: rgb(160, 41, 41);">&nbsp;Order</td>
                 </tr>
                 <tr>
-                <td>&nbsp;全家福H1.HAPPY FAMILY..<br />
+                <td id="happyfamilydish">&nbsp;全家福H1.HAPPY FAMILY..<br />
                 <p>Crab Meat, Jumbo Shrimp, Beef, Chicken, Pork, straw Mushroom, Baby Corn, Snow Peas, Carrot, Green Pepper &amp; Broccoli in House Special Sauce</p>
                 </td>
                 <td>
@@ -924,7 +940,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <td>10.25&nbsp;</td>
                 </tr>
                 <tr>
-                <td>&nbsp;海鮮大會H 6 SEAFOOD DELIGHT.
+                <td id="seafooddelight">&nbsp;海鮮大會H 6 SEAFOOD DELIGHT.
                 <p>Jumbo Shrimp, fresh Scallops, Crab Meat W. Straw Mushrooms, Snow Peas, baby Corn, Carrots, Green Pepper &amp; Broccoli In Cantonese Sauce</p>
                 </td>
                 <td>
@@ -943,7 +959,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <tr>
                 <td>&nbsp;
                 <p style="color: rgb(160, 41, 41);"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">魚香兩様H 8. DOUBLE DELIGHT W. GARLIC SAUCE</p>
-                <p>Shrimp Scallops w. Mixed Vegetable &amp; Green Pepper</p>
+                <p id="mixedveg">Shrimp Scallops w. Mixed Vegetable &amp; Green Pepper</p>
                 </td>
                 <td>&nbsp;
                 <p style="color: rgb(160, 41, 41);">10.50</p>
@@ -952,7 +968,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 <tr>
                 <td>&nbsp;
                 <p style="color: rgb(160, 41, 41);"><img src="/tougarashi_redpepper.png" width="16px" height="auto" alt="hotandspicy pepper">湖南三様H 9. TRIPLE DELIGHT HUNAN STYLE</p>
-                <p>Chicken, beef, shrimp w. Mixed Vegetable &amp; Green Pepper In Black Bean Kung Po Sauce</p>
+                <p id="mixedveg">Chicken, beef, shrimp w. Mixed Vegetable &amp; Green Pepper In Black Bean Kung Po Sauce</p>
                 </td>
                 <td>&nbsp;
                 <p style="color: rgb(160, 41, 41);">10.50</p>
@@ -960,7 +976,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 </tr>
                 <tr>
                 <td>&nbsp;
-                <p>洞庭湖蝦H10. TUNG TING SHRIMP..</p>
+                <p id="mixedveg">洞庭湖蝦H10. TUNG TING SHRIMP..</p>
                 <p>Prawn &amp; mixed vegetable in egg white sauce</p>
                 </td>
                 <td>&nbsp;
@@ -969,7 +985,7 @@ color: transparent; -webkit-text-stroke: 2px #fff; font-size: xx-large;"><a id="
                 </tr>
                 <tr>
                 <td>&nbsp;
-                <p>芝麻雞H11. SESAME CHICKEN</p>
+                <p id="h11-sesamechk">芝麻雞H11. SESAME CHICKEN</p>
                 </td>
                 <td>&nbsp;
                 <p>8.95</p>
