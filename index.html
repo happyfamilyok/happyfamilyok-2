@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Family——家家樂</title>
+    <style>
+        #opensign {
+            display: none; /* Initially hidden */
+        }
+    </style>
     <style>@font-face { font-family: Wonton; src: url('/Wonton.ttf'); } </style>
     <link rel="stylesheet" href="/index.css">
     <meta name="description" content="1219 E. Alameda St, Norman, OK, 73071. Happy Family is known for its Asian, Chinese, Dinner, and Lunch Specials. We strive for great value food, order now!">
     <!-- Google tag (gtag.js) -->
+     <link rel="stylesheet" href="opensign.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PSKN1R7CLW"></script>
 <link rel="icon" href="favicon.png" type="image/png">
 <!-- keysign test -->
@@ -78,6 +84,64 @@ getCookie(); //init
   }
 </script>
 
+<!--<script> //TODO: Script does not work. WIP. (for unhiding the header open sign based on input time.)
+    function checkBusinessHours() {
+        const businessHours = [
+            { open: "12:00", close: "21:00" }, // Sunday
+            { open: "11:00", close: "21:30" }, // Monday
+            { open: "11:00", close: "21:30" }, // Tuesday
+            { open: "11:00", close: "21:30" }, // Wednesday
+            { open: "11:00", close: "21:30" }, // Thursday
+            { open: "11:00", close: "21:30" }, // Friday
+            { open: "11:00", close: "21:30" }, // Saturday
+        ];
+
+        const now = new Date();
+        const day = now.getDay();
+        const currentTime = now.getHours() * 60 + now.getMinutes(); // current time in minutes
+
+        const [openHour, openMinute] = businessHours[day].open.split(':').map(Number);
+        const [closeHour, closeMinute] = businessHours[day].close.split(':').map(Number);
+
+        const openTime = openHour * 60 + openMinute;
+        const closeTime = closeHour * 60 + closeMinute;
+
+        const element = document.getElementById('opensign');
+
+        if (currentTime >= openTime && currentTime <= closeTime) {
+            element.style.display = 'block'; // Show the element
+        } else {
+            element.style.display = 'none'; // Hide the element
+        }
+    }
+
+    // Run the function initially to set the correct state
+    checkBusinessHours();
+
+    // Optionally, you can set an interval to check periodically (e.g., every minute)
+    setInterval(checkBusinessHours, 60000);
+</script>-->
+
+<!-- 
+THIRD PARTY LICENSES
+-->
+
+<!--
+A SPRINKLE OF THIS CODE CONTAINS SOURCES FROM A. CHATGPT, B. https://codepen.io/jshwrnr/pen/gOrZVaQ
+LICENSE IS BELOW.
+-->
+<!--
+Copyright (c) 2024 by Josh Werner (https://codepen.io/jshwrnr/pen/gOrZVaQ)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<script src="opensign.js"></script>
+
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -92,6 +156,15 @@ getCookie(); //init
              <span  style="color: white; -webkit-text-stroke: 2px rgb(246, 63, 89);">樂</span> <rt  style="color: white; -webkit-text-stroke: 2px rgb(246, 63, 89);"> lè  </rt>
             </ruby>
             </p></a></h1>
+
+            <div id="opensign">
+                <p id="o_first_p">
+                  <span class="open" id="open_o">O</span>
+                  <span class="opne" id="open_p">P</span>
+                  <span class="open" id="open_e">E</span>
+                  <span class="open" id="open_n">N</span>
+                </p>
+             </div>
     Heisman Square Shopping Center<br/>
         1219 E. Alameda St. Norman, OK, 73071.
   <!-- (not used)     <ul>
@@ -111,8 +184,11 @@ getCookie(); //init
 
   <img src="/fix.png" width="100%" height="auto" style="max-width: 850px;">
   <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=-97.42338895797731%2C35.21860327257796%2C-97.41978138685228%2C35.22044828519595&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=19/35.21953/-97.42159">View Larger Map</a></small>
-    <h3>Add our Business Contact card</h3>
+  <section style="border: 4px solid rgb(0, 0, 0); margin-top: 40px;"> <h3 style="font-size: x-large;">Add our Business Contact card</h3>
+    <p>**compatible with iPhone on iOS 6 or later (Safari 6) and Mac devices running 10.12 Sierra or later.(Safari 10)** </p>
     <a href="/happyfamily.pkpass" id="#add_contact_card"><img src="/2560px-Add_to_Apple_Wallet_badge.svg.png" width="20%" height="auto"></a>
+    <p style=" width: 50%;margin: 0 auto;  text-align: center; "><i>Apple is a trademark of Apple Inc., registered in the U.S. and other countries. The use of the Apple name and logo on this website is for informational purposes only and does not imply any affiliation with or endorsement by Apple Inc. All rights regarding the Apple trademarks are reserved by their respective owners.</i></p>
+</section> 
 </header>
   <nav id="topic_navigation">
     <ul>
