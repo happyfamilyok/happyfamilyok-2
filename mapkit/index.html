@@ -1,0 +1,156 @@
+<script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.core.js"
+    crossorigin async
+    data-callback="initMapKit"
+    data-libraries="map,annotations,services"
+    data-token="eyJraWQiOiIyM1E2NDk4N1ZOIiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiI2R002RDUzMjNFIiwiaWF0IjoxNzM2ODI4NDIzLCJvcmlnaW4iOiIqLmhhcHB5ZmFtaWx5b2suY29tIn0.M7vI2rkfR-t51LNDfzVUQY-0hgfJRqP5jrvbJlLstmbbZG3Qc61e9sIlXNsJ2rlbH40a4MZW6VChoIPnprR-7w">
+</script>
+
+<script type="module">
+// Wait for MapKit JS to be ready to use.
+const setupMapKitJs = async() => {
+    // If MapKit JS is not yet loaded...
+    if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
+        // ...await <script>'s data-callback (window.initMapKit).
+        await new Promise(resolve => { window.initMapKit = resolve });
+        // Clean up.
+        delete window.initMapKit;
+    }
+};
+
+const domCityRegions = document.getElementById("city-regions");
+
+const main = async() => {
+    await setupMapKitJs();
+
+    // Region and Zoom variables for Norman and Toronto
+    const regionNorman = new mapkit.CoordinateRegion(
+        new mapkit.Coordinate(35.2192927,-97.4245028),
+        new mapkit.CoordinateSpan(0.11, 0.11)
+    );
+    /*
+    const regionToronto = new mapkit.CoordinateRegion(
+        new mapkit.Coordinate(43.6451, -79.37505),
+        new mapkit.CoordinateSpan(0.05, 0.11)
+    );
+    */
+    const zoomRangeNorman = new mapkit.CameraZoomRange(0, 12000);
+    //const zoomRangeToronto = new mapkit.CameraZoomRange(5000, 12000);
+
+    // Create map, set the initial view to Norman.
+    const map = new mapkit.Map("map-container");
+    const geocoder = new mapkit.Geocoder({ language: "en-US" }); // Define the geocoder
+    map.cameraZoomRange = zoomRangeNorman;
+    map.cameraBoundary = regionNorman.toMapRect();
+    map.center = new mapkit.Coordinate(35.2192595,-97.4218958);
+    map.cameraDistance = 500;
+
+    // Current City
+    let currentCityName = "norman";
+
+    // Define the cities.
+    const cities = {
+        norman: {
+            selected: () => {
+                map.setCameraZoomRangeAnimated(zoomRangeNorman);
+                map.setCameraBoundaryAnimated(regionNorman.toMapRect());
+                map.setCameraDistanceAnimated(12000);
+            }
+        },
+    }
+
+    // Listen to click events to change city.
+    domCityRegions.addEventListener("change", event => {
+        const cityName = event.target.value;
+        const cityData = cities[cityName];
+        if (currentCityName === cityName) {
+            return;
+        }
+
+        currentCityName = cityName;
+
+        cityData.selected();
+    });
+    
+
+    // Create the Map and Geocoder.
+    //const map = new mapkit.Map("map-container");
+    //const geocoder = new mapkit.Geocoder({ language: "en-US" });
+
+    // Create the "Event" annotation, setting properties in the constructor.
+    const event = new mapkit.Coordinate(35.2195662,-97.4219789); // Define the event coordinate
+    const eventAnnotation = new mapkit.MarkerAnnotation(event, {
+        color: "#7D0811",
+        title: "Happy Family Chinese Restaurant",
+        subtitle: "1219 E. Alameda St, Norman, OK 73071",
+        selected: true,
+        glyphImage: {
+            1: "/mapkit/mapglyphs.png", // Path to your custom PNG image in the root directory
+            2: "/mapkit/mapglyphs.png", // Path to your custom PNG image for retina displays in the root directory
+            3: "/mapkit/mapglyphs.png"  // Path to your custom PNG image for higher resolution displays in the root directory
+        }
+    });
+
+    // Add and show the annotation on the map.
+    map.showItems([eventAnnotation]);
+
+    // Fix the camera to focus on the "Event" marker
+    map.setCenterAnimated(event);
+    map.setCameraDistanceAnimated(1000);
+
+    // This contains the user-set single-tap annotation.
+    let clickAnnotation = null;
+
+    // Add or move an annotation when a user single-taps an empty space.
+    map.addEventListener("single-tap", event => {
+        if (clickAnnotation) {
+            map.removeAnnotation(clickAnnotation);
+        }
+
+        // Get the clicked coordinate and add an annotation there.
+        const point = event.pointOnPage;
+        const coordinate = map.convertPointOnPageToCoordinate(point);
+
+        clickAnnotation = new mapkit.MarkerAnnotation(coordinate, {
+            title: "Loading...",
+            color: "#969696",
+            glyphImage: {
+                1: "/mapkit/mapglyphs.png", // Path to your custom PNG image in the root directory
+                2: "/mapkit/mapglyphs.png", // Path to your custom PNG image for retina displays in the root directory
+                3: "/mapkit/mapglyphs.png"  // Path to your custom PNG image for higher resolution displays in the root directory
+            }
+        });
+
+        map.addAnnotation(clickAnnotation);
+
+        // Look up the address with the Geocoder's Reverse Lookup Function.
+        geocoder.reverseLookup(coordinate, (error, data) => {
+            const first = (!error && data.results) ? data.results[0] : null;
+            clickAnnotation.title = (first && first.name) || "";
+        });
+    });
+
+
+
+
+
+    //setup
+};
+
+
+
+main();
+
+</script>
+
+</head>
+<body>
+    <div id="container">
+        <div id="city-regions">
+            <input id="city-norman" type="radio"
+                value="norman" name="city" checked="checked" />
+            <label for="city-norman">Norman</label>
+        </div>
+        <div id="map-container"></div>
+    </div>
+</body>
+</html>
