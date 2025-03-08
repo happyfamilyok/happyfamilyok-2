@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Bar Emulator</title>
+    <script src="https://unpkg.com/x-frame-bypass"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <input type="text" id="urlInput" placeholder="Enter URL here" style="width: 80%;">
+    <button onclick="loadURL()">Go</button>
+    <br><br>
+    <a id="urlLink" href="https://search.google.com/local/writereview?placeid=ChIJo-NOyWhCsocRaW3pKN2cFnU" target="_blank">Open Google Reviews Write Widget</a>
+
+    <script>
+        function loadURL() {
+            var url = document.getElementById('urlInput').value;
+            document.getElementById('urlLink').href = url;
+        }
+    </script>
+</body>
+</html>
