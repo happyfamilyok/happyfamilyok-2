@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confetti on Click</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script defer src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <h1 class="text-3xl font-bold text-gray-800">Click anywhere for confetti!</h1>
+</body>
+<script>
+    document.addEventListener('click', () => {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { 
+            x: event.clientX / window.innerWidth, 
+            y: event.clientY / window.innerHeight 
+            }
+        });
+        });
+    });
+</script>
+</html>
