@@ -12,11 +12,11 @@ export default defineNuxtConfig({
       meta: [
         { 
           name: 'Content-Security-Policy', 
-          content: "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
+          content: "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
         },
         { 
           'http-equiv': 'Content-Security-Policy', 
-          content: "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
+          content: "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
         }
       ],
       link: [
@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     routeRules: {
       '/**': {
         headers: {
-          'Content-Security-Policy': "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;",
+          'Content-Security-Policy': "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;",
           'X-Content-Type-Options': 'nosniff',
           'X-Frame-Options': 'DENY',
           'X-XSS-Protection': '1; mode=block'
