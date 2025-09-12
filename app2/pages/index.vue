@@ -180,8 +180,10 @@
                     </div>
                     <div class="flex-1 relative flex justify-center items-center">
                         <img src="/assets/hero/menu-card.png" alt="Menu Card"
-                             class="absolute top-12 lg:right-[40%] right-[55%] w-[120px] h-[120px] z-10" />
-                        <p class="absolute top-[180px] lg:right-[40%] right-[55%] w-[120px] text-center text-sm font-semibold text-gray-800 z-10">
+                             @click="navigateToMenus"
+                             class="absolute top-12 lg:right-[40%] right-[55%] w-[120px] h-[120px] z-10 cursor-pointer hover:scale-105 transition-transform duration-200" />
+                        <p @click="navigateToMenus" 
+                           class="absolute top-[180px] lg:right-[40%] right-[55%] w-[120px] text-center text-sm font-semibold text-gray-800 z-10 cursor-pointer hover:text-blue-600 transition-colors duration-200">
                             Download the Menu
                         </p>
                     </div>
@@ -238,8 +240,11 @@
                             Contact us</h2>
                         <div class="flex flex-col lg:flex-row gap-4 lg:gap-[20px] justify-center items-center w-full">
                             <div class="flex flex-col lg:flex-row gap-4 lg:gap-[20px] justify-start items-stretch w-full px-4 sm:px-6 lg:px-[60px]">
-                                <div
-                                    class="flex flex-row justify-start items-start w-full lg:w-[650px] bg-global-5 rounded-[22px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-4 lg:p-[20px]">
+                                <!-- Location Card - Clickable -->
+                                <a href="https://maps.apple.com/place?place-id=I84F0D62EE9430787&address=1219+Alameda+St%2C+Norman%2C+OK++73071%2C+United+States&coordinate=35.2196833%2C-97.4218639&name=Happy+Family+Chinese+Restaurant&_provider=9902"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="flex flex-row justify-start items-start w-full lg:w-[650px] bg-global-5 rounded-[22px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-4 lg:p-[20px] cursor-pointer transform transition-all duration-200 hover:scale-105 hover:shadow-lg">
                                     <div class="flex flex-col gap-3 lg:gap-[16px] justify-start items-start w-full">
                                         <div
                                             class="flex justify-start items-center w-auto bg-global-5 rounded-[40px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-6 lg:p-[28px]">
@@ -249,9 +254,10 @@
                                             class="text-[14px] sm:text-[16px] lg:text-[18px] font-roboto font-normal leading-[24px] sm:leading-[28px] lg:leading-[31px] text-global-1">
                                             Heisman Square Shopping Center 1219 E. Alameda St. Norman, <br />OK, 73071.</p>
                                     </div>
-                                </div>
-                                <div
-                                    class="flex flex-row justify-start items-start w-full lg:w-[650px] bg-global-5 rounded-[22px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-4 lg:p-[20px]">
+                                </a>
+                                <!-- Phone Card - Clickable -->
+                                <a href="tel:405-366-0786"
+                                   class="flex flex-row justify-start items-start w-full lg:w-[650px] bg-global-5 rounded-[22px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-4 lg:p-[20px] cursor-pointer transform transition-all duration-200 hover:scale-105 hover:shadow-lg">
                                     <div
                                         class="flex flex-col gap-3 lg:gap-[16px] justify-start items-start w-full">
                                         <div
@@ -262,7 +268,7 @@
                                             class="text-[14px] sm:text-[16px] lg:text-[18px] font-roboto font-normal leading-[18px] sm:leading-[20px] lg:leading-[22px] text-global-1">
                                             <span>405-366-0786</span><span> / </span><span>405-366-07864</span></p>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -280,13 +286,13 @@
                                     Sierra or later.(Safari 10)**</p>
                             </div>
                             <div class="flex flex-col gap-3 lg:gap-[16px] justify-start items-center flex-1">
-                                <div class="flex flex-col gap-4 lg:gap-[24px] justify-start items-center w-auto"><img
+                                <a href="/happyfamily.pkpass"><div class="flex flex-col gap-4 lg:gap-[24px] justify-start items-center w-auto"><img
                                         src="/images/img_wallet_10_1.svg" alt="Apple Wallet" width="120" height="120"
                                         class="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] lg:w-[120px] lg:h-[120px]" />
                                     <h4
                                         class="text-[24px] sm:text-[28px] lg:text-[32px] font-viola font-semibold leading-[28px] sm:leading-[33px] lg:leading-[38px] text-global-1 uppercase">
                                         Add apple wallet card</h4>
-                                </div>
+                                </div></a>
                                 <p
                                     class="text-[14px] sm:text-[16px] lg:text-[18px] font-roboto font-normal leading-[28px] sm:leading-[32px] lg:leading-[36px] text-global-1 text-center flex-1">
                                     Apple is a trademark of Apple Inc., registered in the U.S. and other countries. The
@@ -2287,7 +2293,25 @@ const handleToggleComboItems = (event) => {
 }
 
 // Basic initialization after DOM mount
-onMounted(() => {
+onMounted(async () => {
+  // Brave browser detection for analytics purposes
+  try {
+    const isBrave = (navigator.brave && await navigator.brave.isBrave()) || false;
+    console.log('Brave browser detected:', isBrave);
+    
+    // Store the result for potential analytics use
+    window.isBraveDetected = isBrave;
+    
+    // Log Brave users to database
+    if (isBrave) {
+      await logBraveUser();
+    }
+  } catch (error) {
+    console.log('Brave browser detected:', false);
+    console.warn('Error detecting Brave browser:', error);
+    window.isBraveDetected = false;
+  }
+
   // Make function globally available for debugging
   window.debugToggleLunch = () => {
     handleToggleLunchItems()
@@ -2296,6 +2320,56 @@ onMounted(() => {
     handleToggleComboItems()
   }
 })
+
+// Function to log Brave users to database
+const logBraveUser = async () => {
+  try {
+    console.log('Attempting to log Brave user to:', 'http://107.175.194.17/log-brave-user.php');
+    
+    // First, test if the endpoint is reachable with a simple GET request
+    try {
+      const testResponse = await fetch('http://107.175.194.17/log-brave-user.php', {
+        method: 'GET',
+      });
+      console.log('Test GET request response:', testResponse.status, testResponse.statusText);
+      if (testResponse.ok) {
+        const testResult = await testResponse.json();
+        console.log('Test GET result:', testResult);
+      }
+    } catch (testError) {
+      console.warn('Test GET request failed:', testError);
+    }
+    
+    // Make direct POST request to your VPS PHP endpoint
+    const response = await fetch('http://107.175.194.17/log-brave-user.php', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        url: window.location.href,
+        action: 'log_brave_user'
+      })
+    });
+    
+    console.log('POST response status:', response.status, response.statusText);
+    
+    if (response.ok) {
+      const result = await response.json();
+      console.log('Brave user logged successfully');
+    } else {
+      const errorText = await response.text();
+      console.warn('Failed to log Brave user:', response.status, response.statusText, errorText);
+    }
+  } catch (error) {
+    console.warn('Error logging Brave user:', error);
+    console.warn('Error details:', error.message, error.name);
+  }
+}
 
 // Apple MapKit configuration - completely isolated from Vue reactivity
 const mapLoaded = ref(false)
@@ -2398,6 +2472,11 @@ const navigateToHome = () => {
     top: 0,
     behavior: 'smooth'
   })
+}
+
+// Navigate to menus page
+const navigateToMenus = () => {
+  navigateTo('/menus')
 }
 
 // Initialize Apple MapKit

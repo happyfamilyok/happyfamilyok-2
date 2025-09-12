@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Brave Logging Endpoint</title>
+</head>
+<body>
+    <h1>Test Brave Logging Endpoint</h1>
+    <button onclick="testEndpoint()">Test GET Request</button>
+    <button onclick="testPost()">Test POST Request</button>
+    <div id="results"></div>
+
+    <script>
+        async function testEndpoint() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<p>Testing GET request...</p>';
+            
+            try {
+                const response = await fetch('http://107.175.194.17/log-brave-user.php', {
+                    method: 'GET'
+                });
+                
+                const result = await response.json();
+                results.innerHTML += `<p>GET Success: ${JSON.stringify(result)}</p>`;
+            } catch (error) {
+                results.innerHTML += `<p>GET Error: ${error.message}</p>`;
+            }
+        }
+        
+        async function testPost() {
+            const results = document.getElementById('results');
+            results.innerHTML += '<p>Testing POST request...</p>';
+            
+            try {
+                const response = await fetch('http://107.175.194.17/log-brave-user.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        action: 'log_brave_user',
+                        timestamp: new Date().toISOString(),
+                        userAgent: navigator.userAgent,
+                        url: window.location.href
+                    })
+                });
+                
+                const result = await response.json();
+                results.innerHTML += `<p>POST Success: ${JSON.stringify(result)}</p>`;
+            } catch (error) {
+                results.innerHTML += `<p>POST Error: ${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
