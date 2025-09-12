@@ -57,13 +57,16 @@
       </div>        <div class="bg-blue-50 rounded-lg p-4">
         <h3 class="text-lg font-semibold text-blue-800 mb-2">API Endpoint Information</h3>
         <p class="text-blue-700 mb-2">
-          <strong>Endpoint:</strong> <code class="bg-blue-100 px-2 py-1 rounded">http://107.175.194.17/log-brave-user.php</code>
+          <strong>Endpoint:</strong> <code class="bg-blue-100 px-2 py-1 rounded">/api/log-brave-proxy</code>
+        </p>
+        <p class="text-blue-700 mb-2">
+          <strong>Backend Target:</strong> <code class="bg-blue-100 px-2 py-1 rounded">http://107.175.194.17/log-brave-user.php</code>
         </p>
         <p class="text-blue-700 mb-2">
           <strong>Method:</strong> POST (GET will return method not allowed)
         </p>
         <p class="text-blue-700">
-          <strong>Purpose:</strong> Logs Brave browser users directly to the database via HTTP endpoint
+          <strong>Purpose:</strong> Proxies requests to HTTP endpoint via secure HTTPS Nuxt server (avoids mixed content issues)
         </p>
       </div>
     </div>
@@ -90,7 +93,7 @@ const testGet = async () => {
   currentTest.value = 'get'
   
   try {
-    const response = await fetch('http://107.175.194.17/log-brave-user.php', {
+    const response = await fetch('/api/log-brave-proxy', {
       method: 'GET'
     })
     
@@ -118,12 +121,10 @@ const testPost = async () => {
   currentTest.value = 'post'
   
   try {
-    const response = await fetch('http://107.175.194.17/log-brave-user.php', {
+    const response = await fetch('/api/log-brave-proxy', {
       method: 'POST',
-      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
       },
       body: JSON.stringify({
         action: 'log_brave_user',

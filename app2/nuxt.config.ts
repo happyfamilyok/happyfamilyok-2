@@ -1,7 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 // Mixed Content Configuration:
-// Allows HTTP requests to specific endpoint (107.175.194.17) while maintaining security
+// Uses server-side proxy to avoid mixed content issues with HTTP endpoint
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
@@ -12,12 +12,13 @@ export default defineNuxtConfig({
       meta: [
         { 
           name: 'Content-Security-Policy', 
-          content: "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
+          content: "default-src 'self' https:; connect-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
         },
         { 
           'http-equiv': 'Content-Security-Policy', 
-          content: "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
-        }
+          content: "default-src 'self' https:; connect-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
+        },
+        { name: 'referrer', content: 'no-referrer-when-downgrade' }
       ],
       link: [
         { rel: 'icon', href: '/favicon.ico' },
@@ -31,7 +32,7 @@ export default defineNuxtConfig({
     routeRules: {
       '/**': {
         headers: {
-          'Content-Security-Policy': "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;",
+          'Content-Security-Policy': "default-src 'self' https:; connect-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;",
           'X-Content-Type-Options': 'nosniff',
           'X-Frame-Options': 'DENY',
           'X-XSS-Protection': '1; mode=block'

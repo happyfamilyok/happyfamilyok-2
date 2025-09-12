@@ -2324,26 +2324,11 @@ onMounted(async () => {
 // Function to log Brave users to database
 const logBraveUser = async () => {
   try {
-    console.log('Attempting to log Brave user to:', 'http://107.175.194.17/log-brave-user.php');
+    console.log('Attempting to log Brave user via proxy');
     
-    // First, test if the endpoint is reachable with a simple GET request
-    try {
-      const testResponse = await fetch('http://107.175.194.17/log-brave-user.php', {
-        method: 'GET',
-      });
-      console.log('Test GET request response:', testResponse.status, testResponse.statusText);
-      if (testResponse.ok) {
-        const testResult = await testResponse.json();
-        console.log('Test GET result:', testResult);
-      }
-    } catch (testError) {
-      console.warn('Test GET request failed:', testError);
-    }
-    
-    // Make direct POST request to your VPS PHP endpoint
-    const response = await fetch('http://107.175.194.17/log-brave-user.php', {
+    // Use the Nuxt proxy API route to avoid mixed content issues
+    const response = await fetch('/api/log-brave-proxy', {
       method: 'POST',
-      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -2356,17 +2341,17 @@ const logBraveUser = async () => {
       })
     });
     
-    console.log('POST response status:', response.status, response.statusText);
+    console.log('Proxy response status:', response.status, response.statusText);
     
     if (response.ok) {
       const result = await response.json();
-      console.log('Brave user logged successfully');
+      console.log('Brave user logged successfully via proxy:', result);
     } else {
       const errorText = await response.text();
-      console.warn('Failed to log Brave user:', response.status, response.statusText, errorText);
+      console.warn('Failed to log Brave user via proxy:', response.status, response.statusText, errorText);
     }
   } catch (error) {
-    console.warn('Error logging Brave user:', error);
+    console.warn('Error logging Brave user via proxy:', error);
     console.warn('Error details:', error.message, error.name);
   }
 }
