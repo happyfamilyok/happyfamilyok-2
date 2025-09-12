@@ -1,9 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
-// Mixed Content Configuration Options:
-// 1. 'upgrade-insecure-requests' - Automatically upgrades HTTP to HTTPS (recommended)
-// 2. For more permissive mixed content, replace the CSP with:
-//    'default-src \'self\' https: http: data: blob: \'unsafe-inline\' \'unsafe-eval\''
+// Mixed Content Configuration:
+// Allows HTTP requests to specific endpoint (107.175.194.17) while maintaining security
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
@@ -12,8 +10,14 @@ export default defineNuxtConfig({
   app: {
     head: {
       meta: [
-        { name: 'Content-Security-Policy', content: 'upgrade-insecure-requests' },
-        { 'http-equiv': 'Content-Security-Policy', content: 'upgrade-insecure-requests' }
+        { 
+          name: 'Content-Security-Policy', 
+          content: "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
+        },
+        { 
+          'http-equiv': 'Content-Security-Policy', 
+          content: "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
+        }
       ],
       link: [
         { rel: 'icon', href: '/favicon.ico' },
@@ -27,7 +31,7 @@ export default defineNuxtConfig({
     routeRules: {
       '/**': {
         headers: {
-          'Content-Security-Policy': 'upgrade-insecure-requests',
+          'Content-Security-Policy': "default-src 'self' https:; connect-src 'self' https: http://107.175.194.17; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;",
           'X-Content-Type-Options': 'nosniff',
           'X-Frame-Options': 'DENY',
           'X-XSS-Protection': '1; mode=block'
