@@ -9,16 +9,50 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   app: {
     head: {
+      title: 'Happy Family《家家樂》',
       meta: [
         { 
           name: 'Content-Security-Policy', 
-          content: "default-src 'self' https:; connect-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
+          content: "default-src 'self' https:; connect-src 'self' https: https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com wss://ws.hotjar.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://www.googletagmanager.com https://static.hotjar.com; style-src 'self' 'unsafe-inline' https: https://static.hotjar.com; img-src 'self' data: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com; font-src 'self' https: data: https://static.hotjar.com; frame-src https://static.hotjar.com;" 
         },
         { 
           'http-equiv': 'Content-Security-Policy', 
-          content: "default-src 'self' https:; connect-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;" 
+          content: "default-src 'self' https:; connect-src 'self' https: https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com wss://ws.hotjar.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://www.googletagmanager.com https://static.hotjar.com; style-src 'self' 'unsafe-inline' https: https://static.hotjar.com; img-src 'self' data: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com; font-src 'self' https: data: https://static.hotjar.com; frame-src https://static.hotjar.com;" 
         },
         { name: 'referrer', content: 'no-referrer-when-downgrade' }
+      ],
+      script: [
+        {
+          async: true,
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-PSKN1R7CLW'
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PSKN1R7CLW', {
+              page_title: 'Happy Family - SiteV2',
+              custom_map: {
+                'dimension1': 'stream_name'
+              }
+            });
+          `,
+          type: 'text/javascript'
+        },
+        {
+          innerHTML: `
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:4999438,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+          `,
+          type: 'text/javascript'
+        }
       ],
       link: [
         { rel: 'icon', href: '/favicon.ico' },
@@ -32,7 +66,7 @@ export default defineNuxtConfig({
     routeRules: {
       '/**': {
         headers: {
-          'Content-Security-Policy': "default-src 'self' https:; connect-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' https: data:;",
+          'Content-Security-Policy': "default-src 'self' https:; connect-src 'self' https: https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com wss://ws.hotjar.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://www.googletagmanager.com https://static.hotjar.com; style-src 'self' 'unsafe-inline' https: https://static.hotjar.com; img-src 'self' data: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com; font-src 'self' https: data: https://static.hotjar.com; frame-src https://static.hotjar.com;",
           'X-Content-Type-Options': 'nosniff',
           'X-Frame-Options': 'DENY',
           'X-XSS-Protection': '1; mode=block'
