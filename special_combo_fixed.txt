@@ -1,0 +1,190 @@
+                <div class="relative w-full mx-auto py-8" id="special-combination-platter">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold tracking-wide uppercase font-viola">SPECIAL COMBINATION PLATTER
+                        </h2>
+                        <p class="text-lg text-gray-600">特色拼盘</p>
+                    </div>
+                    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6" role="menu" aria-label="Special Combination Platter Menu">
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C1</span><span class="font-medium">CHICKEN OR PORK
+                                    CHOW MEI</span>
+                                <p class="text-gray-700 text-sm">鸡肉或猪肉炒面</p>
+                            </div>
+                            <div class="font-semibold">7.55</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C2</span><span class="font-medium">CHICKEN OR PORK EGG
+                                    FOO YOUNG</span>
+                                <p class="text-gray-700 text-sm">鸡肉或猪肉芙蓉蛋</p>
+                            </div>
+                            <div class="font-semibold">7.55</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C3</span><span class="font-medium">CHICKEN OR PORK LO
+                                    MEIN</span>
+                                <p class="text-gray-700 text-sm">鸡肉或猪肉捞面</p>
+                            </div>
+                            <div class="font-semibold">7.55</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C4</span><span class="font-medium">SWEET &amp; SOUR
+                                    CHICKEN OR PORK</span>
+                                <p class="text-gray-700 text-sm">糖醋鸡或糖醋猪肉</p>
+                            </div>
+                            <div class="font-semibold">7.55</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C5</span><span class="font-medium">SWEET &amp; SOUR
+                                    SHRIMP</span>
+                                <p class="text-gray-700 text-sm">糖醋虾</p>
+                            </div>
+                            <div class="font-semibold">7.95</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C6</span><span class="font-medium">BARBECUED SPARE
+                                    RIBS</span>
+                                <p class="text-gray-700 text-sm">烤排骨</p>
+                            </div>
+                            <div class="font-semibold">7.95</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C7</span><span class="font-medium">BONELESS
+                                    RIBS</span>
+                                <p class="text-gray-700 text-sm">无骨排骨</p>
+                            </div>
+                            <div class="font-semibold">7.95</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C8</span><span class="font-medium">PEPPER STEAK W.
+                                    ONION</span>
+                                <p class="text-gray-700 text-sm">洋葱胡椒牛排</p>
+                            </div>
+                            <div class="font-semibold">7.75</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C9</span><span class="font-medium">BEEF W.
+                                    BROCCOLI</span>
+                                <p class="text-gray-700 text-sm">西兰花牛肉</p>
+                            </div>
+                            <div class="font-semibold">7.75</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C10</span><span class="font-medium">CHICKEN W.
+                                    BROCCOLI</span>
+                                <p class="text-gray-700 text-sm">西兰花鸡肉</p>
+                            </div>
+                            <div class="font-semibold">7.75</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C11</span><span class="font-medium">SHRIMP W.
+                                    BROCCOLI</span>
+                                <p class="text-gray-700 text-sm">虾仁西兰花</p>
+                            </div>
+                            <div class="font-semibold">7.95</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C12</span><span class="font-medium">ROAST PORK W.
+                                    BROCCOLI</span>
+                                <p class="text-gray-700 text-sm">西兰花烤猪肉</p>
+                            </div>
+                            <div class="font-semibold">7.55</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C13</span><span class="font-medium">SHRIMP W. LOBSTER
+                                    SAUCE</span>
+                                <p class="text-gray-700 text-sm">龙虾酱虾</p>
+                            </div>
+                            <div class="font-semibold">7.95</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C14</span><span class="font-medium">MOO GOO GAI
+                                    PAN</span>
+                                <p class="text-gray-700 text-sm">蘑菇鸡片</p>
+                            </div>
+                            <div class="font-semibold">7.55</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C15</span><span class="font-medium">SHRIMP W. CHINESE
+                                    VEGETABLES</span>
+                                <p class="text-gray-700 text-sm">虾仁炒蔬菜</p>
+                            </div>
+                            <div class="font-semibold">7.95</div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                             role="menuitem" 
+                             tabindex="0" 
+                             @keydown.enter="() => {}" 
+                             @keydown.space.prevent="() => {}">
+                            <div><span class="font-semibold mr-2">C16</span><span class="font-medium">CHICKEN W. MIX
+                                    VEGETABLES</span>
+                                <p class="text-gray-700 text-sm">鸡肉什锦蔬菜</p>
+                            </div>
+                            <div class="font-semibold">7.55</div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-6"><button class="text-red-600 font-semibold hover:underline">LOAD
+                            MORE</button>
+                        <div class="text-black text-lg">加载更多</div>
+                    </div><img src="/assets/special-platter/special.png" alt="Special Platter"
+                        class="absolute right-0 bottom-[-60px] transform -translate-y-1/2 h-auto" />
+                </div>
