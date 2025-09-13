@@ -22,15 +22,16 @@ export default defineEventHandler(async (event) => {
         timestamp: body.timestamp || new Date().toISOString(),
         userAgent: body.userAgent || 'Unknown',
         url: body.url || 'Unknown',
-        action: body.action || 'log_brave_user'
+        action: body.action || 'log_privacy_browser_user',
+        browserName: body.browserName || 'Unknown'
       })
     })
     
-    console.log('Successfully proxied request to VPS:', response)
+    console.log('Successfully proxied privacy browser request to VPS:', response)
     
     return {
       success: true,
-      message: 'Brave user logged successfully via proxy',
+      message: 'Privacy browser user logged successfully via proxy',
       data: response
     }
     
@@ -39,7 +40,7 @@ export default defineEventHandler(async (event) => {
     
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to log brave user',
+      statusMessage: 'Failed to log privacy browser user',
       data: error.message
     })
   }

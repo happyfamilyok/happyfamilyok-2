@@ -2294,22 +2294,73 @@ const handleToggleComboItems = (event) => {
 
 // Basic initialization after DOM mount
 onMounted(async () => {
-  // Brave browser detection for analytics purposes
+  // Privacy-focused browser detection for analytics purposes
+  // These browsers commonly block Google Analytics tracking
   try {
+    let isPrivacyBrowser = false;
+    let browserName = 'Unknown';
+    
+    // Check for Brave browser
     const isBrave = (navigator.brave && await navigator.brave.isBrave()) || false;
-    console.log('Brave browser detected:', isBrave);
+    if (isBrave) {
+      isPrivacyBrowser = true;
+      browserName = 'Brave';
+    }
+    
+    // Check for other privacy-focused browsers via User Agent
+    const userAgent = navigator.userAgent;
+    
+    // Safari with Enhanced Tracking Protection (most Safari users have this enabled)
+    if (userAgent.includes('Safari') && !userAgent.includes('Chrome') && !userAgent.includes('Chromium')) {
+      isPrivacyBrowser = true;
+      browserName = 'Safari';
+    }
+    
+    // Firefox (Enhanced Tracking Protection is default since v69)
+    if (userAgent.includes('Firefox')) {
+      isPrivacyBrowser = true;
+      browserName = 'Firefox';
+    }
+    
+    // DuckDuckGo Browser
+    if (userAgent.includes('DuckDuckGo')) {
+      isPrivacyBrowser = true;
+      browserName = 'DuckDuckGo';
+    }
+    
+    // Tor Browser (based on Firefox)
+    if (userAgent.includes('Tor') || userAgent.includes('torbrowser')) {
+      isPrivacyBrowser = true;
+      browserName = 'Tor';
+    }
+    
+    // Edge with tracking prevention (when in strict mode, but we'll log all Edge users)
+    if (userAgent.includes('Edg/')) {
+      isPrivacyBrowser = true;
+      browserName = 'Edge';
+    }
+    
+    // Opera (when ad blocker is enabled, but we'll log all Opera users)
+    if (userAgent.includes('OPR/') || userAgent.includes('Opera')) {
+      isPrivacyBrowser = true;
+      browserName = 'Opera';
+    }
+    
+    console.log(`Privacy browser detected: ${isPrivacyBrowser} (${browserName})`);
     
     // Store the result for potential analytics use
-    window.isBraveDetected = isBrave;
+    window.isPrivacyBrowserDetected = isPrivacyBrowser;
+    window.detectedBrowserName = browserName;
     
-    // Log Brave users to database
-    if (isBrave) {
-      await logBraveUser();
+    // Log privacy-focused browser users to database
+    if (isPrivacyBrowser) {
+      await logPrivacyBrowserUser(browserName);
     }
   } catch (error) {
-    console.log('Brave browser detected:', false);
-    console.warn('Error detecting Brave browser:', error);
-    window.isBraveDetected = false;
+    console.log('Privacy browser detection failed');
+    console.warn('Error detecting privacy browser:', error);
+    window.isPrivacyBrowserDetected = false;
+    window.detectedBrowserName = 'Unknown';
   }
 
   // Make function globally available for debugging
@@ -2321,10 +2372,10 @@ onMounted(async () => {
   }
 })
 
-// Function to log Brave users to database
-const logBraveUser = async () => {
+// Function to log privacy-focused browser users to database
+const logPrivacyBrowserUser = async (browserName) => {
   try {
-    console.log('Attempting to log Brave user via proxy');
+    console.log(`Attempting to log ${browserName} user via proxy`);
     
     // Use the Nuxt proxy API route to avoid mixed content issues
     const response = await fetch('/api/log-brave-proxy', {
@@ -2337,7 +2388,8 @@ const logBraveUser = async () => {
         timestamp: new Date().toISOString(),
         userAgent: navigator.userAgent,
         url: window.location.href,
-        action: 'log_brave_user'
+        action: 'log_privacy_browser_user',
+        browserName: browserName
       })
     });
     
@@ -2345,13 +2397,13 @@ const logBraveUser = async () => {
     
     if (response.ok) {
       const result = await response.json();
-      console.log('Brave user logged successfully via proxy:', result);
+      console.log(`${browserName} user logged successfully via proxy:`, result);
     } else {
       const errorText = await response.text();
-      console.warn('Failed to log Brave user via proxy:', response.status, response.statusText, errorText);
+      console.warn(`Failed to log ${browserName} user via proxy:`, response.status, response.statusText, errorText);
     }
   } catch (error) {
-    console.warn('Error logging Brave user via proxy:', error);
+    console.warn(`Error logging ${browserName} user via proxy:`, error);
     console.warn('Error details:', error.message, error.name);
   }
 }

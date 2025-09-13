@@ -54,31 +54,37 @@ try {
     // Get the POST data
     $input = json_decode(file_get_contents('php://input'), true);
     
-    // Validate that this is a Brave user log request
-    if (!isset($input['action']) || $input['action'] !== 'log_brave_user') {
+    // Validate that this is a privacy browser user log request
+    if (!isset($input['action']) || (!in_array($input['action'], ['log_brave_user', 'log_privacy_browser_user']))) {
         throw new Exception('Invalid request');
     }
     
     // Get current timestamp in EST timezone (MySQL format)
     $currentDateTime = date('Y-m-d H:i:s');
     
-    // Prepare and execute the INSERT statement
-    $stmt = $pdo->prepare("INSERT INTO `happyfamily` (`date`) VALUES (?)");
-    $stmt->execute([$currentDateTime]);
+    // Get user agent from the request
+    $userAgent = isset($input['userAgent']) ? $input['userAgent'] : 'Unknown';
+    $browserName = isset($input['browserName']) ? $input['browserName'] : 'Unknown';
+    
+    // Prepare and execute the INSERT statement with useragent field
+    $stmt = $pdo->prepare("INSERT INTO `happyfamily` (`date`, `useragent`) VALUES (?, ?)");
+    $stmt->execute([$currentDateTime, $userAgent]);
     
     // Get the inserted ID
     $insertedId = $pdo->lastInsertId();
     
     // Log additional info for debugging
-    error_log("Brave user logged - ID: $insertedId, Date: $currentDateTime (EST), UserAgent: " . ($input['userAgent'] ?? 'Unknown'));
+    error_log("Privacy browser user logged - ID: $insertedId, Date: $currentDateTime (EST), Browser: $browserName, UserAgent: $userAgent");
     
     // Return success response
     echo json_encode([
         'success' => true,
         'id' => $insertedId,
         'date' => $currentDateTime,
+        'useragent' => $userAgent,
+        'browser' => $browserName,
         'timezone' => date_default_timezone_get(),
-        'message' => 'Brave user logged successfully'
+        'message' => 'Privacy browser user logged successfully'
     ]);
     
 } catch (PDOException $e) {
