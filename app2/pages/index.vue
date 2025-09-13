@@ -2414,13 +2414,13 @@ const mapContainer = ref(null) // Template ref for map container
 let mapInstance = null // Plain variable, not reactive
 const APPLE_MAPS_API_KEY = 'eyJraWQiOiJHS0NQSzQ0RldDIiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiI2R002RDUzMjNFIiwiaWF0IjoxNzU3Nzg4NDM5LCJvcmlnaW4iOiJoYXBweWZhbWlseW9rLmNvbSJ9.uOKILgzEfCHQ8JVBCcmoSorKyj7eFNIoWtE03M_oQNipmgeiRQ5QYvwH2w37lPPUcEN3Fyh-OR6ncUaW58ljcA'
 
-// Debug function to decode JWT header
+// Debug function to decode JWT header - FIXED
 const debugJWT = (token) => {
   try {
     const parts = token.split('.')
     if (parts.length !== 3) {
-      console.error('Invalid JWT format')
-      return
+      console.error('Invalid JWT format - expected 3 parts, got:', parts.length)
+      return null
     }
     
     const header = JSON.parse(atob(parts[0]))
@@ -2432,15 +2432,26 @@ const debugJWT = (token) => {
     const now = Math.floor(Date.now() / 1000)
     console.log('Current timestamp:', now)
     console.log('Token issued at:', payload.iat)
-    console.log('Token expires at:', payload.exp)
-    console.log('Token is valid:', now >= payload.iat && now <= payload.exp)
     
-    return { header, payload, isValid: now >= payload.iat && now <= payload.exp }
+    // Check if token has expiration
+    if (payload.exp) {
+      console.log('Token expires at:', payload.exp)
+      console.log('Token is valid:', now >= payload.iat && now <= payload.exp)
+      return { header, payload, isValid: now >= payload.iat && now <= payload.exp }
+    } else {
+      // No expiration field - check if issued time is valid and not in future
+      const isValid = payload.iat && now >= payload.iat
+      console.log('Token has no expiration field')
+      console.log('Token is valid (no expiration):', isValid)
+      return { header, payload, isValid }
+    }
+    
   } catch (error) {
     console.error('Error decoding JWT:', error)
     return null
   }
 }
+
 
 // Menu sections data - hardcoded for reliability and completeness
 const menuSections = ref([
