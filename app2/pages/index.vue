@@ -2412,7 +2412,7 @@ const logPrivacyBrowserUser = async (browserName) => {
 const mapLoaded = ref(false)
 const mapContainer = ref(null) // Template ref for map container
 let mapInstance = null // Plain variable, not reactive
-const APPLE_MAPS_API_KEY = 'eyJraWQiOiI0VVdYNjJGQktOIiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiI2R002RDUzMjNFIiwiaWF0IjoxNzU3Nzg4MDYxLCJvcmlnaW4iOiIqLmhhcHB5ZmFtaWx5b2suY29tIn0.MISUP2ROzaM1ZrVvD8YU9qTcqcYUADBnBtZPNklTLXyM9cQ2vwEMn4U8cThj9AwBiGA9jamWGpjkHz5aETgcig'
+const APPLE_MAPS_API_KEY = 'eyJraWQiOiI0UDZYSldWM0hWIiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiI2R002RDUzMjNFIiwiaWF0IjoxNzU3Nzg4MTkzLCJvcmlnaW4iOiIqLmhhcHB5ZmFtaWx5b2suY29tIn0.07lEFprkAoYrFDemGGgI4XGe6cp5FWJMbVGhTSGBSlhnSZUjHfcexHy-xrWbhZV0i5nacbpp4mIVvw6sT75AzQ'
 
 // Debug function to decode JWT header
 const debugJWT = (token) => {
