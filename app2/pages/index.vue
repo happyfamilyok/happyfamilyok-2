@@ -147,8 +147,7 @@
                             <p class="mt-2 text-center lg:text-left font-semibold">CHINESE FOOD TO TAKE OUT OR EAT IN</p>
                         <div class="mt-6 text-center lg:text-left">
                             <h3 class="text-text-accent font-bold text-lg font-viola">OPEN 7 DAYS A WEEK</h3>
-                            <p class="mt-1">Monday - Saturday ( 11:00 AM - 9:30:00 PM )</p>
-                            <p>Sunday ( 12:00 PM - 9:30:00 PM )</p>
+                            <p class="mt-1">Monday - Sunday ( 11:00 AM - 9:30:00 PM )</p>
                         </div>
                         <div class="mt-4 flex justify-center lg:hidden">
                             <div class="text-sm font-bold w-16 h-16 flex items-center justify-center bg-white/70 msg-badge-crossed">MSG <br />
