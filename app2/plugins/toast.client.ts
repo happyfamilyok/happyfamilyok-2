@@ -2,7 +2,7 @@
 // Dynamically renders a global toast using the provided markup and overrides window.alert
 // No changes to pages/index.vue are required.
 
-export default defineNuxtPlugin(() => {
+export default defineNuxtPlugin((nuxtApp) => {
   // Ensure the global live region container exists
   const ensureToastRegion = (): HTMLElement => {
     let region = document.getElementById('global-toast-region') as HTMLElement | null
@@ -36,7 +36,8 @@ export default defineNuxtPlugin(() => {
     },
     error: {
       color: 'text-red-400',
-      svg: '<path d="M12 9v4m0 4h.01M10.34 3.94l-7.06 12.23a2 2 0 001.73 3h14.12a2 2 0 001.73-3L13.8 3.94a2 2 0 00-3.46 0z" stroke-linecap="round" stroke-linejoin="round" />',
+      // Red X icon for errors
+      svg: '<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />',
       titleDefault: 'Error',
     },
   }
@@ -63,7 +64,8 @@ export default defineNuxtPlugin(() => {
           <div class="ml-3 w-0 flex-1 pt-0.5">
             <p class="text-sm font-medium text-gray-900">${(title || icon.titleDefault).replace(/</g, '&lt;')}</p>
             <p class="mt-1 text-sm text-gray-500">${(message || '').replace(/</g, '&lt;').replace(/\n/g, '<br/>')}</p>
-          </div>
+            <p class="mt-1 text-[8pt] text-gray-400">AI Generated - may contain errors.</p>
+        </div>
           <div class="ml-4 flex shrink-0">
             <button type="button" class="toast-close inline-flex rounded-md text-gray-400 hover:text-gray-500 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-600">
               <span class="sr-only">Close</span>
@@ -76,8 +78,17 @@ export default defineNuxtPlugin(() => {
       </div>
     `
 
+    // Timer state for auto-dismiss with pause/resume
+    let timeoutId: number | undefined
+    let remaining = Math.max(0, durationMs)
+    let startTime = Date.now()
+
     // Close interactions
     const remove = () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+        timeoutId = undefined
+      }
       if (!panel.isConnected) return
       panel.classList.add('opacity-0', 'translate-y-2')
       setTimeout(() => panel.remove(), 200)
@@ -85,12 +96,31 @@ export default defineNuxtPlugin(() => {
 
     panel.querySelector('.toast-close')?.addEventListener('click', remove)
 
-    // Auto-dismiss
-    const t = window.setTimeout(remove, durationMs)
-    panel.addEventListener('mouseenter', () => clearTimeout(t))
+    // Auto-dismiss with pause on hover and resume on mouse leave
+    const startTimer = () => {
+      startTime = Date.now()
+      if (remaining <= 0) {
+        remove()
+        return
+      }
+      timeoutId = window.setTimeout(remove, remaining)
+    }
 
-    // Insert into stack
+    const pauseTimer = () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+        timeoutId = undefined
+        remaining = Math.max(0, remaining - (Date.now() - startTime))
+      }
+    }
+
+    panel.addEventListener('mouseenter', pauseTimer)
+    panel.addEventListener('mouseleave', startTimer)
+
+    // Insert into stack and start timer
     stack.appendChild(panel)
+    startTimer()
+
     return remove
   }
 
@@ -152,12 +182,26 @@ export default defineNuxtPlugin(() => {
     return { title, body: nonEmpty.slice(1).join('\n') }
   }
 
+  // Normalize/shorten a rate limit message if present
+  const RATE_LIMIT_SENTENCE = 'Rate limit exceeded: max 10 requests per 24 hours'
+  const normalizeRateLimitMessage = (text: string): string | null => {
+    return /rate limit exceeded: max 10 requests per 24 hours/i.test(text) ? RATE_LIMIT_SENTENCE : null
+  }
+
   // Override window.alert to use toast, parsing AI JSON for description
   const originalAlert = window.alert.bind(window)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   window.alert = (message?: any) => {
     try {
       const text = typeof message === 'string' ? message : JSON.stringify(message)
+
+      // If this is a rate-limit message, show a clean error toast with red X
+      const rl = normalizeRateLimitMessage(text)
+      if (rl) {
+        showToast({ title: 'Rate limit exceeded', message: rl, type: 'error', durationMs: 6000 })
+        return
+      }
+
       const { title, body } = extractAiTextFromAlert(text)
       showToast({ title, message: body, type: 'info' })
     } catch (e) {
@@ -165,33 +209,69 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  // Intercept fetch calls to show toast on rate limit errors from /api/ask-ai
-  if (!(window as any).__toastFetchPatched) {
+  // Intercept $fetch (ofetch) used by useFetch/$fetch to catch 429s as well
+  try {
+    const f = (nuxtApp as any).$fetch
+    if (f && typeof f.onResponse === 'function') {
+      f.onResponse((ctx: any) => {
+        const reqUrl = String(ctx.request || '')
+        if (reqUrl.includes('/api/ask-ai') && ctx.response?.status === 429) {
+          showToast({ title: 'Rate limit exceeded', message: RATE_LIMIT_SENTENCE, type: 'error', durationMs: 6000 })
+        }
+      })
+      if (typeof f.onResponseError === 'function') {
+        f.onResponseError((ctx: any) => {
+          const reqUrl = String(ctx.request || '')
+          const status = ctx.response?.status || ctx.options?.response?.status
+          if (reqUrl.includes('/api/ask-ai') && status === 429) {
+            showToast({ title: 'Rate limit exceeded', message: RATE_LIMIT_SENTENCE, type: 'error', durationMs: 6000 })
+          } else if (reqUrl.includes('/api/ask-ai')) {
+            const msg = normalizeRateLimitMessage(String(ctx.error?.data || ctx.error?.message || ''))
+            if (msg) {
+              showToast({ title: 'Rate limit exceeded', message: msg, type: 'error', durationMs: 6000 })
+            }
+          }
+        })
+      }
+    }
+  } catch {
+    // ignore
+  }
+
+  // Intercept fetch for /api/ask-ai to display a clear rate limit message
+  if (!(window as any).__askAiFetchPatched) {
+    ;(window as any).__askAiFetchPatched = true
     const originalFetch = window.fetch.bind(window)
     window.fetch = async (input: RequestInfo | URL, init?: RequestInit) => {
-      const res = await originalFetch(input as any, init)
+      const res = await originalFetch(input as any, init as any)
       try {
-        const url = typeof input === 'string' ? input : (input as URL)?.toString?.() || (input as Request)?.url
-        if (url && url.includes('/api/ask-ai') && !res.ok) {
-          // Try to parse JSON error payload
-          const clone = res.clone()
-          let msg = ''
-          try {
-            const data = await clone.json()
-            msg = data?.data || data?.statusMessage || data?.message || ''
-          } catch {
-            try { msg = await clone.text() } catch { /* ignore */ }
-          }
-          if (typeof msg === 'string' && msg.toLowerCase().includes('rate limit exceeded')) {
-            showToast({ title: 'Error', message: 'Rate limit exceeded: max 10 requests per 24 hours', type: 'error' })
+        const url = typeof input === 'string'
+          ? input
+          : input instanceof URL
+            ? input.toString()
+            : (input as Request)?.url ?? ''
+
+        if (url.includes('/api/ask-ai')) {
+          if (res.status === 429) {
+            showToast({ title: 'Rate limit exceeded', message: RATE_LIMIT_SENTENCE, type: 'error', durationMs: 6000 })
+          } else if (res.status >= 400) {
+            // Inspect response body to catch rate limit phrasing coming from proxies
+            try {
+              const clone = res.clone()
+              const text = await clone.text()
+              if (/rate limit exceeded: max 10 requests per 24 hours/i.test(text)) {
+                showToast({ title: 'Rate limit exceeded', message: RATE_LIMIT_SENTENCE, type: 'error', durationMs: 6000 })
+              }
+            } catch {
+              // ignore
+            }
           }
         }
       } catch {
-        // ignore interception failures
+        // ignore toast-side interception errors
       }
       return res
     }
-    ;(window as any).__toastFetchPatched = true
   }
 
   // Also provide via Nuxt inject for composables/components
