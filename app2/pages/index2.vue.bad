@@ -1,108 +1,108 @@
 <template>
   <div>
     <div class="w-full bg-[#d1f8ff] min-h-screen">
-        <div class="w-full min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center">
-            <div
-                class="w-full h-screen relative min-h-screen overflow-hidden flex flex-col items-center bg-[url(/assets/img_light_gradient_08.png)] bg-stretch bg-center bg-no-repeat">
-                <header
-                    class="fixed top-4 left-1/2 w-11/12 max-w-[1440px] bg-global-5 shadow-md border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] rounded-[50px] px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-[26px] z-50 transition-all duration-300 backdrop-blur-md navbar-center">
-                    <div class="w-full max-w-[1440px] mx-auto relative">
-                        <div class="flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-0">
-                            <div class="flex-shrink-0">
-                                <div @click="navigateToHome" 
-                                     class="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity duration-200">
-                                    <img src="/assets/mapkit/icon.png" 
-                                         alt="Happy Family Logo" 
-                                         class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 object-contain" />
-                                    <h1 class="text-[12px] sm:text-[14px] lg:text-[16px] font-wonton font-normal text-global-text-4 text-center mt-1 hover:text-global-1 transition-colors duration-200">
-                                        Happy Family
-                                    </h1>
-                                </div>
-                            </div><button @click="toggleMobileMenu" class="block lg:hidden p-2" aria-label="Toggle menu"><svg
-                                    class="w-6 h-6 text-global-1 transition-transform duration-200" :class="{ 'rotate-90': isMobileMenuOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path v-if="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 6h16M4 12h16M4 18h16"></path>
-                                    <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12"></path>
-                                </svg></button>
-                            <nav class="hidden lg:block w-full lg:w-auto">
-                                <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-8 mr-0 lg:mr-[20px]">
-                                    <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-[32px]"><a
-                                            href="#kids-menu"
-                                            class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"><span
-                                                class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase">KIDS
-                                                MENU</span><span
-                                                class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200">儿童菜单</span></a><a
-                                            href="#lunch-special"
-                                            class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"><span
-                                                class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase">LUNCH
-                                                SPECIAL</span><span
-                                                class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200">午餐特价</span></a><a
-                                            href="#appetizers"
-                                            class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"><span
-                                                class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase">APPETIZERS</span><span
-                                                class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200">开胃菜</span></a><a
-                                            href="#soup"
-                                            class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"><span
-                                                class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase">SOUP</span><span
-                                                class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200">汤</span></a><a
-                                            href="#fried-rice"
-                                            class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"><span
-                                                class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase">FIRED
-                                                RICE</span><span
-                                                class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200">炒饭</span></a><a
-                                            href="#chow-mein"
-                                            class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"><span
-                                                class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase">CHOW
-                                                MEIN</span><span
-                                                class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200">炒面</span></a><a
-                                            href="#lo-mein"
-                                            class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"><span
-                                                class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase">LO
-                                                MEIN</span><span
-                                                class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200">捞面</span></a>
-                                    </div><button @click="showAllMenu"
-                                        class="flex flex-col items-center lg:items-start text-center lg:text-left cursor-pointer"><span
-                                            class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-4 transition-colors duration-200 uppercase">VIEW
-                                            ALL MENU</span><span
-                                            class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-4 transition-colors duration-200">查看所有菜单</span></button>
-                                </div>
-                            </nav>
-                            <!-- Mobile Navigation Menu -->
-                            <nav v-show="isMobileMenuOpen" class="lg:hidden absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-md rounded-2xl shadow-lg border border-white/40 mx-4 z-50 transition-all duration-300 animate-in slide-in-from-top-2">
-                                <div class="p-6">
-                                    <div class="flex flex-col gap-4">
-                                        <a @click="closeMobileMenu" href="#kids-menu" class="flex flex-col items-center text-center gap-1 py-3 px-4 border-b border-gray-200/30 hover:bg-gray-50/50 rounded-lg transition-colors duration-200">
-                                            <span class="text-[14px] font-roboto font-medium text-global-1 hover:text-global-text-4 uppercase">KIDS MENU</span>
-                                            <span class="text-[12px] font-roboto font-normal text-global-1/80 hover:text-global-text-4">儿童菜单</span>
-                                        </a>
-                                        <a @click="closeMobileMenu" href="#lunch-special" class="flex flex-col items-center text-center gap-1 py-3 px-4 border-b border-gray-200/30 hover:bg-gray-50/50 rounded-lg transition-colors duration-200">
-                                            <span class="text-[14px] font-roboto font-medium text-global-1 hover:text-global-text-4 uppercase">LUNCH SPECIAL</span>
-                                            <span class="text-[12px] font-roboto font-normal text-global-1/80 hover:text-global-text-4">午餐特价</span>
-                                        </a>
-                                        <a @click="closeMobileMenu" href="#appetizers" class="flex flex-col items-center text-center gap-1 py-3 px-4 border-b border-gray-200/30 hover:bg-gray-50/50 rounded-lg transition-colors duration-200">
-                                            <span class="text-[14px] font-roboto font-medium text-global-1 hover:text-global-text-4 uppercase">APPETIZERS</span>
-                                            <span class="text-[12px] font-roboto font-normal text-global-1/80 hover:text-global-text-4">开胃菜</span>
-                                        </a>
-                                        <a @click="closeMobileMenu" href="#soup" class="flex flex-col items-center text-center gap-1 py-3 px-4 border-b border-gray-200/30 hover:bg-gray-50/50 rounded-lg transition-colors duration-200">
-                                            <span class="text-[14px] font-roboto font-medium text-global-1 hover:text-global-text-4 uppercase">SOUP</span>
-                                            <span class="text-[12px] font-roboto font-normal text-global-1/80 hover:text-global-text-4">汤</span>
-                                        </a>
-                                        <a @click="closeMobileMenu" href="#fried-rice" class="flex flex-col items-center text-center gap-1 py-3 px-4 border-b border-gray-200/30 hover:bg-gray-50/50 rounded-lg transition-colors duration-200">
-                                            <span class="text-[14px] font-roboto font-medium text-global-1 hover:text-global-text-4 uppercase">FRIED RICE</span>
-                                            <span class="text-[12px] font-roboto font-normal text-global-1/80 hover:text-global-text-4">炒饭</span>
-                                        </a>
-                                        <a @click="closeMobileMenu" href="#chow-mein" class="flex flex-col items-center text-center gap-1 py-3 px-4 border-b border-gray-200/30 hover:bg-gray-50/50 rounded-lg transition-colors duration-200">
-                                            <span class="text-[14px] font-roboto font-medium text-global-1 hover:text-global-text-4 uppercase">CHOW MEIN</span>
-                                            <span class="text-[12px] font-roboto font-normal text-global-1/80 hover:text-global-text-4">炒面</span>
-                                        </a>
-                                        <a @click="closeMobileMenu" href="#lo-mein" class="flex flex-col items-center text-center gap-1 py-3 px-4 border-b border-gray-200/30 hover:bg-gray-50/50 rounded-lg transition-colors duration-200">
-                                            <span class="text-[14px] font-roboto font-medium text-global-1 hover:text-global-text-4 uppercase">LO MEIN</span>
-                                            <span class="text-[12px] font-roboto font-normal text-global-1/80 hover:text-global-text-4">捞面</span>
-                                        </a>
-                                        <button @click="showAllMenu" class="flex flex-col items-center text-center gap-1 py-4 px-4 bg-gradient-to-r from-red-50 to-red-100 hover:from-red-100 hover:to-red-200 rounded-lg transition-colors duration-200 border border-red-200/50 cursor-pointer">
-                                            <span class="text-[14px] font-roboto font-medium text-red-600 hover:text-red-700 uppercase">VIEW ALL MENU</span>
-                                            <span class="text-[12px] font-roboto font-normal text-red-600/80 hover:text-red-700">查看所有菜单</span>
+      <div class="w-full min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center">
+        <div
+          class="w-full h-screen relative min-h-screen overflow-hidden flex flex-col items-center bg-[url(/assets/img_light_gradient_08.png)] bg-stretch bg-center bg-no-repeat"
+        >
+          <header
+            class="fixed top-4 left-1/2 w-11/12 max-w-[1440px] bg-global-5 shadow-md border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] rounded-[50px] px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-[26px] z-50 transition-all duration-300 backdrop-blur-md navbar-center"
+          >
+            <div class="w-full max-w-[1440px] mx-auto relative">
+              <div class="flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-0">
+                <div class="flex-shrink-0">
+                  <div
+                    @click="navigateToHome"
+                    class="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                  >
+                    <img
+                      src="/assets/mapkit/icon.png"
+                      alt="Happy Family Logo"
+                      class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 object-contain"
+                    />
+                    <h1 class="text-[12px] sm:text-[14px] lg:text-[16px] font-wonton font-normal text-global-text-4 text-center mt-1 hover:text-global-1 transition-colors duration-200">
+                      Happy Family
+                    </h1>
+                  </div>
+                </div>
+                <button
+                  @click="toggleMobileMenu"
+                  class="block lg:hidden p-2"
+                  aria-label="Toggle menu"
+                >
+                  <svg
+                    class="w-6 h-6 text-global-1 transition-transform duration-200"
+                    :class="{ 'rotate-90': isMobileMenuOpen }"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      v-if="!isMobileMenuOpen"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    ></path>
+                    <path
+                      v-else
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    ></path>
+                  </svg>
+                </button>
+                <nav class="hidden lg:block w-full lg:w-auto">
+                  <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-8 mr-0 lg:mr-[20px]">
+                    <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-[32px]">
+                      <a
+                        href="#kids-menu"
+                        class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"
+                      >
+                        <span
+                          class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase"
+                          >KIDS MENU</span
+                        >
+                        <span
+                          class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200"
+                          >儿童菜单</span
+                        >
+                      </a>
+                      <a
+                        href="#lunch-special"
+                        class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"
+                      >
+                        <span
+                          class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase"
+                          >LUNCH SPECIAL</span
+                        >
+                        <span
+                          class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200"
+                          >午餐特价</span
+                        >
+                      </a>
+                      <a
+                        href="#appetizers"
+                        class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"
+                      >
+                        <span
+                          class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase"
+                          >APPETIZERS</span
+                        >
+                        <span
+                          class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200"
+                          >开胃菜</span
+                        >
+                      </a>
+                      <a
+                        href="#soup"
+                        class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"
+                      >
+                        <span
+                          class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase"
+                          >SOUP</span
+                       
                                         </button>
                                     </div>
                                 </div>
@@ -2974,102 +2974,7 @@ export default {
     }
   }
 }
-
-// --- Extract Dish Name ---
-const extractDishName = (element) => {
-  try {
-    let dishName = ''
-
-    // Method 1: Look for bold/medium text
-    const dishNameElement = element.querySelector('.font-bold, .font-semibold, .font-medium')
-    if (dishNameElement) {
-      dishName = dishNameElement.textContent.trim()
-    }
-
-    // Method 2: Fallback to text elements
-    if (!dishName) {
-      const textElements = element.querySelectorAll('p, span, div')
-      for (const textEl of textElements) {
-        const text = textEl.textContent.trim()
-        if (text && !text.includes('$') && !text.includes('价格') && text.length > 3) {
-          dishName = text
-          break
-        }
-      }
-    }
-
-    // Method 3: Fallback to entire element
-    if (!dishName) {
-      dishName = element.textContent.trim()
-    }
-
-    // Cleanup
-    dishName = dishName
-      .replace(/\s+/g, ' ')
-      .replace(/^\w+\./g, '')
-      .replace(/\$[\d.]+/g, '')
-      .replace(/\d+\.\d+/g, '')
-      .replace(/小\s*SM|大\s*LG|ORDER|均码/g, '')
-      .replace(/配.*$/g, '')
-      .trim()
-
-    return dishName
-  } catch (error) {
-    console.error('Error extracting dish name:', error)
-    return 'Unknown Dish'
-  }
-}
-
-// --- Ask AI via Nuxt API Proxy ---
-const askAIAboutDish = async (dishName) => {
-  try {
-    const response = await fetch('/api/ask-ai', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ dishName }),
-    })
-
-    if (!response.ok) {
-      throw new Error(`Failed to reach /api/ask-ai: ${response.status}`)
-    }
-
-    const result = await response.json()
-
-    console.log('=== Dish Info from AI ===')
-    console.log('Dish:', dishName)
-    console.log('AI Response:', result)
-    console.log('=========================')
-
-    // Optional: show in UI (simple alert for now)
-    alert(`Dish: ${dishName}\n\nAI says: ${JSON.stringify(result.aiResponse)}`)
-  } catch (error) {
-    console.error('Error asking AI about dish:', error)
-  }
-}
-
-// --- Handle Menu Item Click ---
-const handleMenuItemClick = async (event) => {
-  try {
-    const element = event.currentTarget || event.target
-    const dishName = extractDishName(element)
-
-    if (dishName && dishName !== 'Unknown Dish') {
-      await askAIAboutDish(dishName)
-    }
-  } catch (error) {
-    console.error('Error handling menu item click:', error)
-  }
-}
-
-// --- Attach to menu items (optional if not using Vue events) ---
-onMounted(() => {
-  document.querySelectorAll('.menu-item').forEach((item) => {
-    item.addEventListener('click', handleMenuItemClick)
-  })
-})
 </script>
-
-<!-- makes it so that it extracts the dish name -->
 
 <style>
 html {
