@@ -7,9 +7,9 @@
   <div aria-hidden="true" class="absolute top-1/2 left-[max(45rem,calc(50%+8rem))] -z-10 -translate-y-1/2 transform-gpu blur-2xl">
     <div style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)" class="aspect-577/310 w-144.25 bg-linear-to-r from-[#ff80b5] to-[#9089fc] opacity-30"></div>
   </div>
-  <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 animate__rubberBand">
     <p class="text-sm/6 text-gray-900">
-      <strong class="font-semibold">COMING SOON: We've officially partnered with Doordash to Deliver Your Favorite Meals.</strong><br/>Pay with any major credit card or Apple Pay delivered right to your door!
+      <strong class="font-semibold"><i class="fa-duotone fa-solid fa-bullhorn"></i>COMING SOON: We've officially partnered with Doordash to Deliver Your Favorite Meals.</strong><br/>Pay with any major credit card or Apple Pay delivered right to your door!
     </p>
   </div>
   <div class="flex flex-1 justify-end">
@@ -243,15 +243,27 @@
                         </div>
                     </a>
                 </div>
-                <a href="tel:405-366-0786"
-                    class="fixed bottom-6 right-6 w-16 h-16 rounded-full bg-red-500 flex items-center justify-center shadow-lg cursor-pointer hover:bg-red-600 transition-colors duration-200 z-[9999]">
-                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-                        stroke-linejoin="round" class="text-white text-2xl" height="1em" width="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                        </path>
-                    </svg></a>
+<a id="floating-phone"
+   href="tel:405-366-0786"
+   class="fixed bottom-6 right-6 w-16 h-16 rounded-full bg-red-500 flex items-center justify-center shadow-lg cursor-pointer hover:bg-red-600 transition-transform duration-200 z-[9999] animate-[pulseZoom_1.2s_ease-in-out_infinite]">
+    <!--<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+         stroke-linecap="round" stroke-linejoin="round"
+         class="text-white text-2xl" height="1em" width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 
+                 19.79 19.79 0 0 1-8.63-3.07 
+                 19.5 19.5 0 0 1-6-6 
+                 19.79 19.79 0 0 1-3.07-8.67
+                 A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72
+                 12.84 12.84 0 0 0 .7 2.81 
+                 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6
+                 l1.27-1.27a2 2 0 0 1 2.11-.45
+                 12.84 12.84 0 0 0 2.81.7
+                 A2 2 0 0 1 22 16.92z"></path>
+    </svg>-->
+    <i class="fa-sharp fa-solid fa-phone text-2xl text-white"></i>
+</a>
+
             </div>
             <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[60px]">
                 <div
@@ -2108,7 +2120,16 @@
     </div>
   </div>
 </template>
-
+<style>
+@keyframes pulseZoom {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+</style>
 <script setup>
 import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 

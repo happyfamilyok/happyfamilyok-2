@@ -6,7 +6,11 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
+    css: [
+    '~/assets/css/main.css',
+    'animate.css/animate.min.css',
+    '@fortawesome/fontawesome-free/css/all.min.css'
+  ],
   app: {
     head: {
       title: 'Happy Family《家家樂》',
