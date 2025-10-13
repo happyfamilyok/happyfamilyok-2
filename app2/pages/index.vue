@@ -83,11 +83,13 @@
                                                 class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase">LO
                                                 MEIN</span><span
                                                 class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200">捞面</span></a>
-                                    </div><button @click="showAllMenu"
+                                    </div>
+                                    <button @click="showAllMenu"
                                         class="flex flex-col items-center lg:items-start text-center lg:text-left cursor-pointer"><span
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-4 transition-colors duration-200 uppercase">VIEW
                                             ALL MENU</span><span
                                             class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-4 transition-colors duration-200">查看所有菜单</span></button>
+                                    <a href="https://www.doordash.com/store/happy-family-chinese-restaurant-norman-36737771/82709946/?preview=1" ref="nofollow" type="button" class="rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-xs inset-ring inset-ring-gray-300 hover:bg-gray-50">ORDER ONLINE <i class="fa-solid fa-arrow-right"></i></a>                               
                                 </div>
                             </nav>
                             <!-- Mobile Navigation Menu -->
@@ -126,6 +128,7 @@
                                             <span class="text-[14px] font-roboto font-medium text-red-600 hover:text-red-700 uppercase">VIEW ALL MENU</span>
                                             <span class="text-[12px] font-roboto font-normal text-red-600/80 hover:text-red-700">查看所有菜单</span>
                                         </button>
+                                        <a href="https://www.doordash.com/store/happy-family-chinese-restaurant-norman-36737771/82709946/?preview=1" ref="nofollow" type="button" class="rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-xs inset-ring inset-ring-gray-300 hover:bg-gray-50">ORDER ONLINE <i class="fa-solid fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </nav>
@@ -491,85 +494,85 @@
                     <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 px-2 sm:px-6">
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">ROAST PORK EGG ROLL (1)</span><span
-                                class="text-sm">烤猪肉蛋卷</span><span class="font-bold">1.35</span></div>
+                            <span class="font-semibold">1. Roast Pork Egg Roll (1pc)</span><span
+                                class="text-sm">肉卷</span><span class="font-bold">$1.35</span></div>
                          <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">SHRIMP ROLL (1)</span><span class="text-sm">虾蛋卷</span><span
+                            <span class="font-semibold">2. Shrimp Roll (1pc)</span><span class="text-sm">虾卷</span><span
                                 class="font-bold">1.35</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">SPRING ROLL (1)</span><span class="text-sm">春蛋卷</span><span
-                                class="font-bold">1.35</span></div>
+                            <span class="font-semibold">3. Spring Roll (1pc)</span><span class="text-sm">上海卷</span><span
+                                class="font-bold">$1.35</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">FRENCH FRIES</span><span class="text-sm">炸薯条</span><span
-                                class="font-bold">1.85</span></div>
+                            <span class="font-semibold">3a. Fried Bread (10pc)</span><span class="text-sm">炸面包</span><span
+                                class="font-bold">$3.96</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">FRIED JUMBO SHRIMP (5)</span><span
-                                class="text-sm">炸大虾</span><span class="font-bold">5.50</span></div>
+                            <span class="font-semibold">4. French Fries</span><span class="text-sm">薯条</span><span
+                                class="font-bold">$1.85</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">FRIED OR STEAMED DUMPLINGS (8)</span><span
-                                class="text-sm">煎饺或蒸饺</span><span class="font-bold">5.50</span></div>
+                            <span class="font-semibold">5. Crab Rangoon (8pc) (Cheese Wonton)</span><span
+                                class="text-sm">蟹角八个</span><span class="font-bold">$5.50</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">BONELESS SPARE RIBS (S)</span><span
-                                class="text-sm">无骨排骨</span><span class="font-bold">5.50</span></div>
+                            <span class="font-semibold">6. Fried Jumbo Shrimp (5pc)</span><span
+                                class="text-sm">炸大虾五个</span><span class="font-bold">$5.50</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">BONELESS SPARE RIBS (L)</span><span
-                                class="text-sm">无骨排骨</span><span class="font-bold">9.95</span></div>
+                            <span class="font-semibold">7. Shrimp Toast</span><span
+                                class="text-sm">蝦吐司</span><span class="font-bold">$3.95</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">CHICKEN STICK (5)</span><span class="text-sm">鸡肉条</span><span
-                                class="font-bold">5.50</span></div>
+                            <span class="font-semibold">8. Fried or Steamed Dumplings (8pc)</span><span
+                                class="text-sm">煎饺或水饺八个</span><span class="font-bold">$5.50</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">SESAME BALL (10)</span><span class="text-sm">芝麻球</span><span
-                                class="font-bold">5.50</span></div>
+                            <span class="font-semibold">9a. Barbecued Spare Ribs (Small)</span><span
+                                class="text-sm">排骨小</span><span class="font-bold">$5.55</span></div>
+<div
+                            class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
+                            <span class="font-semibold">9b. Barbecued Spare Ribs (Large)</span><span
+                                class="text-sm">排骨大</span><span class="font-bold">$9.95</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">SHRIMP ROLL (1)</span><span class="text-sm">虾肉蛋卷</span><span
-                                class="font-bold">1.35</span></div>
+                            <span class="font-semibold">10a. Boneless Spare Ribs (Small)</span><span
+                                class="text-sm">無骨排小</span><span class="font-bold">$5.50</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">FRIED BREAD (10)</span><span class="text-sm">炸面包</span><span
-                                class="font-bold">3.95</span></div>
+                            <span class="font-semibold">10b. Boneless Spare Ribs (Large)</span><span
+                                class="text-sm">無骨排大</span><span class="font-bold">$9.95</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">CRAB RANGOON (8) (CHEESE WONTON)</span><span
-                                class="text-sm">芝士馄饨</span><span class="font-bold">3.95</span></div>
+                            <span class="font-semibold">11. Fried Baby Shrimp (15)</span><span class="text-sm">炸小球</span><span
+                                class="font-bold">$5.50</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">SHRIMP TOAST</span><span class="text-sm">虾多士</span><span
-                                class="font-bold">3.95</span></div>
+                            <span class="font-semibold">12. Chicken Sticks (5)</span><span class="text-sm">鸡肉条</span><span
+                                class="font-bold">$5.50</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">BARBECUED SPARE RIBS (S)</span><span
-                                class="text-sm">烧烤排骨</span><span class="font-bold">5.55</span></div>
+                            <span class="font-semibold">13. Fried Wonton (10)</span><span class="text-sm">炸雲吞</span><span
+                                class="font-bold">$3.95</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">BARBECUED SPARE RIBS (L)</span><span
-                                class="text-sm">烧烤排骨</span><span class="font-bold">9.95</span></div>
+                            <span class="font-semibold">14. Sesame Ball (10)</span><span class="text-sm">炸芝麻球</span><span
+                                class="font-bold">$5.50</span></div>
                         <div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">FRIED BABY SHRIMP (15)</span><span
-                                class="text-sm">炸小虾</span><span class="font-bold">5.50</span></div>
-                        <div
+                            <span class="font-semibold">15. Beef Teriyaki (5)</span><span
+                                class="text-sm">芝士馄饨</span><span class="font-bold">$6.85</span></div>
+                        <!--<div
                             class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">FRIED WONTON (10)</span><span class="text-sm">炸馄饨</span><span
-                                class="font-bold">3.95</span></div>
-                        <div
-                            class="flex justify-between items-center    bg-white/30 backdrop-blur-md    rounded-full px-4 py-5 shadow-lg border border-white/40 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <span class="font-semibold">BEEF TERIYAKI (5)</span><span class="text-sm">照烧牛肉</span><span
-                                class="font-bold">6.85</span></div>
+                            <span class="font-semibold">16. Pu Pu Platter</span><span class="text-sm">資路盤</span><span
+                                class="font-bold">$9.95</span></div>-->
                     </div>
                 </div>
                 <div id="soup" class="relative bg-gradient-to-r from-white to-amber-50 p-10">
                     <div class="text-center mb-6">
-                        <h1 class="text-2xl font-serif">Pu Pu Platter..9.95</h1>
+                        <h1 class="text-2xl font-serif">16. Pu Pu Platter $9.95 資路盤</h1>
                         <p class="text-red-700">6 Sweet &amp; Sour Chicken, 2 Chicken Stick, 2 BBQ Spare Ribs, 2 Egg
                             Roll, 2 Fantail Shrimp, 2 Shrimp Toast</p>
                         <p class="text-black">6 只糖醋鸡、2 串鸡饭、2 块烤排骨、2 个蛋卷、2 只扇尾虾、2 片虾多士</p>
@@ -578,7 +581,7 @@
                         <div class="flex-1 px-1 sm:px-4">
                             <h2 class="text-4xl text-black uppercase font-viola">SOUP</h2>
                             <p class="text-xl">汤</p>
-                            <p class="mt-3 text-red-700 italic font-medium">(W. CRISPY NOODLES)<span
+                            <p class="mt-3 text-red-700 italic font-medium">(w. Crispy Noodles)<span
                                     class="ml-2 text-black">配脆面</span></p>
                             <div class="grid grid-cols-4 mt-4 font-medium text-center">
                                 <div class="text-red-700"></div>
@@ -588,62 +591,61 @@
                             </div>
                             <div class="mt-3 w-full space-y-1">
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">WONTON SOUP..</div>
+                                    <div class="relative font-medium flex items-center gap-1">17. Wonton Soup</div>
                                     <div>馄饨汤</div>
-                                    <div class="text-center">1.95</div>
-                                    <div class="text-center">3.25</div>
+                                    <div class="text-center">$1.95</div>
+                                    <div class="text-center">$3.25</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">EGG DROP SOUP</div>
+                                    <div class="relative font-medium flex items-center gap-1">18. Egg Drop Soup</div>
                                     <div>蛋花汤</div>
-                                    <div class="text-center">1.95</div>
-                                    <div class="text-center">3.25</div>
+                                    <div class="text-center">$1.95</div>
+                                    <div class="text-center">$3.25</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">CHICKEN RICE SOUP</div>
+                                    <div class="relative font-medium flex items-center gap-1">19. Chicken Rice Soup</div>
                                     <div>鸡肉饭汤</div>
-                                    <div class="text-center">1.95</div>
-                                    <div class="text-center">3.25</div>
+                                    <div class="text-center">$1.95</div>
+                                    <div class="text-center">$3.25</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">CHICKEN NOODLE SOUP</div>
+                                    <div class="relative font-medium flex items-center gap-1">20. Chicken Noodle Soup</div>
                                     <div>鸡肉面汤</div>
-                                    <div class="text-center">1.95</div>
-                                    <div class="text-center">3.25</div>
+                                    <div class="text-center">$1.95</div>
+                                    <div class="text-center">$3.25</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">WONTON EGG DROP SOUP</div>
+                                    <div class="relative font-medium flex items-center gap-1">21. Wonton Egg Drop Soup</div>
                                     <div>馄饨蛋花汤</div>
-                                    <div class="text-center">2.35</div>
-                                    <div class="text-center">3.95</div>
+                                    <div class="text-center">$2.35</div>
+                                    <div class="text-center">$3.95</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">VEGETABLE BEAN CURD SOUP
-                                    </div>
+                                    <div class="relative font-medium flex items-center gap-1">22. Vegetable Bean Curd Soup</div>
                                     <div>蔬菜豆腐汤</div>
-                                    <div class="text-center">2.35</div>
-                                    <div class="text-center">3.95</div>
+                                    <div class="text-center">$2.35</div>
+                                    <div class="text-center">$3.95</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <div class="relative font-medium flex items-center gap-1"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />HOT &amp; SOUR SOUP...
+                                            class="absolute left-[-45px] h-15 object-contain" />23. Hot &amp; Sour Soup
                                     </div>
                                     <div>酸辣汤</div>
-                                    <div class="text-center">2.35</div>
-                                    <div class="text-center">3.95</div>
+                                    <div class="text-center">$2.35</div>
+                                    <div class="text-center">$3.95</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">House Special Soup (for 2)
+                                    <div class="relative font-medium flex items-center gap-1">24. House Special Soup (for 2)
                                     </div>
                                     <div>本店特色汤</div>
                                     <div class="text-center">5.50</div>
                                     <div class="text-center">-</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">SEAFOOD SOUP (FOR 2)</div>
+                                    <div class="relative font-medium flex items-center gap-1">25. Seafood Soup (For 2)</div>
                                     <div>海鲜汤（2人份）</div>
-                                    <div class="text-center">6.50</div>
+                                    <div class="text-center">$6.50</div>
                                     <div class="text-center">-</div>
                                 </div>
                             </div>
@@ -659,55 +661,55 @@
                             </div>
                             <div class="mt-3 w-full space-y-1">
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">VEGETABLE FRIED RICE.
+                                    <div class="relative font-medium flex items-center gap-1">26. Vegetable Fried Rice
                                     </div>
                                     <div>蔬菜炒饭</div>
-                                    <div class="text-center">4.25</div>
-                                    <div class="text-center">6.25</div>
+                                    <div class="text-center">$4.25</div>
+                                    <div class="text-center">$6.25</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">ROAST PORK FRIED RICE
+                                    <div class="relative font-medium flex items-center gap-1">27. Roast Pork Fried Rice
                                     </div>
                                     <div>烤猪肉炒饭</div>
-                                    <div class="text-center">4.55</div>
-                                    <div class="text-center">6.95</div>
+                                    <div class="text-center">$4.55</div>
+                                    <div class="text-center">$6.95</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">CHICKEN FRIED RICE</div>
+                                    <div class="relative font-medium flex items-center gap-1">28. Chicken Fried Rice</div>
                                     <div>鸡肉炒饭</div>
-                                    <div class="text-center">4.55</div>
-                                    <div class="text-center">6.95</div>
+                                    <div class="text-center">$4.55</div>
+                                    <div class="text-center">$6.95</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">BEEF FRIED RICE</div>
+                                    <div class="relative font-medium flex items-center gap-1">29. Beef Fried Rice</div>
                                     <div>牛肉炒饭</div>
-                                    <div class="text-center">4.95</div>
-                                    <div class="text-center">7.55</div>
+                                    <div class="text-center">$4.95</div>
+                                    <div class="text-center">$7.55</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">SHRIMP FRIED RICE</div>
+                                    <div class="relative font-medium flex items-center gap-1">30. Shrimp Fried Rice</div>
                                     <div>虾仁炒饭</div>
-                                    <div class="text-center">4.95</div>
-                                    <div class="text-center">7.55</div>
+                                    <div class="text-center">$4.95</div>
+                                    <div class="text-center">$7.55</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">CRAB MEAT FRIED RICE</div>
+                                    <div class="relative font-medium flex items-center gap-1">31. Crab Meat Fried Rice</div>
                                     <div>蟹肉炒饭</div>
-                                    <div class="text-center">5.50</div>
-                                    <div class="text-center">7.95</div>
+                                    <div class="text-center">$5.50</div>
+                                    <div class="text-center">$7.95</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">HOUSE SPECIAL FRIED RICE
+                                    <div class="relative font-medium flex items-center gap-1">32. House Special Fried Rice
                                         (CHICKEN, SHRIMP &amp; PORK)</div>
                                     <div>特色炒饭（鸡肉、虾和猪肉）</div>
-                                    <div class="text-center">5.50</div>
-                                    <div class="text-center">7.95</div>
+                                    <div class="text-center">$5.50</div>
+                                    <div class="text-center">$7.95</div>
                                 </div>
                                 <div class="w-full grid grid-cols-4 text-sm items-center cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative font-medium flex items-center gap-1">HAM FRIED RICE</div>
+                                    <div class="relative font-medium flex items-center gap-1">33. Ham Fried Rice</div>
                                     <div>火腿炒饭</div>
-                                    <div class="text-center">5.50</div>
-                                    <div class="text-center">7.95</div>
+                                    <div class="text-center">$5.50</div>
+                                    <div class="text-center">$7.95</div>
                                 </div>
                             </div>
                         </div>
@@ -724,7 +726,7 @@
                         <h2 class="text-center text-3xl uppercase tracking-wide mb-1 font-viola">CHOW MEIN OR CHOP SUEY
                             (VEGETABLE)</h2>
                         <p class="text-center text-lg text-gray-800 mb-4">炒面或杂碎，什锦蔬菜，不是面条</p>
-                        <p class="text-red-700 text-lg font-serif text-center mb-6">(W. WHITE RICE &amp; CRISPY NOODLES)
+                        <p class="text-red-700 text-lg font-serif text-center mb-6">(w. White Rice &amp; Crispy Noodles)
                         </p>
                         <p class="text-center text-base text-gray-800 mb-6">配白米和脆面条</p>
                         <div class="flex justify-between items-center text-red-700 font-serif text-sm mb-2"><span
@@ -732,40 +734,40 @@
                             <div class="w-1/3 flex justify-end gap-12"><span>小 SM</span><span>大 LG</span></div>
                         </div>
                         <div class="flex justify-between items-center  py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <div class="w-1/3 text-black font-serif text-sm">VEGETABLE CHOW MEIN OR CHOP SUEY</div>
+                            <div class="w-1/3 text-black font-serif text-sm">34. Vegetable Chow Mein or Chop Suey</div>
                             <div class="w-1/3 text-center text-black text-sm">蔬菜炒面或杂碎</div>
                             <div class="w-1/3 flex justify-end gap-12 text-black text-sm font-medium">
-                                <span>4.25</span><span>6.25</span></div>
+                                <span>$4.25</span><span>$6.25</span></div>
                         </div>
                         <div class="flex justify-between items-center  py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <div class="w-1/3 text-black font-serif text-sm">ROAST PORK CHOW MEIN OR CHOP SUEY</div>
+                            <div class="w-1/3 text-black font-serif text-sm">35. Roast Pork Chow Mein or Chop Suey</div>
                             <div class="w-1/3 text-center text-black text-sm">烤猪肉炒面或杂碎</div>
                             <div class="w-1/3 flex justify-end gap-12 text-black text-sm font-medium">
-                                <span>4.55</span><span>6.95</span></div>
+                                <span>$4.55</span><span>$6.95</span></div>
                         </div>
                         <div class="flex justify-between items-center  py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <div class="w-1/3 text-black font-serif text-sm">CHICKEN CHOW MEIN OR CHOP SUEY</div>
+                            <div class="w-1/3 text-black font-serif text-sm">36. Chicken Chow Mein or Chop Suey</div>
                             <div class="w-1/3 text-center text-black text-sm">鸡肉炒面或杂碎</div>
                             <div class="w-1/3 flex justify-end gap-12 text-black text-sm font-medium">
-                                <span>4.55</span><span>6.95</span></div>
+                                <span>$4.55</span><span>$6.95</span></div>
                         </div>
                         <div class="flex justify-between items-center  py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <div class="w-1/3 text-black font-serif text-sm">BEEF CHOW MEIN OR CHOP SUEY</div>
+                            <div class="w-1/3 text-black font-serif text-sm">37. Beef Chow Mein or Chop Suey</div>
                             <div class="w-1/3 text-center text-black text-sm">牛肉炒面或杂碎</div>
                             <div class="w-1/3 flex justify-end gap-12 text-black text-sm font-medium">
-                                <span>4.95</span><span>7.55</span></div>
+                                <span>$4.95</span><span>$7.55</span></div>
                         </div>
                         <div class="flex justify-between items-center  py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <div class="w-1/3 text-black font-serif text-sm">SHRIMP CHOW MEIN OR CHOP SUEY</div>
+                            <div class="w-1/3 text-black font-serif text-sm">38. Shrimp Chow Mein or Chop Suey</div>
                             <div class="w-1/3 text-center text-black text-sm">虾炒面或杂碎</div>
                             <div class="w-1/3 flex justify-end gap-12 text-black text-sm font-medium">
-                                <span>4.95</span><span>7.55</span></div>
+                                <span>$4.95</span><span>$7.55</span></div>
                         </div>
                         <div class="flex justify-between items-center  py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <div class="w-1/3 text-black font-serif text-sm">HOUSE SPECIAL CHOW MEIN OR CHOP SUEY</div>
+                            <div class="w-1/3 text-black font-serif text-sm">39. House Special Chow Mein or Chop Suey</div>
                             <div class="w-1/3 text-center text-black text-sm">本店特色炒面或杂碎</div>
                             <div class="w-1/3 flex justify-end gap-12 text-black text-sm font-medium">
-                                <span>5.50</span><span>7.95</span></div>
+                                <span>$5.50</span><span>$7.95</span></div>
                         </div>
                         <div class="flex justify-between items-center  py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                             <div class="w-1/3 text-black font-serif text-sm">(CHICKEN, SHRIMP &amp; PORK)</div>
@@ -786,59 +788,58 @@
                                 <!-- --> <span class="ml-1 font-sans">捞面</span></h2>
                             <div class="bg-white/90 rounded-2xl shadow-sm p-4 mb-6">
                                 <div class="mb-2">
-                                    <h3 class="text-red-700 font-serif text-lg uppercase">(SOFT NOODLES)</h3>
+                                    <h3 class="text-red-700 font-serif text-lg uppercase">(Soft Noodles)</h3>
                                     <p class="text-black text-base">软面条</p>
                                 </div>
                                 <div class="flex justify-between text-red-700 font-serif text-sm mb-2">
                                     <span>小SM</span><span>大LG</span></div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <div class="relative flex items-center gap-1 text-black font-serif text-sm">
-                                        VEGETABLE LO MEIN</div>
+                                        40. Vegetable Lo Mein</div>
                                     <div class="text-black text-sm flex-1 text-center">蔬菜捞面</div>
                                     <div class="text-black text-sm font-medium flex gap-6">
-                                        <span>4.25</span><span>6.25</span></div>
+                                        <span>$4.25</span><span>$6.25</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">ROAST
-                                        PORK LO MEIN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">41. Roast
+                                        Pork Lo Mein</div>
                                     <div class="text-black text-sm flex-1 text-center">烤猪肉捞面</div>
                                     <div class="text-black text-sm font-medium flex gap-6">
-                                        <span>4.55</span><span>6.95</span></div>
+                                        <span>$4.55</span><span>$6.95</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">CHICKEN
-                                        LO MEIN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">42. Chicken
+                                        Lo Mein</div>
                                     <div class="text-black text-sm flex-1 text-center">鸡肉捞面</div>
                                     <div class="text-black text-sm font-medium flex gap-6">
-                                        <span>4.55</span><span>6.95</span></div>
+                                        <span>$4.55</span><span>$6.95</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">BEEF LO
-                                        MEIN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">43. Beef
+                                        Lo Mein</div>
                                     <div class="text-black text-sm flex-1 text-center">牛肉捞面</div>
                                     <div class="text-black text-sm font-medium flex gap-6">
-                                        <span>4.95</span><span>7.55</span></div>
+                                        <span>$4.95</span><span>$7.55</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">SHRIMP
-                                        LO MEIN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">44. Shrimp
+                                        Lo Mein</div>
                                     <div class="text-black text-sm flex-1 text-center">虾捞面</div>
                                     <div class="text-black text-sm font-medium flex gap-6">
-                                        <span>4.95</span><span>7.55</span></div>
+                                        <span>$4.95</span><span>$7.55</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">HOUSE
-                                        SPECIAL LO MEIN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">45. House Special Lo Mein</div>
                                     <div class="text-black text-sm flex-1 text-center">本店特色捞面</div>
                                     <div class="text-black text-sm font-medium flex gap-6">
-                                        <span>5.50</span><span>7.95</span></div>
+                                        <span>$5.50</span><span>$7.95</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">CRABMEAT
-                                        LO MEIN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">46. Crabmeat
+                                        Lo Mein</div>
                                     <div class="text-black text-sm flex-1 text-center">蟹肉捞面</div>
                                     <div class="text-black text-sm font-medium flex gap-6">
-                                        <span>5.50</span><span>7.95</span></div>
+                                        <span>$5.50</span><span>$7.95</span></div>
                                 </div>
                             </div>
                         </div>
@@ -847,52 +848,47 @@
                                 <!-- --> <span class="ml-1 font-sans">炒面粉</span></h2>
                             <div class="bg-white/90 rounded-2xl shadow-sm p-4 mb-6">
                                 <div class="mb-2">
-                                    <h3 class="text-red-700 font-serif text-lg uppercase">(RICE NOODLE)</h3>
+                                    <h3 class="text-red-700 font-serif text-lg uppercase">(Rice Noodle)</h3>
                                     <p class="text-black text-base">炒面粉</p>
                                 </div>
                                 <div class="flex justify-between text-red-700 font-serif text-sm mb-2">
                                     <span>均码</span><span>ORDER</span></div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <div class="relative flex items-center gap-1 text-black font-serif text-sm">
-                                        VEGETABLE CHOW MAI FUN</div>
+                                        47. Vegetable Chow Mai Fun</div>
                                     <div class="text-black text-sm flex-1 text-center">蔬菜炒米粉</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>6.55</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$6.55</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">ROAST
-                                        PORK CHOW MAI FUN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">48. Roast Pork Chow Mai Fun</div>
                                     <div class="text-black text-sm flex-1 text-center">烤猪肉炒米粉</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>6.95</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$6.95</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">CHICKEN
-                                        CHOW MAI FUN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">49. Chicken Chow Mai Fun</div>
                                     <div class="text-black text-sm flex-1 text-center">鸡肉炒米粉</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>6.95</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$6.95</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">BEEF
-                                        CHOW MAI FUN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">50. Beef Chow Mai Fun</div>
                                     <div class="text-black text-sm flex-1 text-center">牛肉炒米粉</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>7.55</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$7.55</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">SHRIMP
-                                        CHOW MAI FUN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">51. Shrimp Chow Mai Fun</div>
                                     <div class="text-black text-sm flex-1 text-center">虾仁炒米粉</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>7.55</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$7.55</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <div class="relative flex items-center gap-1 text-black font-serif text-sm"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />SINGAPORE CHOW MAI FUN
+                                            class="absolute left-[-45px] h-15 object-contain" />52. Singapore Chow Mai Fun
                                     </div>
                                     <div class="text-black text-sm flex-1 text-center">新加坡炒米粉</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>7.95</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$7.95</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">HOUSE
-                                        SPECIAL CHOW MAI FUN</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">52a. House Special Chow Mai Fun</div>
                                     <div class="text-black text-sm flex-1 text-center">本店特色炒米粉</div>
                                     <div class="text-black text-sm font-medium flex gap-6"><span>7.95</span></div>
                                 </div>
@@ -903,50 +899,45 @@
                                 <!-- --> <span class="ml-1 font-sans">芙蓉蛋</span></h2>
                             <div class="bg-white/90 rounded-2xl shadow-sm p-4 mb-6">
                                 <div class="mb-2">
-                                    <h3 class="text-red-700 font-serif text-lg uppercase">(W. WHITE RICE)</h3>
+                                    <h3 class="text-red-700 font-serif text-lg uppercase">(W. White Rice)</h3>
                                     <p class="text-black text-base"></p>
                                 </div>
                                 <div class="flex justify-between text-red-700 font-serif text-sm mb-2">
                                     <span>均码</span><span>ORDER</span></div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <div class="relative flex items-center gap-1 text-black font-serif text-sm">
-                                        VEGETABLE EGG FOO YOUNG</div>
+                                        53. Vegetable Egg Foo Young</div>
                                     <div class="text-black text-sm flex-1 text-center">蔬菜芙蓉蛋</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>6.95</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$6.95</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">ROAST
-                                        PORK EGG FOO YOUNG</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">54. Roast Pork Egg Foo Young</div>
                                     <div class="text-black text-sm flex-1 text-center">烤猪肉芙蓉蛋</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>7.25</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$7.25</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">CHICKEN
-                                        EGG FOO YOUNG</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">55. Chicken Egg Foo Young</div>
                                     <div class="text-black text-sm flex-1 text-center">鸡肉芙蓉蛋</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>7.25</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$7.25</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">BEEF EGG
-                                        FOO YOUNG</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">56. Beef Egg Foo Young</div>
                                     <div class="text-black text-sm flex-1 text-center">牛肉芙蓉蛋</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>7.55</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$7.55</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">SHRIMP
-                                        EGG FOO YOUNG</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">57. Shrimp Egg Foo Young</div>
                                     <div class="text-black text-sm flex-1 text-center">虾芙蓉蛋</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>7.55</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$7.55</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">HOUSE
-                                        SPECIAL EGG FOO YOUNG</div>
+                                    <div class="relative flex items-center gap-1 text-black font-serif text-sm">58. House Special Egg Foo Young</div>
                                     <div class="text-black text-sm flex-1 text-center">本店特色芙蓉蛋</div>
-                                    <div class="text-black text-sm font-medium flex gap-6"><span>7.95</span></div>
+                                    <div class="text-black text-sm font-medium flex gap-6"><span>$7.95</span></div>
                                 </div>
                                 <div class="flex justify-between items-center py-1 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <div class="relative flex items-center gap-1 text-black font-serif text-sm">
-                                        (CHICKEN, SHRIMP &amp; PORK)</div>
+                                        (Chicken, Shrimp &amp; Pork)</div>
                                     <div class="text-black text-sm flex-1 text-center">鸡肉、虾和猪肉</div>
                                     <div class="text-black text-sm font-medium flex gap-6"></div>
                                 </div>
@@ -954,6 +945,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- TODO: This section has collision when screen is small, need to fix it later -->
+                <!--
                 <div class="mx-auto w-full">
                     <div class="relative bg-black overflow-hidden shadow-lg mb-12">
                         <div class="relative w-full flex justify-center items-center">
@@ -977,6 +970,7 @@
                                 </div>
                             </div>
                         </div>
+                        -->
                         <div class="text-center text-yellow-200 mt-10 mb-6" id="beef">
                             <h2 class="text-3xl font-bold font-viola">BEEF</h2>
                             <p class="text-xl">牛肉</p>
@@ -1001,77 +995,68 @@
                                         tabindex="0" 
                                         @keydown.enter="() => {}" 
                                         @keydown.space.prevent="() => {}">
-                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>BEEF W.
-                                                BROCCOLI</span></td>
+                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>59. Beef w. Broccoli</span></td>
                                         <td class="px-2 py-2">西兰花牛肉</td>
-                                        <td class="px-2 py-2 text-center">5.50</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$5.50</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
-                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>PEPPER STEAK W
-                                                ONIONS</span></td>
+                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>60. Pepper Steak w. Onions</span></td>
                                         <td class="px-2 py-2">洋葱胡椒牛排</td>
-                                        <td class="px-2 py-2 text-center">5.50</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$5.50</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
-                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>BEEF W. PEPPER
-                                                &amp; TOMATO</span></td>
+                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>61. Beef w. Pepper &amp; Tomato</span></td>
                                         <td class="px-2 py-2">牛肉配辣椒和西红柿</td>
-                                        <td class="px-2 py-2 text-center">5.50</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$5.50</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
-                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>BEEF W. CHINESE
-                                                VEGS</span></td>
+                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>62. Beef w. Chinese Vegs</span></td>
                                         <td class="px-2 py-2">牛肉配中式蔬菜</td>
-                                        <td class="px-2 py-2 text-center">5.50</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$5.50</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
-                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>BEEF W. MIXED
-                                                VEGETABLES</span></td>
+                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>63. Beef w. Mixed Vegetables</span></td>
                                         <td class="px-2 py-2">什锦牛肉</td>
-                                        <td class="px-2 py-2 text-center">5.50</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$5.50</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
-                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>BEEF W.
-                                                MUSHROOMS</span></td>
+                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>64. Beef w. Mushrooms</span></td>
                                         <td class="px-2 py-2">蘑菇牛肉</td>
-                                        <td class="px-2 py-2 text-center">5.50</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$5.50</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
-                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>BEEF W. BLACK BEAN
-                                                SAUCE</span></td>
+                                        <td class="relative px-2 py-2 flex items-center gap-2"><span>65. Beef w. Black Bean Sauce</span></td>
                                         <td class="px-2 py-2">豉汁牛肉</td>
-                                        <td class="px-2 py-2 text-center">5.50</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$5.50</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
-                                                class="absolute left-[-45px] h-15 object-contain" /><span>HUNAN
-                                                BEEF</span></td>
+                                                class="absolute left-[-45px] h-15 object-contain" /><span>66. Hunan Beef</span></td>
                                         <td class="px-2 py-2">湖南牛肉</td>
                                         <td class="px-2 py-2 text-center">-</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
-                                                class="absolute left-[-45px] h-15 object-contain" /><span>SZECHUAN</span>
+                                                class="absolute left-[-45px] h-15 object-contain" /><span>67. Szechuan Beef</span>
                                         </td>
                                         <td class="px-2 py-2">四川牛肉</td>
                                         <td class="px-2 py-2 text-center">-</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
-                                                class="absolute left-[-45px] h-15 object-contain" /><span>MONGOLIAN
-                                                BEEF</span></td>
+                                                class="absolute left-[-45px] h-15 object-contain" /><span>68. Mongolian Beef</span></td>
                                         <td class="px-2 py-2">蒙古牛肉</td>
                                         <td class="px-2 py-2 text-center">-</td>
                                         <td class="px-2 py-2 text-center">8.95</td>
@@ -1079,38 +1064,34 @@
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
-                                                class="absolute left-[-45px] h-15 object-contain" /><span>Hot &amp;
-                                                Spicy Beef</span></td>
+                                                class="absolute left-[-45px] h-15 object-contain" /><span>69. Hot &amp; Spicy Beef</span></td>
                                         <td class="px-2 py-2">香辣牛肉</td>
                                         <td class="px-2 py-2 text-center">-</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
-                                                class="absolute left-[-45px] h-15 object-contain" /><span>KUNG PO
-                                                BEEF</span></td>
+                                                class="absolute left-[-45px] h-15 object-contain" /><span>70. Kung Pao Beef</span></td>
                                         <td class="px-2 py-2">宫保牛肉</td>
                                         <td class="px-2 py-2 text-center">-</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
-                                                class="absolute left-[-45px] h-15 object-contain" /><span>CURRY
-                                                BEEF</span></td>
+                                                class="absolute left-[-45px] h-15 object-contain" /><span>71. Curry Beef</span></td>
                                         <td class="px-2 py-2">咖喱牛肉</td>
                                         <td class="px-2 py-2 text-center">-</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
-                                                class="absolute left-[-45px] h-15 object-contain" /><span>BEEF W. GARLIC
-                                                SAUCE</span></td>
+                                                class="absolute left-[-45px] h-15 object-contain" /><span>72. Beef with Garlic Sauce</span></td>
                                         <td class="px-2 py-2">蒜蓉牛肉</td>
                                         <td class="px-2 py-2 text-center">-</td>
-                                        <td class="px-2 py-2 text-center">8.95</td>
+                                        <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1146,7 +1127,7 @@
                             <p class="mt-2 font-semibold">Moo Goo Gai Pian</p>
                         </div>
                         <div class="text-center mb-2">
-                            <p class="text-red-600 italic font-medium">(W. WHITE RICE)</p>
+                            <p class="text-red-600 italic font-medium">(W. White Rice)</p>
                             <p class="text-black">配白米饭</p>
                         </div>
                         <table class="w-full text-left border-separate border-spacing-y-2">
@@ -1160,107 +1141,102 @@
                             </thead>
                             <tbody>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">CHICKEN W. BROCCOLI</td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">73. Chicken with Broccoli</td>
                                     <td class="text-left">西兰花鸡肉</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">MOO GOO GAI PAN</td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">74. Moo Goo Gai Pan</td>
                                     <td class="text-left">蘑菇鸡片</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">CHICKEN W. MIXED VEGS
-                                    </td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">75. Chicken with Mixed Vegetables</td>
                                     <td class="text-left">鸡肉什锦蔬菜</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">CHICKEN W. ALMOND DING
-                                    </td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">76. Chicken with Almond Ding</td>
                                     <td class="text-left">杏仁鸡丁</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">CHICKEN W. CASHEW NUTS
-                                    </td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">77. Chicken with Cashew Nuts</td>
                                     <td class="text-left">腰果鸡丁</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">CHICKEN W. BEAN CURD
-                                    </td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">78. Chicken with Bean Curd</td>
                                     <td class="text-left">豆腐鸡</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">CHICKEN W. BLACK BEAN
-                                        SAUCE</td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">79. Chicken with Black Bean Sauce</td>
                                     <td class="text-left">豉汁鸡</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <td class="relative flex items-center gap-2 text-left py-2"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />HUNAN CHICKEN</td>
+                                            class="absolute left-[-45px] h-15 object-contain" />80. Hunan Chicken</td>
                                     <td class="text-left">湖南鸡</td>
                                     <td>-</td>
-                                    <td>8.55</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <td class="relative flex items-center gap-2 text-left py-2"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />CURRY CHICKEN</td>
+                                            class="absolute left-[-45px] h-15 object-contain" />81. Curry Chicken</td>
                                     <td class="text-left">咖喱鸡</td>
                                     <td>-</td>
-                                    <td>8.55</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <td class="relative flex items-center gap-2 text-left py-2"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />CHICKEN W. GARLIC SAUCE
+                                            class="absolute left-[-45px] h-15 object-contain" />82. Chicken with Garlic Sauce
                                     </td>
                                     <td class="text-left">蒜蓉鸡</td>
                                     <td>-</td>
-                                    <td>8.55</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <td class="relative flex items-center gap-2 text-left py-2"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />SZECHUAN CHICKEN</td>
+                                            class="absolute left-[-45px] h-15 object-contain" />83. Szechuan Chicken</td>
                                     <td class="text-left">四川鸡</td>
                                     <td>-</td>
-                                    <td>8.55</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <td class="relative flex items-center gap-2 text-left py-2"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />KUNG PO CHICKEN</td>
+                                            class="absolute left-[-45px] h-15 object-contain" />84. Kung Po Chicken</td>
                                     <td class="text-left">宫保鸡丁</td>
                                     <td>-</td>
-                                    <td>8.55</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <td class="relative flex items-center gap-2 text-left py-2"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />HOT &amp; SPICY CHICKEN
+                                            class="absolute left-[-45px] h-15 object-contain" />85. Hot &amp; Spicy Chicken
                                     </td>
                                     <td class="text-left">香辣鸡</td>
                                     <td>-</td>
-                                    <td>8.55</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">LEMON CHICKEN</td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">85a. Lemon Chicken</td>
                                     <td class="text-left">柠檬鸡</td>
                                     <td>-</td>
-                                    <td>8.55</td>
+                                    <td>$8.55</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1274,7 +1250,7 @@
                                 src="../assets/chicken-pork/chicken-pork.png" alt=""
                                 class="h-32 object-contain" /></div>
                         <div class="text-center mb-2">
-                            <p class="text-red-600 italic font-medium">(W. WHITE RICE)</p>
+                            <p class="text-red-600 italic font-medium">(W. White Rice)</p>
                             <p class="text-black">配白米饭</p>
                         </div>
                         <table class="w-full text-left border-separate border-spacing-y-2">
@@ -1288,74 +1264,75 @@
                             </thead>
                             <tbody>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">ROAST PORK W. BROCCOLI
+                                    <td class="relative flex items-center gap-2 text-left py-2">86. Roast Pork w. Broccoli
                                     </td>
                                     <td class="text-left">西兰花烤猪肉</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">ROAST PORK W. CHINESE
-                                        VEGS.</td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">86. Roast Pork w. Chinese Vegs.</td>
                                     <td class="text-left">烤猪肉配中式蔬菜</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">ROAST PORK W. MIXED
-                                        VEGS.</td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">86. Roast Pork w. Mixed Vegs.</td>
                                     <td class="text-left">烤猪肉配什锦蔬菜</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                    <td class="relative flex items-center gap-2 text-left py-2">ROAST PORK W. BLACK BEAN
-                                        SC</td>
+                                    <td class="relative flex items-center gap-2 text-left py-2">86. Roast Pork w. Black Bean Sauce</td>
                                     <td class="text-left">豉汁烤猪肉</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>$5.25</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <td class="relative flex items-center gap-2 text-left py-2"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />PORK W GARLIC SAUCE</td>
+                                            class="absolute left-[-45px] h-15 object-contain" />87. Pork w. Garlic Sauce</td>
                                     <td class="text-left">蒜蓉猪肉</td>
-                                    <td>5.25</td>
-                                    <td>8.55</td>
+                                    <td>-</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <td class="relative flex items-center gap-2 text-left py-2"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />SZECHUAN PORK</td>
+                                            class="absolute left-[-45px] h-15 object-contain" />88. Szechuan Pork</td>
                                     <td class="text-left">四川猪肉</td>
                                     <td>-</td>
-                                    <td>8.55</td>
+                                    <td>$8.55</td>
                                 </tr>
                                 <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                     <td class="relative flex items-center gap-2 text-left py-2"><img
                                             src="../assets/spicy.png" alt="spicy"
-                                            class="absolute left-[-45px] h-15 object-contain" />HOT &amp; SPICY PORK
+                                            class="absolute left-[-45px] h-15 object-contain" />89. Hot &amp; Spicy Pork
                                     </td>
                                     <td class="text-left">香辣猪肉</td>
                                     <td>-</td>
-                                    <td>8.55</td>
+                                    <td>$8.55</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="relative w-full mx-auto py-10">
+                    <!-- MARK: Seafood Section -->
                     <div class="flex justify-between items-center mb-6">
+                        <!-- MARK: Left Image -->
                         <div class="flex flex-col items-center"><img src="/assets/sea-foos/sea-01.png"
                                 alt="Shrimp with Lobster Sauce" class="h-40 object-contain" />
                             <p class="font-semibold mt-2">Shrimp w. Lobster Sc.</p>
                         </div>
+                        <!-- MARK: Center Text -->
                         <div class="text-center" id="seafood">
                             <h2 class="text-2xl font-bold font-viola">SEAFOOD</h2>
                             <p class="text-lg">海鲜</p>
-                            <p class="text-red-600 italic font-medium mt-2">(W. WHITE RICE)</p>
+                            <p class="text-red-600 italic font-medium mt-2">(W. White Rice)</p>
                             <p class="text-black">配白米饭</p>
                         </div>
+                        <!-- MARK: Right Image -->
                         <div class="flex flex-col items-center"><img src="/assets/sea-foos/sea-02.png"
                                 alt="Seafood Delight" class="h-40 object-contain" />
                             <p class="font-semibold mt-2">Seafood Delight</p>
@@ -1372,97 +1349,88 @@
                         </thead>
                         <tbody>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                <td class="relative flex items-center gap-2 text-left py-2">SHRIMP W. LOBSTER SAUCE</td>
+                                <td class="relative flex items-center gap-2 text-left py-2">93. Shrimp w. Lobster Sauce</td>
                                 <td class="text-left">龙虾酱虾</td>
-                                <td>5.75</td>
-                                <td>9.50</td>
+                                <td>$5.75</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                <td class="relative flex items-center gap-2 text-left py-2">SHRIMP W. BROCCOLI</td>
+                                <td class="relative flex items-center gap-2 text-left py-2">94. Shrimp w. Broccoli</td>
                                 <td class="text-left">虾仁西兰花</td>
-                                <td>5.75</td>
-                                <td>9.50</td>
+                                <td>$5.75</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                <td class="relative flex items-center gap-2 text-left py-2">SHRIMP W. CHINESE VEG</td>
+                                <td class="relative flex items-center gap-2 text-left py-2">95. Shrimp w. Chinese Veg</td>
                                 <td class="text-left">虾仁炒蔬菜</td>
-                                <td>5.75</td>
-                                <td>9.50</td>
+                                <td>$5.75</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                <td class="relative flex items-center gap-2 text-left py-2">SHRIMP W. PEPPER &amp;
-                                    TOMATO</td>
+                                <td class="relative flex items-center gap-2 text-left py-2">96. Shrimp w. Pepper &amp; Tomato</td>
                                 <td class="text-left">辣椒番茄虾</td>
-                                <td>5.75</td>
-                                <td>9.50</td>
+                                <td>$5.75</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                <td class="relative flex items-center gap-2 text-left py-2">SHRIMP W. BLACK BEAN SAUCE
-                                </td>
+                                <td class="relative flex items-center gap-2 text-left py-2">97. Shrimp w. Black Bean Sauce</td>
                                 <td class="text-left">豉汁虾</td>
-                                <td>5.75</td>
-                                <td>9.50</td>
+                                <td>$5.75</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                 <td class="relative flex items-center gap-2 text-left py-2"><img src="../assets/spicy.png"
-                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />HOT &amp; SPICY
-                                    SHRIMP</td>
+                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />98. Hot &amp; Spicy Shrimp</td>
                                 <td class="text-left">香辣虾</td>
                                 <td>-</td>
-                                <td>9.50</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                 <td class="relative flex items-center gap-2 text-left py-2"><img src="../assets/spicy.png"
-                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />HUNAN SHRIMP
-                                </td>
+                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />99. Hunan Shrimp</td>
                                 <td class="text-left">湖南虾</td>
                                 <td>-</td>
-                                <td>9.50</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                 <td class="relative flex items-center gap-2 text-left py-2"><img src="../assets/spicy.png"
-                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />SZECHUAN SHRIMP
-                                </td>
+                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />100. Szechuan Shrimp</td>
                                 <td class="text-left">四川虾</td>
                                 <td>-</td>
-                                <td>9.50</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                <td class="relative flex items-center gap-2 text-left py-2">CURRY SHRIMP</td>
+                                <td class="relative flex items-center gap-2 text-left py-2">101. Curry Shrimp</td>
                                 <td class="text-left">咖喱虾</td>
                                 <td>-</td>
-                                <td>9.50</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                 <td class="relative flex items-center gap-2 text-left py-2"><img src="../assets/spicy.png"
-                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />SHRIMP &amp;
-                                    SCALLOP W. GARLIC SAUCE</td>
+                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />102. Shrimp &amp; Scallop w. Garlic Sauce</td>
                                 <td class="text-left">蒜蓉扇贝虾</td>
                                 <td>-</td>
-                                <td>9.50</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                 <td class="relative flex items-center gap-2 text-left py-2"><img src="../assets/spicy.png"
-                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />SCALLOP W. HUNAN
-                                    STYLE</td>
+                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />103. Scallop w. Hunan Sauce</td>
                                 <td class="text-left">湖南风味扇贝</td>
                                 <td>-</td>
-                                <td>9.50</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                                <td class="relative flex items-center gap-2 text-left py-2">FRESH SCALLOPS W. BROCCOLI
-                                </td>
+                                <td class="relative flex items-center gap-2 text-left py-2">104. Fresh Scallops w. Broccoli</td>
                                 <td class="text-left">鲜扇贝配西兰花</td>
                                 <td>-</td>
-                                <td>9.50</td>
+                                <td>$9.50</td>
                             </tr>
                             <tr class="text-center text-sm md:text-base cursor-pointer transform transition-all duration-200 hover:scale-105 hover:bg-yellow-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
                                 <td class="relative flex items-center gap-2 text-left py-2"><img src="../assets/spicy.png"
-                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />KUNG PO SHRIMP
-                                </td>
+                                        alt="spicy" class="absolute left-[-45px] h-15 object-contain" />105. Kung Po Shrimp</td>
                                 <td class="text-left">宫保虾</td>
                                 <td>-</td>
-                                <td>9.50</td>
+                                <td>$9.50</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1472,8 +1440,8 @@
                 </div>
                 <div class="relative w-full mx-auto py-8" id="special-combination-platter">
                     <div class="text-center mb-8">
-                        <h2 class="text-2xl font-bold tracking-wide uppercase font-viola">SPECIAL COMBINATION PLATTER
-                        </h2>
+                        <h2 class="text-2xl font-bold tracking-wide uppercase font-viola">SPECIAL COMBINATION PLATTER</h2>
+                        <p class="text-lg text-gray-600">(Each plate served w. egg roll or egg drop or hot &amp; sour soup)</p>
                         <p class="text-lg text-gray-600">特色拼盘</p>
                     </div>
                     <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6" role="menu" aria-label="Special Combination Platter Menu">
@@ -1523,19 +1491,13 @@
                              @keydown.space.prevent="() => {}"
                              aria-label="H1 Happy Family - $11.50">
                             <div class="relative">
-                                <h2 class="text-xl font-semibold flex items-center text-black">
-                                    <!-- -->H
-                                    <!-- -->1
-                                    <!-- -->.
-                                    <!-- -->HAPPY FAMILY..</h2>
-                                <p class="mt-1 text-sm uppercase tracking-wide">CRAB MEAT, JUMBO SHRIMP, BEEF, CHICKEN,
-                                    PORK, STRAW MUSHROOM, BABY CORN, SNOW PEAS, CARROT, GREEN PEPPER &amp; BROCCOLI IN
-                                    HOUSE SPECIAL SAUCE</p>
+                                <h2 class="text-xl font-semibold flex items-center text-black">H1. HAPPY FAMILY</h2>
+                                <p class="mt-1 text-sm uppercase tracking-wide">Crab Meat, Jumbo Shrimp, Beef, Chicken, Pork, Straw Mushroom, Baby Corn, Snow Pear, Carrot, Green Pepper &amp; Broccoli in House Special Sauce</p>
                                 <p class="mt-2 text-base">蟹肉、大虾、牛肉、鸡肉、猪肉、草菇、小玉米、荷兰豆、胡萝卜、青椒和西兰花，配以店内特制酱汁</p>
                             </div>
                             <div class="text-right">
                                 <p class="text-sm text-gray-600">均码 ORDER</p>
-                                <p class="text-lg font-bold">11.50</p>
+                                <p class="text-lg font-bold">$11.50</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
@@ -1546,16 +1508,13 @@
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
-                                        class="absolute left-[-45px] h-15 object-contain" /> <!-- -->H
-                                    <!-- -->2
-                                    <!-- -->.
-                                    <!-- -->KUNG PO DELIGHT</h2>
-                                <p class="mt-1 text-sm uppercase tracking-wide">SHRIMP &amp; CHICKEN STIR-FRIED WITHIN A
-                                    RICH BROWN SAUCE AND GREEN PEPPER, AND PEANUTS</p>
+                                        class="absolute left-[-45px] h-15 object-contain" />H2. Kung Po Delight</h2>
+                                <p class="mt-1 text-sm uppercase tracking-wide">Shrimp &amp; Chicken Stir-Fried Within A
+                                    Rich Brown Sauce And Green Pepper, And Peanuts</p>
                                 <p class="mt-2 text-base">虾和鸡肉在浓郁的棕色酱汁中翻炒，配上青椒和花生</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">9.95</p>
+                                <p class="text-lg font-bold">$9.95</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
@@ -1564,122 +1523,87 @@
                              @keydown.enter="() => {}" 
                              @keydown.space.prevent="() => {}">
                             <div class="relative">
-                                <h2 class="text-xl font-semibold flex items-center text-black">
-                                    <!-- -->H
-                                    <!-- -->3
-                                    <!-- -->.
-                                    <!-- -->FOUR SEASONS</h2>
-                                <p class="mt-1 text-sm uppercase tracking-wide">JUMBO SHRIMP, BEEF, CHICKEN, PORK W. MIX
-                                    VEGETABLES IN HOUSE SPECIAL SAUCE</p>
+                                <h2 class="text-xl font-semibold flex items-center text-black">H3. Four Seasons</h2>
+                                <p class="mt-1 text-sm uppercase tracking-wide">Jumbo Shrimp, Beef, Chicken Pork w. Mix Vegetables In House Special Sauce</p>
                                 <p class="mt-2 text-base">大虾、牛肉、鸡肉、猪肉和什锦蔬菜，佐以店内特制酱汁</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">10.50</p>
+                                <p class="text-lg font-bold">$10.50</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
-                                <h2 class="text-xl font-semibold flex items-center text-black">
-                                    <!-- -->H
-                                    <!-- -->4
-                                    <!-- -->.
-                                    <!-- -->TRIPLE DELIGHT....</h2>
-                                <p class="mt-1 text-sm uppercase tracking-wide">JUMBO SHRIMP, BEEF, CHICKEN W. MIX
-                                    CHINESE VEGETABLES IN HOUSE SPECIAL SAUCE</p>
+                                <h2 class="text-xl font-semibold flex items-center text-black">H4. Triple Delight</h2>
+                                <p class="mt-1 text-sm uppercase tracking-wide">Jumbo Shrimp, Beef, Chicken w. Mix Chinese Vegetables In House Special Sauce</p>
                                 <p class="mt-2 text-base">大虾、牛肉、鸡肉和什锦蔬菜，佐以店内特制酱汁</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">10.25</p>
+                                <p class="text-lg font-bold">$10.25</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
-                                <h2 class="text-xl font-semibold flex items-center text-black">
-                                    <!-- -->H
-                                    <!-- -->5
-                                    <!-- -->.
-                                    <!-- -->FRESH SCALLOPS WITH BEEF</h2>
-                                <p class="mt-1 text-sm uppercase tracking-wide">FRESH SCALLOPS SLICES BEEF W. MIX
-                                    VEGETABLES IN HOUSE SPECIAL SAUCE</p>
+                                <h2 class="text-xl font-semibold flex items-center text-black">H5. Fresh Scallops With Beef</h2>
+                                <p class="mt-1 text-sm uppercase tracking-wide">Fresh Scallops Slices Beef W. Mix Vegetables In House Special Sauce</p>
                                 <p class="mt-2 text-base">新鲜扇贝、牛肉片、什锦蔬菜，佐以店内特制酱汁</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">10.25</p>
+                                <p class="text-lg font-bold">$10.25</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
-                                <h2 class="text-xl font-semibold flex items-center text-black">
-                                    <!-- -->H
-                                    <!-- -->6
-                                    <!-- -->.
-                                    <!-- -->SEAFOOD DELIGHT</h2>
-                                <p class="mt-1 text-sm uppercase tracking-wide">JUMBO SHRIMP, FRESH SCALLOPS, CRAB MEAT
-                                    W. STRAW MUSHROOMS, SNOW PEAS, BABY CORN, CARROTS, GREEN PEPPER &amp; BROCCOLI IN
-                                    CANTONESE SAUCE</p>
+                                <h2 class="text-xl font-semibold flex items-center text-black">H6. Seafood Delight</h2>
+                                <p class="mt-1 text-sm uppercase tracking-wide">Jumbo Shrimp, Fresh Scallops, Crab Meat
+                                    W. Straw Mushrooms, Snow Peas, Baby Corn, Carrots, Green Pepper &amp; Broccoli In
+                                    Cantonese Sauce</p>
                                 <p class="mt-2 text-base">大虾、新鲜扇贝、蟹肉、草菇、荷兰豆、小玉米、胡萝卜、青椒和西兰花，配粤式酱汁</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">11.50</p>
+                                <p class="text-lg font-bold">$11.50</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
-                                        class="absolute left-[-45px] h-15 object-contain" /> <!-- -->H
-                                    <!-- -->7
-                                    <!-- -->.
-                                    <!-- -->DRAGON MEETS PHOENIX</h2>
-                                <p class="mt-1 text-sm uppercase tracking-wide">GENERAL ISO&#x27;S CHICKEN W. HOT &amp;
-                                    SPICY SHRIMP</p>
+                                        class="absolute left-[-45px] h-15 object-contain" />H7. Dragon Meets/(Mixed) Phoenix</h2>
+                                <p class="mt-1 text-sm uppercase tracking-wide">General Tso's Chicken W. Hot &amp; Spicy Shrimp</p>
                                 <p class="mt-2 text-base">左宗棠鸡配香辣虾</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">9.95</p>
+                                <p class="text-lg font-bold">$9.95</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
-                                        class="absolute left-[-45px] h-15 object-contain" /> <!-- -->H
-                                    <!-- -->8
-                                    <!-- -->.
-                                    <!-- -->DOUBLE DELIGHT W. GARLIC SAUCE</h2>
-                                <p class="mt-1 text-sm uppercase tracking-wide">SHRIMP SCALLOPS W. MIXED VEGETABLE &amp;
-                                    GREEN PEPPER</p>
+                                        class="absolute left-[-45px] h-15 object-contain" />H8. Double Delight W. Garlic Sauce</h2>
+                                <p class="mt-1 text-sm uppercase tracking-wide">Shrimp Scallops W. Mixed Vegetable &amp; Green Pepper</p>
                                 <p class="mt-2 text-base">虾仁扇贝配什锦蔬菜和青椒</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">10.50</p>
+                                <p class="text-lg font-bold">$10.50</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
-                                        class="absolute left-[-45px] h-15 object-contain" /> <!-- -->H
-                                    <!-- -->9
-                                    <!-- -->.
-                                    <!-- -->TRIPLE DELIGHT HUNAN STYLE</h2>
-                                <p class="mt-1 text-sm uppercase tracking-wide">CHICKEN, BEEF, SHRIMP W. MIXED VEGETABLE
-                                    &amp; GREEN PEPPER IN BLACK BEAN KUNG PO SAUCE</p>
+                                        class="absolute left-[-45px] h-15 object-contain" />H9. Triple Delight Hunan Style</h2>
+                                <p class="mt-1 text-sm uppercase tracking-wide">Chicken, Beef, Shrimp W. Mixed Vegetable
+                                    &amp; Green Pepper In Black Bean Kung Po Sauce</p>
                                 <p class="mt-2 text-base">鸡肉、牛肉、虾仁、什锦蔬菜和青椒，佐以黑豆宫保酱</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">10.50</p>
+                                <p class="text-lg font-bold">$10.50</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
-                                <h2 class="text-xl font-semibold flex items-center text-black">
-                                    <!-- -->H
-                                    <!-- -->10
-                                    <!-- -->.
-                                    <!-- -->TUNG TING SHRIMP..</h2>
-                                <p class="mt-1 text-sm uppercase tracking-wide">PRAWN &amp; MIXED VEGETABLE IN EGG WHITE
-                                    SAUCE</p>
+                                <h2 class="text-xl font-semibold flex items-center text-black">H10. Tung Ting Shrimp</h2>
+                                <p class="mt-1 text-sm uppercase tracking-wide">Prawn &amp; Mixed Vegetable In Egg White Sauce</p>
                                 <p class="mt-2 text-base">虾仁什锦蔬菜蛋清酱</p>
                             </div>
                             <div class="text-right">
@@ -1688,74 +1612,56 @@
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
-                                <h2 class="text-xl font-semibold flex items-center text-black">
-                                    <!-- -->H
-                                    <!-- -->11
-                                    <!-- -->.
-                                    <!-- -->Sesame Chicken</h2>
+                                <h2 class="text-xl font-semibold flex items-center text-black">H11. Sesame Chicken</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide"></p>
                                 <p class="mt-2 text-base">芝麻鸡</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">8.95</p>
+                                <p class="text-lg font-bold">$8.95</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
-                                        class="absolute left-[-45px] h-15 object-contain" /> <!-- -->H
-                                    <!-- -->12
-                                    <!-- -->.
-                                    <!-- -->ORANGE FLAVOR CHICKEN</h2>
+                                        class="absolute left-[-45px] h-15 object-contain" />H12. Orange Flavored Chicken</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide"></p>
                                 <p class="mt-2 text-base">橙味鸡</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">8.95</p>
+                                <p class="text-lg font-bold">$8.95</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
-                                        class="absolute left-[-45px] h-15 object-contain" /> <!-- -->H
-                                    <!-- -->13
-                                    <!-- -->.
-                                    <!-- -->GENERAL TSO&#x27;S CHICKEN..</h2>
+                                        class="absolute left-[-45px] h-15 object-contain" />H13. General Tso's Chicken</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide"></p>
                                 <p class="mt-2 text-base">左宗棠鸡</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">8.95</p>
+                                <p class="text-lg font-bold">$8.95</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
-                                <h2 class="text-xl font-semibold flex items-center text-black">
-                                    <!-- -->H
-                                    <!-- -->14
-                                    <!-- -->.
-                                    <!-- -->SESAME BEAN CURD</h2>
+                                <h2 class="text-xl font-semibold flex items-center text-black">H14. Sesame Bean Curd</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide"></p>
                                 <p class="mt-2 text-base">芝麻豆腐</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">8.95</p>
+                                <p class="text-lg font-bold">$8.95</p>
                             </div>
                         </div>
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
                             <div class="relative">
-                                <h2 class="text-xl font-semibold flex items-center text-black">
-                                    <!-- -->H
-                                    <!-- -->15
-                                    <!-- -->.
-                                    <!-- -->HAWAII CHICKEN</h2>
+                                <h2 class="text-xl font-semibold flex items-center text-black">H15. Hawaii Chicken</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide"></p>
                                 <p class="mt-2 text-base">夏威夷鸡</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold">8.95</p>
+                                <p class="text-lg font-bold">$8.95</p>
                             </div>
                         </div>
                     </div>
@@ -1768,9 +1674,10 @@
                             <h3
                                 class="text-[20px] sm:text-[24px] lg:text-[28px] font-viola font-normal leading-[24px] sm:leading-[28px] lg:leading-[33px] text-global-1 ">
                                 SWEET &amp; SOUR</h3>
+                                <!-- TODO: Image alt should be descriptive for accessibility -->
                             <h3
                                 class="text-[18px] sm:text-[20px] lg:text-[22px] font-viola font-normal leading-[22px] sm:leading-[24px] lg:leading-[26px] text-global-1">
-                                糖醋类</h3><img src="/assets/menu-platter/platter-01.png" alt="[object Object]"
+                                糖醋类</h3><img src="/assets/menu-platter/platter-01.png" alt="A platter of sweet and sour dishes"
                                 class="h-50 object-cover rounded-lg " />
                         </div>
                         <div
@@ -1793,7 +1700,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Sweet &amp; Sour Chicken 8.55</p>
+                                            106. Sweet &amp; Sour Chicken $8.55</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -1807,7 +1714,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Sweet &amp; Sour Pork....8.55</p>
+                                            107. Sweet &amp; Sour Pork $8.55</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -1821,7 +1728,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Sweet &amp; Sour Shrimp...8.95</p>
+                                            108. Sweet &amp; Sour Shrimp $8.95</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -1835,7 +1742,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Sum Po (Chicken, Shrimp and Pork) 8.95</p>
+                                            109. Sum Po <i>(Chicken, Shrimp and Pork)</i> $8.95</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -1844,6 +1751,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Moo Shu Section -->
                     <div
                         class="flex flex-col gap-5 sm:gap-6 lg:gap-[28px] justify-start items-center w-full lg:flex-1 min-w-0" id="moo-shu">
                         <div class="flex flex-col items-center">
@@ -1875,7 +1783,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Moo Shu Chicken. 7.85</p>
+                                            110. Moo Shu Chicken $7.85</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -1889,7 +1797,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Moo Shu Beef 8.25</p>
+                                            111. Moo Shu Beef $8.25</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -1903,7 +1811,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Moo Shu Pork....7.85</p>
+                                            112. Moo Shu Pork $7.85</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -1917,7 +1825,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Moo Shu Shrimp..8.55</p>
+                                            113. Moo Shu Shrimp $8.55</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -1931,7 +1839,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            House Special Moo Shu...8.55</p>
+                                            114. House Special Moo Shu $8.55</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -1940,15 +1848,17 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Vegetable Section -->
                     <div
                         class="flex flex-col gap-5 sm:gap-6 lg:gap-[28px] justify-start items-center w-full lg:flex-1 min-w-0" id="vegetables">
                         <div class="flex flex-col items-center">
                             <h3
                                 class="text-[20px] sm:text-[24px] lg:text-[28px] font-viola font-normal leading-[24px] sm:leading-[28px] lg:leading-[33px] text-global-1 ">
                                 VEGETABLE</h3>
+                                <!-- FIXME: alt text needs to be discriptive-->
                             <h3
                                 class="text-[18px] sm:text-[20px] lg:text-[22px] font-viola font-normal leading-[22px] sm:leading-[24px] lg:leading-[26px] text-global-1">
-                                蔬菜类</h3><img src="/assets/menu-platter/platter-02.png" alt="[object Object]"
+                                蔬菜类</h3><img src="/assets/menu-platter/platter-02.png" alt="A platter of assorted vegetables"
                                 class="h-50 object-cover rounded-lg " />
                         </div>
                         <div
@@ -1971,7 +1881,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Vegetable Delight.....7.55</p>
+                                            115. Vegetable Delight $7.55</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -1986,7 +1896,7 @@
                                             alt="spicy" class="absolute left-[-45px] h-15 object-contain" />
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            #Broccoli w. Garlic Sauce ....7.55</p>
+                                            116. Broccoli w. Garlic Sauce $7.55</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -2001,7 +1911,7 @@
                                             alt="spicy" class="absolute left-[-45px] h-15 object-contain" />
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Bean Curd Szechuan Style...7.55</p>
+                                            117. Bean Curd Szechuan Style $7.55</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -2016,7 +1926,7 @@
                                             alt="spicy" class="absolute left-[-45px] h-15 object-contain" />
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Ma Po Tofu..7.55</p>
+                                            118. Ma Po Tofu $7.55</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -2030,7 +1940,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Sauteed Snow Peas..7.55</p>
+                                            119. Sauteed Snow Peas $7.55</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -2044,7 +1954,7 @@
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
-                                            Sauteed String Bean...7.55</p>
+                                            120. Sauteed String Bean $7.55</p>
                                     </div>
                                     <p
                                         class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 text-center">
@@ -2055,6 +1965,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Coupons Section -->
             <div class="w-full bg-[#8B1C1B] flex flex-col items-center py-8 relative" id="coupons">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center px-4" role="menu" aria-label="Coupons">
                     <div class="relative bg-white border-3 border-dashed border-red-600 w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
@@ -2117,8 +2028,6 @@
                     Last updated: Aug 30, 2025.</p>
             </div>-->
         </div>
-    </div>
-  </div>
 </template>
 <style>
 @keyframes pulseZoom {
@@ -2249,8 +2158,8 @@ const limitedLunchItems = [
   { id: 'L12', name: 'Shrimp With Chinese Vegs', chinese: '蝦炒菜', price: '5.50' },
   { id: 'L13', name: 'Beef With Chinese Vegs', chinese: '牛炒菜', price: '5.50' },
   { id: 'L14', name: 'Sweet & Sour Chicken or Pork', chinese: '甜酸雞或豬', price: '5.50' },
-  { id: 'L15', name: 'Chicken With Cashew Nuts', chinese: '腰果雞', price: '5.50' },
-  { id: 'L16', name: 'Beef With Snow Peas', chinese: '雪豆牛', price: '5.50' }
+  { id: 'L15', name: 'Shrimp With Lobster Sauce', chinese: '龍蝦汁蝦', price: '5.50' },
+  { id: 'L16', name: 'Mixed Vegs With Brown Sauce', chinese: '什錦菜', price: '5.50' },
 ]
 
 // Computed property for current lunch items with error handling
