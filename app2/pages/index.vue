@@ -358,39 +358,27 @@
                     </div>
                     <div class="grid grid-cols-3 gap-y-12 mt-12 max-w-5xl w-full" role="menu" aria-label="Kids Menu Items">
                         <div class="text-center space-y-1 cursor-pointer hover:scale-105 transition-transform duration-200 p-4 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem" aria-label="K1 Chicken Nuggets - $5.50">
-                            <p class="font-bold text-lg text-black">K1
-                                <!-- -->.
-                                <!-- -->CHICKEN NUGGETS (8)</p>
+                            <p class="font-bold text-lg text-black">K1. Chicken Nuggets (8)</p>
                             <p class="text-black text-lg">炸鸡粒</p>
                         </div>
                         <div class="text-center space-y-1 cursor-pointer hover:scale-105 transition-transform duration-200 p-4 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <p class="font-bold text-lg text-black">K2
-                                <!-- -->.
-                                <!-- -->FRIED FISH (2)</p>
+                            <p class="font-bold text-lg text-black">K2. Fried Fish (2)</p>
                             <p class="text-black text-lg">炸鱼</p>
                         </div>
                         <div class="text-center space-y-1 cursor-pointer hover:scale-105 transition-transform duration-200 p-4 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <p class="font-bold text-lg text-black">K3
-                                <!-- -->.
-                                <!-- -->FRIED SCALLOPS (8)</p>
+                            <p class="font-bold text-lg text-black">K3. Fried Scallops (8)</p>
                             <p class="text-black text-lg">炸干贝</p>
                         </div>
                         <div class="text-center space-y-1 cursor-pointer hover:scale-105 transition-transform duration-200 p-4 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <p class="font-bold text-lg text-black">K4
-                                <!-- -->.
-                                <!-- -->FRIED CHICKEN WINGS (3)</p>
+                            <p class="font-bold text-lg text-black">K4. Fried Chicken Wings (3)</p>
                             <p class="text-black text-lg">炸鸡翅</p>
                         </div>
                         <div class="text-center space-y-1 cursor-pointer hover:scale-105 transition-transform duration-200 p-4 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <p class="font-bold text-lg text-black">K5
-                                <!-- -->.
-                                <!-- -->FRIED BABY SHRIMP (8)</p>
+                            <p class="font-bold text-lg text-black">K5. Fried Baby Shrimp (8)</p>
                             <p class="text-black text-lg">炸虾</p>
                         </div>
                         <div class="text-center space-y-1 cursor-pointer hover:scale-105 transition-transform duration-200 p-4 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()" role="menuitem">
-                            <p class="font-bold text-lg text-black">K6
-                                <!-- -->.
-                                <!-- -->FRIED SQUID (12)</p>
+                            <p class="font-bold text-lg text-black">K6. Fried Squid (12)</p>
                             <p class="text-black text-lg">炸鱿鱼</p>
                         </div>
                     </div>
@@ -2058,108 +2046,108 @@ const initialComboItemsCount = 16
 
 // Complete lunch special menu items
 const lunchSpecialItems = [
-  { id: 'L1', name: 'Chicken or Roast Pork Chow Mein', chinese: '雞或叉燒炒麵', price: '5.50' },
-  { id: 'L2', name: 'Shrimp or Beef Chow Mein', chinese: '蝦或牛炒麵', price: '5.50' },
-  { id: 'L3', name: 'Chicken or Roast Pork Lo Mein', chinese: '雞或叉燒撈麵', price: '5.50' },
-  { id: 'L4', name: 'Shrimp or Beef Lo Mein', chinese: '蝦或牛撈麵', price: '5.50' },
-  { id: 'L5', name: 'Beef With Broccoli', chinese: '芥蘭牛', price: '5.50' },
-  { id: 'L6', name: 'Chicken With Broccoli', chinese: '芥蘭雞', price: '5.50' },
-  { id: 'L7', name: 'Shrimp With Broccoli', chinese: '芥蘭蝦', price: '5.50' },
-  { id: 'L8', name: 'Roast Pork With Broccoli', chinese: '芥蘭叉燒', price: '5.50' },
-  { id: 'L9', name: 'Pepper Steak With Onion', chinese: '青椒牛', price: '5.50' },
-  { id: 'L10', name: 'Roast Pork With Chinese Vegs', chinese: '叉燒炒菜', price: '5.50' },
-  { id: 'L11', name: 'Moo Goo Gai Pan', chinese: '蘑菇雞', price: '5.50' },
-  { id: 'L12', name: 'Shrimp With Chinese Vegs', chinese: '蝦炒菜', price: '5.50' },
-  { id: 'L13', name: 'Beef With Chinese Vegs', chinese: '牛炒菜', price: '5.50' },
-  { id: 'L14', name: 'Sweet & Sour Chicken or Pork', chinese: '甜酸雞或豬', price: '5.50' },
-  { id: 'L15', name: 'Shrimp With Lobster Sauce', chinese: '龍蝦汁蝦', price: '5.50' },
-  { id: 'L16', name: 'Mixed Vegs With Brown Sauce', chinese: '什錦菜', price: '5.50' },
-  { id: 'L17', name: 'Shrimp With Cashew Nuts', chinese: '腰果蝦', price: '5.50' },
-  { id: 'L18', name: 'Chicken With Cashew Nuts', chinese: '腰果雞', price: '5.50' },
-  { id: 'L19', name: 'Sesame Chicken', chinese: '芝麻雞', price: '5.50' },
-  { id: 'L20', name: 'General Tso\'s Chicken', chinese: '左宗棠雞', price: '5.50', spicy: true },
-  { id: 'L21', name: 'Beef With Garlic Sauce', chinese: '魚香牛', price: '5.50', spicy: true },
-  { id: 'L22', name: 'Chicken With Garlic Sauce', chinese: '魚香雞', price: '5.50', spicy: true },
-  { id: 'L23', name: 'Shrimp With Garlic Sauce', chinese: '魚香蝦', price: '5.50', spicy: true },
-  { id: 'L24', name: 'Broccoli With Garlic Sauce', chinese: '魚香芥蘭', price: '5.50', spicy: true },
-  { id: 'L25', name: 'Kung Po Chicken', chinese: '宮保雞', price: '5.50', spicy: true },
-  { id: 'L26', name: 'Szechuan Beef', chinese: '四川牛', price: '5.50', spicy: true },
-  { id: 'L27', name: 'Szechuan Chicken', chinese: '四川雞', price: '5.50', spicy: true },
-  { id: 'L28', name: 'Szechuan Shrimp', chinese: '四川蝦', price: '5.50', spicy: true },
-  { id: 'L29', name: 'Hunan Beef', chinese: '湖南牛', price: '5.50', spicy: true },
-  { id: 'L30', name: 'Hunan Chicken', chinese: '湖南雞', price: '5.50', spicy: true },
-  { id: 'L31', name: 'Hunan Shrimp', chinese: '湖南蝦', price: '5.50', spicy: true },
-  { id: 'L32', name: 'Mongolian Chicken', chinese: '蒙古雞', price: '5.50', spicy: true },
-  { id: 'L33', name: 'Mongolian Beef', chinese: '蒙古牛', price: '5.50', spicy: true },
-  { id: 'L34', name: 'Boneless Spare Ribs', chinese: '無骨排骨', price: '5.50' }
+  { id: 'L1', name: 'Chicken or Roast Pork Chow Mein', chinese: '雞或叉燒炒麵', price: '$5.50' },
+  { id: 'L2', name: 'Shrimp or Beef Chow Mein', chinese: '蝦或牛炒麵', price: '$5.50' },
+  { id: 'L3', name: 'Chicken or Roast Pork Lo Mein', chinese: '雞或叉燒撈麵', price: '$5.50' },
+  { id: 'L4', name: 'Shrimp or Beef Lo Mein', chinese: '蝦或牛撈麵', price: '$5.50' },
+  { id: 'L5', name: 'Beef With Broccoli', chinese: '芥蘭牛', price: '$5.50' },
+  { id: 'L6', name: 'Chicken With Broccoli', chinese: '芥蘭雞', price: '$5.50' },
+  { id: 'L7', name: 'Shrimp With Broccoli', chinese: '芥蘭蝦', price: '$5.50' },
+  { id: 'L8', name: 'Roast Pork With Broccoli', chinese: '芥蘭叉燒', price: '$5.50' },
+  { id: 'L9', name: 'Pepper Steak With Onion', chinese: '青椒牛', price: '$5.50' },
+  { id: 'L10', name: 'Roast Pork With Chinese Vegs', chinese: '叉燒炒菜', price: '$5.50' },
+  { id: 'L11', name: 'Moo Goo Gai Pan', chinese: '蘑菇雞', price: '$5.50' },
+  { id: 'L12', name: 'Shrimp With Chinese Vegs', chinese: '蝦炒菜', price: '$5.50' },
+  { id: 'L13', name: 'Beef With Chinese Vegs', chinese: '牛炒菜', price: '$5.50' },
+  { id: 'L14', name: 'Sweet & Sour Chicken or Pork', chinese: '甜酸雞或豬', price: '$5.50' },
+  { id: 'L15', name: 'Shrimp With Lobster Sauce', chinese: '龍蝦汁蝦', price: '$5.50' },
+  { id: 'L16', name: 'Mixed Vegs With Brown Sauce', chinese: '什錦菜', price: '$5.50' },
+  { id: 'L17', name: 'Shrimp With Cashew Nuts', chinese: '腰果蝦', price: '$5.50' },
+  { id: 'L18', name: 'Chicken With Cashew Nuts', chinese: '腰果雞', price: '$5.50' },
+  { id: 'L19', name: 'Sesame Chicken', chinese: '芝麻雞', price: '$5.50' },
+  { id: 'L20', name: 'General Tso\'s Chicken', chinese: '左宗棠雞', price: '$5.50', spicy: true },
+  { id: 'L21', name: 'Beef With Garlic Sauce', chinese: '魚香牛', price: '$5.50', spicy: true },
+  { id: 'L22', name: 'Chicken With Garlic Sauce', chinese: '魚香雞', price: '$5.50', spicy: true },
+  { id: 'L23', name: 'Shrimp With Garlic Sauce', chinese: '魚香蝦', price: '$5.50', spicy: true },
+  { id: 'L24', name: 'Broccoli With Garlic Sauce', chinese: '魚香芥蘭', price: '$5.50', spicy: true },
+  { id: 'L25', name: 'Kung Po Chicken', chinese: '宮保雞', price: '$5.50', spicy: true },
+  { id: 'L26', name: 'Szechuan Beef', chinese: '四川牛', price: '$5.50', spicy: true },
+  { id: 'L27', name: 'Szechuan Chicken', chinese: '四川雞', price: '$5.50', spicy: true },
+  { id: 'L28', name: 'Szechuan Shrimp', chinese: '四川蝦', price: '$5.50', spicy: true },
+  { id: 'L29', name: 'Hunan Beef', chinese: '湖南牛', price: '$5.50', spicy: true },
+  { id: 'L30', name: 'Hunan Chicken', chinese: '湖南雞', price: '$5.50', spicy: true },
+  { id: 'L31', name: 'Hunan Shrimp', chinese: '湖南蝦', price: '$5.50', spicy: true },
+  { id: 'L32', name: 'Mongolian Chicken', chinese: '蒙古雞', price: '$5.50', spicy: true },
+  { id: 'L33', name: 'Mongolian Beef', chinese: '蒙古牛', price: '$5.50', spicy: true },
+  { id: 'L34', name: 'Boneless Spare Ribs', chinese: '無骨排骨', price: '$5.50' }
 ]
 
 // Complete special combination platter items (all items)
 const specialComboItems = [
-  { id: 'C1', name: 'CHICKEN OR PORK CHOW MEIN', chinese: '鸡肉或猪肉炒面', price: '7.55' },
-  { id: 'C2', name: 'CHICKEN OR PORK EGG FOO YOUNG', chinese: '鸡肉或猪肉芙蓉蛋', price: '7.55' },
-  { id: 'C3', name: 'CHICKEN OR PORK LO MEIN', chinese: '鸡肉或猪肉捞面', price: '7.55' },
-  { id: 'C4', name: 'SWEET & SOUR CHICKEN OR PORK', chinese: '糖醋鸡或糖醋猪肉', price: '7.55' },
-  { id: 'C5', name: 'SWEET & SOUR SHRIMP', chinese: '糖醋虾', price: '7.95' },
-  { id: 'C6', name: 'BARBECUED SPARE RIBS', chinese: '烤排骨', price: '7.95' },
-  { id: 'C7', name: 'BONELESS RIBS', chinese: '无骨排骨', price: '7.95' },
-  { id: 'C8', name: 'PEPPER STEAK W. ONION', chinese: '洋葱胡椒牛排', price: '7.75' },
-  { id: 'C9', name: 'BEEF W. BROCCOLI', chinese: '西兰花牛肉', price: '7.75' },
-  { id: 'C10', name: 'CHICKEN W. BROCCOLI', chinese: '西兰花鸡肉', price: '7.75' },
-  { id: 'C11', name: 'SHRIMP W. BROCCOLI', chinese: '虾仁西兰花', price: '7.95' },
-  { id: 'C12', name: 'ROAST PORK W. BROCCOLI', chinese: '西兰花烤猪肉', price: '7.55' },
-  { id: 'C13', name: 'SHRIMP W. LOBSTER SAUCE', chinese: '龙虾酱虾', price: '7.95' },
-  { id: 'C14', name: 'MOO GOO GAI PAN', chinese: '蘑菇鸡片', price: '7.55' },
-  { id: 'C15', name: 'SHRIMP W. CHINESE VEGETABLES', chinese: '虾仁炒蔬菜', price: '7.95' },
-  { id: 'C16', name: 'CHICKEN W. MIX VEGETABLES', chinese: '鸡肉什锦蔬菜', price: '7.55' },
-  { id: 'C17', name: 'SESAME CHICKEN', chinese: '芝麻鸡', price: '7.95' },
-  { id: 'C18', name: 'GENERAL TSO\'S CHICKEN', chinese: '左宗棠鸡', price: '7.95', spicy: true },
-  { id: 'C19', name: 'ORANGE CHICKEN', chinese: '橙汁鸡', price: '7.95' },
-  { id: 'C20', name: 'HONEY CHICKEN', chinese: '蜜汁鸡', price: '7.95' },
-  { id: 'C21', name: 'KUNG PAO CHICKEN', chinese: '宫保鸡丁', price: '7.95', spicy: true },
-  { id: 'C22', name: 'CASHEW CHICKEN', chinese: '腰果鸡丁', price: '7.95' },
-  { id: 'C23', name: 'BEEF WITH GARLIC SAUCE', chinese: '鱼香牛肉', price: '7.95', spicy: true },
-  { id: 'C24', name: 'MONGOLIAN BEEF', chinese: '蒙古牛肉', price: '7.95', spicy: true }
+  { id: 'C1', name: 'CHICKEN OR PORK CHOW MEIN', chinese: '鸡肉或猪肉炒面', price: '$7.55' },
+  { id: 'C2', name: 'CHICKEN OR PORK EGG FOO YOUNG', chinese: '鸡肉或猪肉芙蓉蛋', price: '$7.55' },
+  { id: 'C3', name: 'CHICKEN OR PORK LO MEIN', chinese: '鸡肉或猪肉捞面', price: '$7.55' },
+  { id: 'C4', name: 'SWEET & SOUR CHICKEN OR PORK', chinese: '糖醋鸡或糖醋猪肉', price: '$7.55' },
+  { id: 'C5', name: 'SWEET & SOUR SHRIMP', chinese: '糖醋虾', price: '$7.95' },
+  { id: 'C6', name: 'BARBECUED SPARE RIBS', chinese: '烤排骨', price: '$7.95' },
+  { id: 'C7', name: 'BONELESS RIBS', chinese: '无骨排骨', price: '$7.95' },
+  { id: 'C8', name: 'PEPPER STEAK W. ONION', chinese: '洋葱胡椒牛排', price: '$7.75' },
+  { id: 'C9', name: 'BEEF W. BROCCOLI', chinese: '西兰花牛肉', price: '$7.75' },
+  { id: 'C10', name: 'CHICKEN W. BROCCOLI', chinese: '西兰花鸡肉', price: '$7.75' },
+  { id: 'C11', name: 'SHRIMP W. BROCCOLI', chinese: '虾仁西兰花', price: '$7.95' },
+  { id: 'C12', name: 'ROAST PORK W. BROCCOLI', chinese: '西兰花烤猪肉', price: '$7.55' },
+  { id: 'C13', name: 'SHRIMP W. LOBSTER SAUCE', chinese: '龙虾酱虾', price: '$7.95' },
+  { id: 'C14', name: 'MOO GOO GAI PAN', chinese: '蘑菇鸡片', price: '$7.55' },
+  { id: 'C15', name: 'SHRIMP W. CHINESE VEGETABLES', chinese: '虾仁炒蔬菜', price: '$7.95' },
+  { id: 'C16', name: 'CHICKEN W. MIX VEGETABLES', chinese: '鸡肉什锦蔬菜', price: '$7.55' },
+  { id: 'C17', name: 'SESAME CHICKEN', chinese: '芝麻鸡', price: '$7.95' },
+  { id: 'C18', name: 'GENERAL TSO\'S CHICKEN', chinese: '左宗棠鸡', price: '$7.95', spicy: true },
+  { id: 'C19', name: 'ORANGE CHICKEN', chinese: '橙汁鸡', price: '$7.95' },
+  { id: 'C20', name: 'HONEY CHICKEN', chinese: '蜜汁鸡', price: '$7.95' },
+  { id: 'C21', name: 'KUNG PAO CHICKEN', chinese: '宫保鸡丁', price: '$7.95', spicy: true },
+  { id: 'C22', name: 'CASHEW CHICKEN', chinese: '腰果鸡丁', price: '$7.95' },
+  { id: 'C23', name: 'BEEF WITH GARLIC SAUCE', chinese: '鱼香牛肉', price: '$7.95', spicy: true },
+  { id: 'C24', name: 'MONGOLIAN BEEF', chinese: '蒙古牛肉', price: '$7.95', spicy: true }
 ]
 
 // Limited special combo items (C1-C16) - static array
 const limitedComboItems = [
-  { id: 'C1', name: 'CHICKEN OR PORK CHOW MEIN', chinese: '鸡肉或猪肉炒面', price: '7.55' },
-  { id: 'C2', name: 'CHICKEN OR PORK EGG FOO YOUNG', chinese: '鸡肉或猪肉芙蓉蛋', price: '7.55' },
-  { id: 'C3', name: 'CHICKEN OR PORK LO MEIN', chinese: '鸡肉或猪肉捞面', price: '7.55' },
-  { id: 'C4', name: 'SWEET & SOUR CHICKEN OR PORK', chinese: '糖醋鸡或糖醋猪肉', price: '7.55' },
-  { id: 'C5', name: 'SWEET & SOUR SHRIMP', chinese: '糖醋虾', price: '7.95' },
-  { id: 'C6', name: 'BARBECUED SPARE RIBS', chinese: '烤排骨', price: '7.95' },
-  { id: 'C7', name: 'BONELESS RIBS', chinese: '无骨排骨', price: '7.95' },
-  { id: 'C8', name: 'PEPPER STEAK W. ONION', chinese: '洋葱胡椒牛排', price: '7.75' },
-  { id: 'C9', name: 'BEEF W. BROCCOLI', chinese: '西兰花牛肉', price: '7.75' },
-  { id: 'C10', name: 'CHICKEN W. BROCCOLI', chinese: '西兰花鸡肉', price: '7.75' },
-  { id: 'C11', name: 'SHRIMP W. BROCCOLI', chinese: '虾仁西兰花', price: '7.95' },
-  { id: 'C12', name: 'ROAST PORK W. BROCCOLI', chinese: '西兰花烤猪肉', price: '7.55' },
-  { id: 'C13', name: 'SHRIMP W. LOBSTER SAUCE', chinese: '龙虾酱虾', price: '7.95' },
-  { id: 'C14', name: 'MOO GOO GAI PAN', chinese: '蘑菇鸡片', price: '7.55' },
-  { id: 'C15', name: 'SHRIMP W. CHINESE VEGETABLES', chinese: '虾仁炒蔬菜', price: '7.95' },
-  { id: 'C16', name: 'CHICKEN W. MIX VEGETABLES', chinese: '鸡肉什锦蔬菜', price: '7.55' }
+  { id: 'C1', name: 'CHICKEN OR PORK CHOW MEIN', chinese: '鸡肉或猪肉炒面', price: '$7.55' },
+  { id: 'C2', name: 'CHICKEN OR PORK EGG FOO YOUNG', chinese: '鸡肉或猪肉芙蓉蛋', price: '$7.55' },
+  { id: 'C3', name: 'CHICKEN OR PORK LO MEIN', chinese: '鸡肉或猪肉捞面', price: '$7.55' },
+  { id: 'C4', name: 'SWEET & SOUR CHICKEN OR PORK', chinese: '糖醋鸡或糖醋猪肉', price: '$7.55' },
+  { id: 'C5', name: 'SWEET & SOUR SHRIMP', chinese: '糖醋虾', price: '$7.95' },
+  { id: 'C6', name: 'BARBECUED SPARE RIBS', chinese: '烤排骨', price: '$7.95' },
+  { id: 'C7', name: 'BONELESS RIBS', chinese: '无骨排骨', price: '$7.95' },
+  { id: 'C8', name: 'PEPPER STEAK W. ONION', chinese: '洋葱胡椒牛排', price: '$7.75' },
+  { id: 'C9', name: 'BEEF W. BROCCOLI', chinese: '西兰花牛肉', price: '$7.75' },
+  { id: 'C10', name: 'CHICKEN W. BROCCOLI', chinese: '西兰花鸡肉', price: '$7.75' },
+  { id: 'C11', name: 'SHRIMP W. BROCCOLI', chinese: '虾仁西兰花', price: '$7.95' },
+  { id: 'C12', name: 'ROAST PORK W. BROCCOLI', chinese: '西兰花烤猪肉', price: '$7.55' },
+  { id: 'C13', name: 'SHRIMP W. LOBSTER SAUCE', chinese: '龙虾酱虾', price: '$7.95' },
+  { id: 'C14', name: 'MOO GOO GAI PAN', chinese: '蘑菇鸡片', price: '$7.55' },
+  { id: 'C15', name: 'SHRIMP W. CHINESE VEGETABLES', chinese: '虾仁炒蔬菜', price: '$7.95' },
+  { id: 'C16', name: 'CHICKEN W. MIX VEGETABLES', chinese: '鸡肉什锦蔬菜', price: '$7.55' }
 ]
 
 // Limited lunch items array (L1-L16) - static array to avoid Vue DOM issues
 const limitedLunchItems = [
-  { id: 'L1', name: 'Chicken or Roast Pork Chow Mein', chinese: '雞或叉燒炒麵', price: '5.50' },
-  { id: 'L2', name: 'Shrimp or Beef Chow Mein', chinese: '蝦或牛炒麵', price: '5.50' },
-  { id: 'L3', name: 'Chicken or Roast Pork Lo Mein', chinese: '雞或叉燒撈麵', price: '5.50' },
-  { id: 'L4', name: 'Shrimp or Beef Lo Mein', chinese: '蝦或牛撈麵', price: '5.50' },
-  { id: 'L5', name: 'Beef With Broccoli', chinese: '芥蘭牛', price: '5.50' },
-  { id: 'L6', name: 'Chicken With Broccoli', chinese: '芥蘭雞', price: '5.50' },
-  { id: 'L7', name: 'Shrimp With Broccoli', chinese: '芥蘭蝦', price: '5.50' },
-  { id: 'L8', name: 'Roast Pork With Broccoli', chinese: '芥蘭叉燒', price: '5.50' },
-  { id: 'L9', name: 'Pepper Steak With Onion', chinese: '青椒牛', price: '5.50' },
-  { id: 'L10', name: 'Roast Pork With Chinese Vegs', chinese: '叉燒炒菜', price: '5.50' },
-  { id: 'L11', name: 'Moo Goo Gai Pan', chinese: '蘑菇雞', price: '5.50' },
-  { id: 'L12', name: 'Shrimp With Chinese Vegs', chinese: '蝦炒菜', price: '5.50' },
-  { id: 'L13', name: 'Beef With Chinese Vegs', chinese: '牛炒菜', price: '5.50' },
-  { id: 'L14', name: 'Sweet & Sour Chicken or Pork', chinese: '甜酸雞或豬', price: '5.50' },
-  { id: 'L15', name: 'Shrimp With Lobster Sauce', chinese: '龍蝦汁蝦', price: '5.50' },
-  { id: 'L16', name: 'Mixed Vegs With Brown Sauce', chinese: '什錦菜', price: '5.50' },
+  { id: 'L1', name: 'Chicken or Roast Pork Chow Mein', chinese: '雞或叉燒炒麵', price: '$5.50' },
+  { id: 'L2', name: 'Shrimp or Beef Chow Mein', chinese: '蝦或牛炒麵', price: '$5.50' },
+  { id: 'L3', name: 'Chicken or Roast Pork Lo Mein', chinese: '雞或叉燒撈麵', price: '$5.50' },
+  { id: 'L4', name: 'Shrimp or Beef Lo Mein', chinese: '蝦或牛撈麵', price: '$5.50' },
+  { id: 'L5', name: 'Beef With Broccoli', chinese: '芥蘭牛', price: '$5.50' },
+  { id: 'L6', name: 'Chicken With Broccoli', chinese: '芥蘭雞', price: '$5.50' },
+  { id: 'L7', name: 'Shrimp With Broccoli', chinese: '芥蘭蝦', price: '$5.50' },
+  { id: 'L8', name: 'Roast Pork With Broccoli', chinese: '芥蘭叉燒', price: '$5.50' },
+  { id: 'L9', name: 'Pepper Steak With Onion', chinese: '青椒牛', price: '$5.50' },
+  { id: 'L10', name: 'Roast Pork With Chinese Vegs', chinese: '叉燒炒菜', price: '$5.50' },
+  { id: 'L11', name: 'Moo Goo Gai Pan', chinese: '蘑菇雞', price: '$5.50' },
+  { id: 'L12', name: 'Shrimp With Chinese Vegs', chinese: '蝦炒菜', price: '$5.50' },
+  { id: 'L13', name: 'Beef With Chinese Vegs', chinese: '牛炒菜', price: '$5.50' },
+  { id: 'L14', name: 'Sweet & Sour Chicken or Pork', chinese: '甜酸雞或豬', price: '$5.50' },
+  { id: 'L15', name: 'Shrimp With Lobster Sauce', chinese: '龍蝦汁蝦', price: '$5.50' },
+  { id: 'L16', name: 'Mixed Vegs With Brown Sauce', chinese: '什錦菜', price: '$5.50' },
 ]
 
 // Computed property for current lunch items with error handling
