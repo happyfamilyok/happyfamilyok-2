@@ -1104,7 +1104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 py-10 max-w-[1440px] ">
+                <div class="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 py-10 max-w-[1330px] ">
                     <div class="flex-1 bg-white/70 rounded-2xl p-4 shadow-md" id="chicken">
                         <div class="text-center mb-4">
                             <h2 class="text-2xl font-bold font-viola">CHICKEN</h2>
@@ -1305,7 +1305,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="relative w-full mx-auto py-10 max-w-[1440px]">
+                <div class="relative w-full mx-auto py-10 max-w-[1330px]">
                     <!-- MARK: Seafood Section -->
                     <div class="flex justify-between items-center mb-6">
                         <!-- MARK: Left Image -->
@@ -1426,7 +1426,7 @@
                         class="bg-red-700 text-white text-center text-xl font-semibold font-viola mt-8 py-3 rounded-xl">
                         HOT AND SPICY <br /><span class="text-base">辛辣</span></div>
                 </div>
-                <div class="relative w-full mx-auto py-8 max-w-[1440px]" id="special-combination-platter">
+                <div class="relative w-full mx-auto py-8 max-w-[1330px]" id="special-combination-platter">
                     <div class="text-center mb-8">
                         <h2 class="text-2xl font-bold tracking-wide uppercase font-viola">SPECIAL COMBINATION PLATTER</h2>
                         <p class="text-lg text-gray-600">(Each plate served w. egg roll or egg drop or hot &amp; sour soup)</p>
@@ -1466,7 +1466,7 @@
                     </div><img src="/assets/special-platter/special.png" alt="Special Platter"
                         class="absolute right-0 bottom-[-60px] transform -translate-y-1/2 h-auto" />
                 </div>
-                <div class="w-full bg-white p-6 rounded-md my-8 max-w-[1440px]" id="chef-specialties">
+                <div class="w-full bg-white p-6 rounded-md my-8 max-w-[1330px] mx-auto" id="chef-specialties">
                     <div class="text-center">
                         <h1 class="text-3xl tracking-wider font-viola">CHEF&#x27;S SPECIALTIES</h1>
                         <p class="text-lg mt-1">厨师特色菜</p>
@@ -1655,7 +1655,7 @@
                     </div>
                 </div>
                 <div
-                    class="flex flex-col lg:flex-row gap-4 lg:gap-[20px] w-full max-w-[1440px] mx-auto mb-[48px] sm:mb-[72px] lg:mb-[96px] px-4">
+                    class="flex flex-col lg:flex-row gap-4 lg:gap-[20px] w-full max-w-[1330px] mx-auto mb-[48px] sm:mb-[72px] lg:mb-[96px] px-4">
                     <div
                         class="flex flex-col gap-5 sm:gap-6 lg:gap-[28px] justify-start items-center w-full lg:flex-1 min-w-0" id="sweet-sour">
                         <div class="flex flex-col items-center">
