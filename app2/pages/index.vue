@@ -959,15 +959,15 @@
                             </div>
                         </div>
                         -->
-                        <div class="text-center text-yellow-200 mt-10 mb-6" id="beef">
+                        <div class="text-center text-yellow-200 mt-10 mb-6 bg-black" id="beef">
                             <h2 class="text-3xl font-bold font-viola">BEEF</h2>
                             <p class="text-xl">牛肉</p>
                         </div>
-                        <div class="bg-gray-600 text-center text-white py-2 mb-4 rounded-md">
+                        <div class="bg-gray-600 text-center text-white py-2 mb-4 rounded-md bg-black">
                             <p>(W. WHITE RICE)</p>
                             <p class="text-sm">配白米饭</p>
                         </div>
-                        <div class="px-10 pb-6">
+                        <div class="px-10 pb-6 bg-black">
                             <table class="w-full text-left border-collapse" role="menu" aria-label="Beef Menu">
                                 <thead>
                                     <tr class="bg-gray-600 text-white text-sm md:text-base">
