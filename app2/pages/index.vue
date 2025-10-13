@@ -303,7 +303,7 @@
                                                 height="24" class="w-[24px] h-[24px]" /></div>
                                         <p
                                             class="text-[14px] sm:text-[16px] lg:text-[18px] font-roboto font-normal leading-[18px] sm:leading-[20px] lg:leading-[22px] text-global-1">
-                                            <span>405-366-0786</span><span> / </span><span>405-366-07864</span></p>
+                                            <span>405-366-0786</span><span> / </span><span>405-366-0784</span></p>
                                     </div>
                                 </a>
                             </div>
