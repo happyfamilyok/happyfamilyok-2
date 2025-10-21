@@ -67,12 +67,62 @@
                 </div>
     </div>
 </template>
-
 <script>
 export default {
     name: "LunchSpecial",
+    data() {
+        return {
+            showAllLunchItems: false,
+            LunchItems: [
+            { id: 'L1', name: 'Chicken or Roast Pork Chow Mein', chinese: '雞或叉燒炒麵', price: '$5.50' },
+            { id: 'L2', name: 'Shrimp or Beef Chow Mein', chinese: '蝦或牛炒麵', price: '$5.50' },
+            { id: 'L3', name: 'Chicken or Roast Pork Lo Mein', chinese: '雞或叉燒撈麵', price: '$5.50' },
+            { id: 'L4', name: 'Shrimp or Beef Lo Mein', chinese: '蝦或牛撈麵', price: '$5.50' },
+            { id: 'L5', name: 'Beef With Broccoli', chinese: '芥蘭牛', price: '$5.50' },
+            { id: 'L6', name: 'Chicken With Broccoli', chinese: '芥蘭雞', price: '$5.50' },
+            { id: 'L7', name: 'Shrimp With Broccoli', chinese: '芥蘭蝦', price: '$5.50' },
+            { id: 'L8', name: 'Roast Pork With Broccoli', chinese: '芥蘭叉燒', price: '$5.50' },
+            { id: 'L9', name: 'Pepper Steak With Onion', chinese: '青椒牛', price: '$5.50' },
+            { id: 'L10', name: 'Roast Pork With Chinese Vegs', chinese: '叉燒炒菜', price: '$5.50' },
+            { id: 'L11', name: 'Moo Goo Gai Pan', chinese: '蘑菇雞', price: '$5.50' },
+            { id: 'L12', name: 'Shrimp With Chinese Vegs', chinese: '蝦炒菜', price: '$5.50' },
+            { id: 'L13', name: 'Beef With Chinese Vegs', chinese: '牛炒菜', price: '$5.50' },
+            { id: 'L14', name: 'Sweet & Sour Chicken or Pork', chinese: '甜酸雞或豬', price: '$5.50' },
+            { id: 'L15', name: 'Shrimp With Lobster Sauce', chinese: '龍蝦汁蝦', price: '$5.50' },
+            { id: 'L16', name: 'Mixed Vegs With Brown Sauce', chinese: '什錦菜', price: '$5.50' },
+            { id: 'L17', name: 'Shrimp With Cashew Nuts', chinese: '腰果蝦', price: '$5.50' },
+            { id: 'L18', name: 'Chicken With Cashew Nuts', chinese: '腰果雞', price: '$5.50' },
+            { id: 'L19', name: 'Sesame Chicken', chinese: '芝麻雞', price: '$5.50' },
+            { id: 'L20', name: 'General Tso\'s Chicken', chinese: '左宗棠雞', price: '$5.50', spicy: true },
+            { id: 'L21', name: 'Beef With Garlic Sauce', chinese: '魚香牛', price: '$5.50', spicy: true },
+            { id: 'L22', name: 'Chicken With Garlic Sauce', chinese: '魚香雞', price: '$5.50', spicy: true },
+            { id: 'L23', name: 'Shrimp With Garlic Sauce', chinese: '魚香蝦', price: '$5.50', spicy: true },
+            { id: 'L24', name: 'Broccoli With Garlic Sauce', chinese: '魚香芥蘭', price: '$5.50', spicy: true },
+            { id: 'L25', name: 'Kung Po Chicken', chinese: '宮保雞', price: '$5.50', spicy: true },
+            { id: 'L26', name: 'Szechuan Beef', chinese: '四川牛', price: '$5.50', spicy: true },
+            { id: 'L27', name: 'Szechuan Chicken', chinese: '四川雞', price: '$5.50', spicy: true },
+            { id: 'L28', name: 'Szechuan Shrimp', chinese: '四川蝦', price: '$5.50', spicy: true },
+            { id: 'L29', name: 'Hunan Beef', chinese: '湖南牛', price: '$5.50', spicy: true },
+            { id: 'L30', name: 'Hunan Chicken', chinese: '湖南雞', price: '$5.50', spicy: true },
+            { id: 'L31', name: 'Hunan Shrimp', chinese: '湖南蝦', price: '$5.50', spicy: true },
+            { id: 'L32', name: 'Mongolian Chicken', chinese: '蒙古雞', price: '$5.50', spicy: true },
+            { id: 'L33', name: 'Mongolian Beef', chinese: '蒙古牛', price: '$5.50', spicy: true },
+            { id: 'L34', name: 'Boneless Spare Ribs', chinese: '無骨排骨', price: '$5.50' }
+        ]
+        };
+    },
+    computed: {
+        currentLunchItems() {
+            return this.showAllLunchItems ? this.LunchItems : this.LunchItems.slice(0, 16);
+            
+        }
+    },
+    methods: {
+        handleToggleLunchItems() {
+            this.showAllLunchItems = !this.showAllLunchItems;
+        }
+    }
 }
-
 </script>
 
 <style>

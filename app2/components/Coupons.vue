@@ -3,7 +3,7 @@
         <!-- Coupons Section -->
             <div class="w-full bg-[#8B1C1B] flex flex-col items-center py-8 relative" id="coupons">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center px-4" role="menu" aria-label="Coupons">
-                    <div class="relative bg-white border-3 border-dashed border-red-600 w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                    <div class="relative bg-white fancy-border w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                          role="menuitem" 
                          tabindex="0" 
                          @keydown.enter="() => {}" 
@@ -17,7 +17,7 @@
                         <p class="mt-2 text-sm whitespace-pre-line">coupon cannot be combined w. other offer
                             lunch special not included</p>
                     </div>
-                    <div class="relative bg-white border-3 border-dashed border-red-600 w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                    <div class="relative bg-white fancy-border w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                          role="menuitem" 
                          tabindex="0" 
                          @keydown.enter="() => {}" 
@@ -30,7 +30,7 @@
                         <p class="mt-2 text-sm whitespace-pre-line">coupon cannot be combined w. other offer
                             lunch special not included</p>
                     </div>
-                    <div class="relative bg-white border-3 border-dashed border-red-600 w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                    <div class="relative bg-white fancy-border w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                          role="menuitem" 
                          tabindex="0" 
                          @keydown.enter="() => {}" 
@@ -42,7 +42,7 @@
                         <p class="mt-2 text-sm whitespace-pre-line">coupon cannot be combined w. other offer
                             lunch special not included</p>
                     </div>
-                    <div class="relative bg-white border-3 border-dashed border-red-600 w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
+                    <div class="relative bg-white fancy-border w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                          role="menuitem" 
                          tabindex="0" 
                          @keydown.enter="() => {}" 

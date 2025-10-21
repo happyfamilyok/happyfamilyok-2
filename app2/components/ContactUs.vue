@@ -1,7 +1,6 @@
 <template>
     <div>
   <div class="w-full min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center">
-           
             <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[60px]">
                 <div
                     class="flex flex-col gap-6 sm:gap-8 lg:gap-[32px] justify-start items-center w-full mb-[47px] sm:mb-[70px] lg:mb-[94px]">
@@ -11,21 +10,28 @@
                             Contact us</h2>
                         <div class="flex flex-col lg:flex-row gap-4 lg:gap-[20px] justify-center items-center w-full">
                             <div class="flex flex-col lg:flex-row gap-4 lg:gap-[20px] justify-start items-stretch w-full px-4 sm:px-6 lg:px-[60px]">
-                                <!-- Location Card - Clickable -->
-                                <a href="https://maps.apple.com/place?place-id=I84F0D62EE9430787&address=1219+Alameda+St%2C+Norman%2C+OK++73071%2C+United+States&coordinate=35.2196833%2C-97.4218639&name=Happy+Family+Chinese+Restaurant&_provider=9902"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="flex flex-row justify-start items-start w-full lg:w-[650px] bg-global-5 rounded-[22px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-4 lg:p-[20px] cursor-pointer transform transition-all duration-200 hover:scale-105 hover:shadow-lg">
-                                    <div class="flex flex-col gap-3 lg:gap-[16px] justify-start items-start w-full">
-                                        <div
-                                            class="flex justify-start items-center w-auto bg-global-5 rounded-[40px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-6 lg:p-[28px]">
-                                            <img src="/images/img_octicon_location_24.svg" alt="Location" width="24"
-                                                height="24" class="w-[24px] h-[24px]" /></div>
-                                        <p
-                                            class="text-[14px] sm:text-[16px] lg:text-[18px] font-roboto font-normal leading-[24px] sm:leading-[28px] lg:leading-[31px] text-global-1">
-                                            Heisman Square Shopping Center 1219 E. Alameda St. Norman, <br />OK, 73071.</p>
-                                    </div>
-                                </a>
+                                <div class="overflow-hidden rounded-lg bg-white shadow-sm">
+  <div class="px-4 py-5 sm:p-6">
+    <!-- Content goes here -->
+
+    <!-- Location Card - Clickable -->
+    <a href="https://maps.apple.com/place?place-id=I84F0D62EE9430787&address=1219+Alameda+St%2C+Norman%2C+OK++73071%2C+United+States&coordinate=35.2196833%2C-97.4218639&name=Happy+Family+Chinese+Restaurant&_provider=9902"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="flex flex-row justify-start items-start w-full lg:w-[650px] bg-global-5 rounded-[22px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-4 lg:p-[20px] cursor-pointer transform transition-all duration-200 hover:scale-105 hover:shadow-lg">
+        <div class="flex flex-col gap-3 lg:gap-[16px] justify-start items-start w-full">
+            <div
+                class="flex justify-start items-center w-auto bg-global-5 rounded-[40px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-6 lg:p-[28px]">
+                <img src="/images/img_octicon_location_24.svg" alt="Location" width="24"
+                    height="24" class="w-[24px] h-[24px]" /></div>
+            <p
+                class="text-[14px] sm:text-[16px] lg:text-[18px] font-roboto font-normal leading-[24px] sm:leading-[28px] lg:leading-[31px] text-global-1">
+                Heisman Square Shopping Center 1219 E. Alameda St. Norman, <br />OK, 73071.</p>
+        </div>
+    </a>
+  </div>
+</div>
+
                                 <!-- Phone Card - Clickable -->
                                 <a href="tel:405-366-0786"
                                    class="flex flex-row justify-start items-start w-full lg:w-[650px] bg-global-5 rounded-[22px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-4 lg:p-[20px] cursor-pointer transform transition-all duration-200 hover:scale-105 hover:shadow-lg">

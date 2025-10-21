@@ -2,11 +2,35 @@
   <div>
     <Navbar />
     <FloatingBtn />
+    <div class="container mx-auto sm:px-6 lg:px-8">
+  <!-- Content goes here -->
+
     <Hero />
     <ContactUs />
     <KidsMenu />
     <Popular />
     <LunchSpecial />
+    <Appetizers />
+    <Soup />
+    <FriedRice />
+    <ChowMein />
+    <HotAndSpicy />
+    <LoMein />
+    <ChowMaiFun />
+    <EggFooYoung />
+    <Beef />
+    <HotAndSpicy2 />
+    <Chicken />
+    <Pork />
+    <Seafood />
+    <HotAndSpicy3 />
+    <SpecialCombination />
+    <ChefsSpecialties />
+    <SweetAndSour />
+    <MooShu />
+    <Vegetables />
+    <Coupons />
+</div>
   </div>
 </template>
 

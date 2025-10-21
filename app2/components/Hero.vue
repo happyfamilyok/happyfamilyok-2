@@ -1,6 +1,6 @@
 <template>
     <div>
- <div class="w-full h-screen relative min-h-screen overflow-hidden flex flex-col items-center bg-[url(/assets/img_light_gradient_08.png)] bg-stretch bg-center bg-no-repeat bg-red-500">
+ <div class="w-full h-screen relative min-h-screen overflow-hidden flex flex-col items-center bg-[url(/assets/img_light_gradient_08.png)] bg-stretch bg-center bg-no-repeat">
               <!--  <header class="fixed top-4 left-1/2 w-11/12 max-w-[1440px] bg-global-5 shadow-md border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] rounded-[50px] px-4 sm:px-6 lg:px-8 py-0 sm:py-5 lg:py-[0px] z-50 transition-all duration-300 backdrop-blur-md navbar-center">
                     <div class="w-full max-w-[1440px] mx-auto relative">
                         <div class="flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-0">
