@@ -1,0 +1,41 @@
+                <!-- TODO: This section has collision when screen is small, need to fix it later -->
+                <!--
+                <div class="mx-auto w-full">
+                    <div class="relative bg-black overflow-hidden shadow-lg mb-12">
+                        <div class="relative w-full flex justify-center items-center">
+                            <div
+                                class="bg-gradient-to-t from-[#A7B0B7] via-[#D7D7D7] to-[#8D7C96] w-[90%] sm:w-[95%] h-[30px] sm:h-[40px] relative flex justify-center items-center rounded-none my-4">
+                                <div
+                                    class="absolute left-[-12px] top-[-8px] bottom-0 bg-gradient-to-t from-[#A7B0B7] via-[#D7D7D7] to-[#8D7C96] w-[18px] sm:w-[22px] h-[50px] border-l-1 border-gray-800">
+                                </div>
+                                <div
+                                    class="absolute right-[-12px] top-[-8px] bottom-[0] bg-gradient-to-t from-[#A7B0B7] via-[#D7D7D7] to-[#8D7C96] w-[18px] sm:w-[22px] h-[50px] border-r-1 border-gray-800">
+                                </div>
+                                <div class="absolute -bottom-28 left-0"><img src="/assets/beef/download (1).png"
+                                        alt="dish-left" class=" h-36 object-contain" />
+                                    <h2 class="w-full absolute text-3xl font-bold top-[50%] left-[5%] text-[#FFFFFF]">
+                                        Pepper Steak w. Onion</h2>
+                                </div>
+                                <div class="absolute -bottom-30 right-0"><img src="/assets/beef/download (2).png"
+                                        alt="dish-right" class=" h-36 object-contain" />
+                                    <h2 class="w-full text-3xl absolute top-[50%] right-[5%] font-bold text-[#FFFFFF]">
+                                        Pepper Steak w. Onion</h2>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+
+
+
+                                              <!--
+                        <div class="relative w-full flex justify-center items-center">
+                            <div
+                                class="bg-gradient-to-t from-[#A7B0B7] via-[#D7D7D7] to-[#8D7C96] w-[90%] sm:w-[95%] h-[30px] sm:h-[40px] relative flex justify-center items-center rounded-none my-4">
+                                <div
+                                    class="absolute left-[-12px] top-[-6px] bottom-0 bg-gradient-to-t from-[#A7B0B7] via-[#D7D7D7] to-[#8D7C96] w-[18px] sm:w-[22px] h-[50px] border-l-1 border-gray-800">
+                                </div>
+                                <div
+                                    class="absolute right-[-12px] top-[-6px] bottom-0 bg-gradient-to-t from-[#A7B0B7] via-[#D7D7D7] to-[#8D7C96] w-[18px] sm:w-[22px] h-[50px] border-r-1 border-gray-800">
+                                </div>
+                            </div>
+                        </div>0-->
