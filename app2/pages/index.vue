@@ -8,9 +8,9 @@
     <div style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)" class="aspect-577/310 w-144.25 bg-linear-to-r from-[#ff80b5] to-[#9089fc] opacity-30"></div>
   </div>
   <div class="flex flex-wrap items-center gap-x-4 gap-y-2 animate__rubberBand">
-    <p class="text-sm/6 text-gray-900">
-      <strong class="font-semibold"><i class="fa-duotone fa-solid fa-bullhorn"></i>COMING SOON: We've officially partnered with Doordash to Deliver Your Favorite Meals.</strong><br/>Pay with any major credit card or Apple Pay delivered right to your door!
-    </p>
+    <a href="https://www.doordash.com/store/happy-family-chinese-restaurant-norman-36737771/82709946/"><p class="text-sm/6 text-gray-900">
+      <strong class="font-semibold"><i class="fa-duotone fa-solid fa-bullhorn"></i>We've officially LIVE with Doordash to Deliver Your Favorite Meals.</strong><br/>Pay with any major credit card or Apple Pay delivered right to your door!
+    </p></a>
   </div>
   <div class="flex flex-1 justify-end">
     <button type="button" class="-m-3 p-3 focus-visible:-outline-offset-4">
