@@ -92,9 +92,7 @@ nitro: {
         'X-Content-Type-Options': 'nosniff',
         'X-Frame-Options': 'DENY',
         'X-XSS-Protection': '1; mode=block'
-      }
-        { rel: 'apple-touch-icon', href: '/favicon.png' },
-      ],
+      },
     }
   }
 },
