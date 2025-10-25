@@ -26,6 +26,7 @@ export default defineNuxtConfig({
         { name: 'referrer', content: 'no-referrer-when-downgrade' }
       ],
       script: [
+        //GOOGLE ANALYTICS MANAGER
         {
           async: true,
           src: 'https://www.googletagmanager.com/gtag/js?id=G-PSKN1R7CLW'
@@ -56,7 +57,22 @@ export default defineNuxtConfig({
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
           `,
           type: 'text/javascript'
-        }
+        },
+
+        //GOOGLE ADS MANAGER
+         {
+          async: true,
+          src: 'https://www.googletagmanager.com/gtag/js?id=AW-606049347'
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-606049347');
+          `,
+          type: 'text/javascript'
+        },
       ],
       link: [
         { rel: 'icon', href: '/favicon.ico' },
