@@ -88,12 +88,13 @@ nitro: {
       headers: {
         'Content-Security-Policy': `
           default-src 'self' https:;
-          
+
           connect-src 'self' https: wss://ws.hotjar.com
             https://cdn.apple-mapkit.com
             https://www.googletagmanager.com
             https://www.google-analytics.com
             https://googleads.g.doubleclick.net
+            https://*.doubleclick.net
             https://www.googleadservices.com
             https://tpc.googlesyndication.com
             https://www.gstatic.com
@@ -106,6 +107,7 @@ nitro: {
             https://www.googletagmanager.com
             https://www.google-analytics.com
             https://googleads.g.doubleclick.net
+            https://*.doubleclick.net
             https://www.googleadservices.com
             https://tpc.googlesyndication.com
             https://www.gstatic.com
@@ -121,6 +123,7 @@ nitro: {
             https://www.google-analytics.com
             https://www.googletagmanager.com
             https://googleads.g.doubleclick.net
+            https://*.doubleclick.net
             https://www.googleadservices.com
             https://tpc.googlesyndication.com
             https://static.hotjar.com
@@ -133,14 +136,19 @@ nitro: {
 
           frame-src 'self' blob:
             https://www.googletagmanager.com
+            https://www.googletagmanager.com/static/service_worker/
             https://www.googleadservices.com
             https://googleads.g.doubleclick.net
+            https://*.doubleclick.net
             https://tpc.googlesyndication.com
             https://cdn.apple-mapkit.com
             https://static.hotjar.com
             https://www.gstatic.com;
 
-          worker-src 'self' blob: https://www.googletagmanager.com https://cdn.apple-mapkit.com;
+          worker-src 'self' blob: data:
+            https://www.googletagmanager.com
+            https://www.googletagmanager.com/static/service_worker/
+            https://cdn.apple-mapkit.com;
 
           child-src 'self' blob:;
         `.replace(/\s+/g, ' ').trim(),
