@@ -82,19 +82,20 @@ export default defineNuxtConfig({
       ]
     }
   },
- nitro: {
+nitro: {
   routeRules: {
     '/**': {
       headers: {
         'Content-Security-Policy': `
           default-src 'self' https:;
-          connect-src 'self' https: wss://ws.hotjar.com https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com https://script.hotjar.com;
-          script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://www.googletagmanager.com https://static.hotjar.com https://script.hotjar.com https://www.google-analytics.com;
+          connect-src 'self' https: wss://ws.hotjar.com https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com https://script.hotjar.com https://googleads.g.doubleclick.net https://www.googleadservices.com;
+          script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://script.hotjar.com https://googleads.g.doubleclick.net https://www.googleadservices.com;
           style-src 'self' 'unsafe-inline' https: https://static.hotjar.com;
-          img-src 'self' data: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com;
+          img-src 'self' data: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com https://googleads.g.doubleclick.net https://www.googleadservices.com;
           font-src 'self' https: data: https://static.hotjar.com;
-          frame-src https://static.hotjar.com https://www.googletagmanager.com;
+          frame-src 'self' https://static.hotjar.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net;
           worker-src 'self' blob:;
+          child-src 'self' blob:;
         `.replace(/\s+/g, ' ').trim(),
         'X-Content-Type-Options': 'nosniff',
         'X-Frame-Options': 'DENY',
