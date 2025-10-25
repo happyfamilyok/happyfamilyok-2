@@ -1,8 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
 
-// Mixed Content Configuration:
-// Uses server-side proxy to avoid mixed content issues with HTTP endpoint
-
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
@@ -103,11 +100,11 @@ export default defineNuxtConfig({
           'X-XSS-Protection': '1; mode=block'
         }
       }
+        { rel: 'apple-touch-icon', href: '/favicon.png' },
+      ],
     }
   },
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+    plugins: [tailwindcss()],
   },
 });
