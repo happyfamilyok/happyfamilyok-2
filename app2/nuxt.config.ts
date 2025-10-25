@@ -82,18 +82,27 @@ export default defineNuxtConfig({
       ]
     }
   },
-  nitro: {
-    routeRules: {
-      '/**': {
-        headers: {
-          'Content-Security-Policy': "default-src 'self' https:; connect-src 'self' https: https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com https://script.hotjar.com wss://ws.hotjar.com; https://www.googletagmanager.com/gtag/js?id=AW-606049347;  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://www.googletagmanager.com https://static.hotjar.com https://script.hotjar.com; style-src 'self' 'unsafe-inline' https: https://static.hotjar.com; img-src 'self' data: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com; font-src 'self' https: data: https://static.hotjar.com; frame-src https://static.hotjar.com; https://www.googletagmanager.com/gtag/js?id=AW-606049347;",
-          'X-Content-Type-Options': 'nosniff',
-          'X-Frame-Options': 'DENY',
-          'X-XSS-Protection': '1; mode=block'
-        }
+ nitro: {
+  routeRules: {
+    '/**': {
+      headers: {
+        'Content-Security-Policy': `
+          default-src 'self' https:;
+          connect-src 'self' https: wss://ws.hotjar.com https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com https://script.hotjar.com;
+          script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://www.googletagmanager.com https://static.hotjar.com https://script.hotjar.com https://www.google-analytics.com;
+          style-src 'self' 'unsafe-inline' https: https://static.hotjar.com;
+          img-src 'self' data: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com;
+          font-src 'self' https: data: https://static.hotjar.com;
+          frame-src https://static.hotjar.com https://www.googletagmanager.com;
+          worker-src 'self' blob:;
+        `.replace(/\s+/g, ' ').trim(),
+        'X-Content-Type-Options': 'nosniff',
+        'X-Frame-Options': 'DENY',
+        'X-XSS-Protection': '1; mode=block'
       }
     }
-  },
+  }
+},
   vite: {
     plugins: [
       tailwindcss(),
