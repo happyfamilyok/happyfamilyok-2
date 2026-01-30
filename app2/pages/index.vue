@@ -226,7 +226,7 @@
                        rel="noopener noreferrer"
                        class="block transition-all duration-300 hover:scale-110"
                        aria-label="Visit our Yelp page">
-                        <div class="rounded-xl p-4 flex flex-col items-center cursor-pointer hover:shadow-xl transition-all duration-300">
+                        <div class="rounded-xl p-4 flex flex-col items-center cursor-pointer hover:shadow-xl transition-all duration-300 bg-white/80">
                             <p class="text-sm text-black">We're on yelp!</p>
                             <img src="/assets/link/yelp (1).gif" alt="yelp qr"
                                 class="w-20 sm:w-40 sm:h-50 h-30 mt-2" />
@@ -239,7 +239,7 @@
                        rel="noopener noreferrer"
                        class="block transition-all duration-300 hover:scale-110"
                        aria-label="Visit our TripAdvisor page">
-                        <div class="rounded-xl p-4 flex flex-col items-center cursor-pointer hover:shadow-xl transition-all duration-300">
+                        <div class="rounded-xl p-4 flex flex-col items-center cursor-pointer hover:shadow-xl transition-all duration-300 bg-white/80">
                             <p class="text-sm text-black">We're on Tripadvisor!</p>
                             <img src="/assets/link/yelp (2).gif" alt="Tripadvisor qr"
                                 class="w-20 sm:w-40 sm:h-50 h-30 mt-2" />
@@ -268,7 +268,7 @@
 </a>
 
             </div>
-            <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[60px] bg-[url(/images/new2/image178.png)] bg-cover bg-center bg-no-repeat">
+            <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[60px] bg-white bg-[url(/images/new2/image178.png)] bg-cover bg-center bg-no-repeat">
                 <div
                     class="flex flex-col gap-6 sm:gap-8 lg:gap-[32px] justify-start items-center w-full mb-[47px] sm:mb-[70px] lg:mb-[94px]">
                     <div class="flex flex-col gap-6 sm:gap-8 lg:gap-[42px] justify-start items-center flex-1">
