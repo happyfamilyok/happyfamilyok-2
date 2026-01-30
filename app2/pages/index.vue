@@ -226,8 +226,8 @@
                        rel="noopener noreferrer"
                        class="block transition-all duration-300 hover:scale-110"
                        aria-label="Visit our Yelp page">
-                        <div class="rounded-xl p-4 flex flex-col items-center text-white cursor-pointer hover:shadow-xl transition-all duration-300">
-                            <p class="text-sm text-black">We're on yelp!</p>
+                        <div class="bg-red-500/80 rounded-xl p-4 shadow-lg flex flex-col items-center text-white cursor-pointer hover:bg-red-600/90 hover:shadow-xl transition-all duration-300">
+                            <p class="text-sm">We're on yelp!</p>
                             <img src="/assets/link/yelp (1).gif" alt="yelp qr"
                                 class="w-20 sm:w-40 sm:h-50 h-30 mt-2" />
                         </div>
@@ -239,8 +239,8 @@
                        rel="noopener noreferrer"
                        class="block transition-all duration-300 hover:scale-110"
                        aria-label="Visit our TripAdvisor page">
-                        <div class="rounded-xl p-4 flex flex-col items-center text-white cursor-pointer hover:shadow-xl transition-all duration-300">
-                            <p class="text-sm text-black">We're on Tripadvisor!</p>
+                        <div class="bg-red-500/80 rounded-xl p-4 shadow-lg flex flex-col items-center text-white cursor-pointer hover:bg-red-600/90 hover:shadow-xl transition-all duration-300">
+                            <p class="text-sm">We're on Tripadvisor!</p>
                             <img src="/assets/link/yelp (2).gif" alt="Tripadvisor qr"
                                 class="w-20 sm:w-40 sm:h-50 h-30 mt-2" />
                         </div>
