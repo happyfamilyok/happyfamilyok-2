@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     head: {
       title: 'Happy Family《家家樂》',
       meta: [
-        { 
+        /*{ 
           name: 'Content-Security-Policy', 
           content: `
             default-src 'self' https:;
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
             frame-src https://static.hotjar.com https://www.googletagmanager.com;
             worker-src 'self' blob:;
           `
-        },
+        },*/
         { name: 'referrer', content: 'no-referrer-when-downgrade' }
       ],
       script: [
@@ -84,7 +84,7 @@ export default defineNuxtConfig({
       ]
     }
   },
-nitro: {
+/*nitro: {
   routeRules: {
     '/**': {
       headers: {
@@ -95,7 +95,7 @@ nitro: {
       }
     }
   }
-},
+},*/
   vite: {
     plugins: [tailwindcss()],
   },
