@@ -1,4 +1,5 @@
 <?php
+//GPG test
 // Set timezone to Eastern Time (EST/EDT)
 date_default_timezone_set('America/New_York');
 
