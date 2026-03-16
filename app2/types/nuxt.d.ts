@@ -1,0 +1,7 @@
+declare module '#app' {
+  interface NuxtPayload {
+    cspNonce?: string
+  }
+}
+
+export {}
