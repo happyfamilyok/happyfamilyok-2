@@ -220,28 +220,36 @@
                     <div class="text-sm font-bold w-16 h-16 flex items-center justify-center bg-white/70 msg-badge-crossed">MSG <br />
                         没有味精</div>
                 </div>
-                <div class="fixed right-6 top-1/3 z-40">
+                <div
+                    class="review-badge review-badge--right fixed right-6 top-1/3 z-40"
+                    :class="{ 'review-badge--off': isPastFold }"
+                    :aria-hidden="isPastFold">
                     <a href="https://www.yelp.com/biz/happy-family-chinese-restaurant-norman" 
                        target="_blank" 
                        rel="noopener noreferrer"
                        class="block transition-all duration-300 hover:scale-110"
-                       aria-label="Visit our Yelp page">
+                       aria-label="Visit our Yelp page"
+                       :tabindex="isPastFold ? -1 : 0">
                         <div class="bg-red-500/80 rounded-xl p-4 shadow-lg flex flex-col items-center text-white cursor-pointer hover:bg-red-600/90 hover:shadow-xl transition-all duration-300">
                             <p class="text-sm">We're on yelp!</p>
-                            <img src="/assets/link/yelp (1).gif" alt="yelp qr"
+                            <img v-show="!pauseReviewGifs" src="/assets/link/yelp (1).gif" alt="yelp qr"
                                 class="w-20 sm:w-40 sm:h-50 h-30 mt-2" />
                         </div>
                     </a>
                 </div>
-                <div class="fixed left-6 top-1/3 z-40">
+                <div
+                    class="review-badge review-badge--left fixed left-6 top-1/3 z-40"
+                    :class="{ 'review-badge--off': isPastFold }"
+                    :aria-hidden="isPastFold">
                     <a href="https://www.tripadvisor.com/Restaurant_Review-g51547-d4706231-Reviews-Happy_Family_Chinese_Restaurant-Norman_Oklahoma.html" 
                        target="_blank" 
                        rel="noopener noreferrer"
                        class="block transition-all duration-300 hover:scale-110"
-                       aria-label="Visit our TripAdvisor page">
+                       aria-label="Visit our TripAdvisor page"
+                       :tabindex="isPastFold ? -1 : 0">
                         <div class="bg-red-500/80 rounded-xl p-4 shadow-lg flex flex-col items-center text-white cursor-pointer hover:bg-red-600/90 hover:shadow-xl transition-all duration-300">
                             <p class="text-sm">We're on Tripadvisor!</p>
-                            <img src="/assets/link/yelp (2).gif" alt="Tripadvisor qr"
+                            <img v-show="!pauseReviewGifs" src="/assets/link/yelp (2).gif" alt="Tripadvisor qr"
                                 class="w-20 sm:w-40 sm:h-50 h-30 mt-2" />
                         </div>
                     </a>
@@ -2026,6 +2034,25 @@
     transform: scale(1.15);
   }
 }
+
+.review-badge {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s ease, visibility 0s linear 0s;
+}
+
+.review-badge--off {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s ease, visibility 0s linear 0.6s;
+}
+
+.review-badge--right.review-badge--off {
+  transform: translateX(calc(100% + 2rem));
+}
+
+.review-badge--left.review-badge--off {
+  transform: translateX(calc(-100% - 2rem));
+}
 </style>
 <script setup>
 import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
@@ -2035,6 +2062,31 @@ const isMobileMenuOpen = ref(false)
 
 // Price banner dismiss state
 const isPriceBannerVisible = ref(true)
+
+// Hide Yelp / TripAdvisor badges after scrolling past the fold
+const isPastFold = ref(false)
+const pauseReviewGifs = ref(false)
+const REVIEW_BADGE_HIDE_MS = 600
+let reviewGifPauseTimer = null
+
+const updatePastFold = () => {
+  const pastFold = window.scrollY >= window.innerHeight
+  isPastFold.value = pastFold
+
+  if (reviewGifPauseTimer) {
+    clearTimeout(reviewGifPauseTimer)
+    reviewGifPauseTimer = null
+  }
+
+  if (pastFold) {
+    reviewGifPauseTimer = setTimeout(() => {
+      pauseReviewGifs.value = true
+      reviewGifPauseTimer = null
+    }, REVIEW_BADGE_HIDE_MS)
+  } else {
+    pauseReviewGifs.value = false
+  }
+}
 
 // Show all menu sections state
 const showAllMenuSections = ref(false)
@@ -2831,6 +2883,9 @@ const handleEscapeKey = (event) => {
 // Setup event listeners on mount
 onMounted(() => {
   document.addEventListener('keydown', handleEscapeKey)
+  window.addEventListener('scroll', updatePastFold, { passive: true })
+  window.addEventListener('resize', updatePastFold)
+  updatePastFold()
   
   // Initialize Apple Maps with proper DOM ready check
   nextTick(() => {
@@ -2844,6 +2899,12 @@ onMounted(() => {
 // Cleanup on unmount
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleEscapeKey)
+  window.removeEventListener('scroll', updatePastFold)
+  window.removeEventListener('resize', updatePastFold)
+  if (reviewGifPauseTimer) {
+    clearTimeout(reviewGifPauseTimer)
+    reviewGifPauseTimer = null
+  }
   document.body.style.overflow = ''
   
   // Cleanup map instance
