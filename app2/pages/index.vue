@@ -70,7 +70,7 @@
                                                 class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200">汤</span></a><a
                                             href="#fried-rice"
                                             class="flex flex-col items-center lg:items-start text-center lg:text-left gap-2"><span
-                                                class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase">FIRED
+                                                class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[15px] sm:leading-[16px] lg:leading-[17px] text-global-1 hover:text-global-text-4 transition-colors duration-200 uppercase">FRIED
                                                 RICE</span><span
                                                 class="text-[11px] sm:text-[12px] lg:text-[13px] font-roboto font-normal leading-[14px] sm:leading-[15px] lg:leading-[16px] text-global-1 hover:text-global-text-4 transition-colors duration-200">炒饭</span></a><a
                                             href="#chow-mein"
@@ -437,7 +437,7 @@
                                  :key="item.id"
                                  class="flex justify-between items-center bg-white/30 backdrop-blur-md rounded-2xl px-4 py-3 w-full shadow-md cursor-pointer transform transition-all duration-300 hover:scale-105 hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                  tabindex="0" 
-                                 @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                 @click="handleMenuItemClick($event, item.name)" @keydown.enter="handleMenuItemClick($event, item.name)" 
                                  @keydown.space.prevent="$event.target.click()" 
                                  role="menuitem">
                                 <div class="flex flex-col">
@@ -646,7 +646,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-1 px-1 sm:px-4">
+                        <div id="fried-rice" class="flex-1 px-1 sm:px-4">
                             <h2 class="text-4xl text-black uppercase font-viola">FRIED RICE</h2>
                             <p class="text-xl">炒饭</p>
                             <div class="grid grid-cols-4 mt-4 font-medium text-center">
@@ -989,50 +989,50 @@
                                     <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" 
                                         role="menuitem" 
                                         tabindex="0" 
-                                        @keydown.enter="() => {}" 
-                                        @keydown.space.prevent="() => {}">
+                                        @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                        @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><span>59. Beef w. Broccoli</span></td>
                                         <td class="px-2 py-2">西兰花牛肉</td>
                                         <td class="px-2 py-2 text-center">$5.50</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><span>60. Pepper Steak w. Onions</span></td>
                                         <td class="px-2 py-2">洋葱胡椒牛排</td>
                                         <td class="px-2 py-2 text-center">$5.50</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><span>61. Beef w. Pepper &amp; Tomato</span></td>
                                         <td class="px-2 py-2">牛肉配辣椒和西红柿</td>
                                         <td class="px-2 py-2 text-center">$5.50</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><span>62. Beef w. Chinese Vegs</span></td>
                                         <td class="px-2 py-2">牛肉配中式蔬菜</td>
                                         <td class="px-2 py-2 text-center">$5.50</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><span>63. Beef w. Mixed Vegetables</span></td>
                                         <td class="px-2 py-2">什锦牛肉</td>
                                         <td class="px-2 py-2 text-center">$5.50</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><span>64. Beef w. Mushrooms</span></td>
                                         <td class="px-2 py-2">蘑菇牛肉</td>
                                         <td class="px-2 py-2 text-center">$5.50</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><span>65. Beef w. Black Bean Sauce</span></td>
                                         <td class="px-2 py-2">豉汁牛肉</td>
                                         <td class="px-2 py-2 text-center">$5.50</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
                                                 class="absolute left-[-45px] h-15 object-contain" /><span>66. Hunan Beef</span></td>
@@ -1040,7 +1040,7 @@
                                         <td class="px-2 py-2 text-center">-</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
                                                 class="absolute left-[-45px] h-15 object-contain" /><span>67. Szechuan Beef</span>
@@ -1049,7 +1049,7 @@
                                         <td class="px-2 py-2 text-center">-</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
                                                 class="absolute left-[-45px] h-15 object-contain" /><span>68. Mongolian Beef</span></td>
@@ -1057,7 +1057,7 @@
                                         <td class="px-2 py-2 text-center">-</td>
                                         <td class="px-2 py-2 text-center">8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
                                                 class="absolute left-[-45px] h-15 object-contain" /><span>69. Hot &amp; Spicy Beef</span></td>
@@ -1065,7 +1065,7 @@
                                         <td class="px-2 py-2 text-center">-</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
                                                 class="absolute left-[-45px] h-15 object-contain" /><span>70. Kung Pao Beef</span></td>
@@ -1073,7 +1073,7 @@
                                         <td class="px-2 py-2 text-center">-</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
                                                 class="absolute left-[-45px] h-15 object-contain" /><span>71. Curry Beef</span></td>
@@ -1081,7 +1081,7 @@
                                         <td class="px-2 py-2 text-center">-</td>
                                         <td class="px-2 py-2 text-center">$8.95</td>
                                     </tr>
-                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                                    <tr class="text-white hover:scale-105 hover:bg-blue-800/30 transition-all duration-200 cursor-pointer focus-within:bg-blue-800/30 focus-within:ring-2 focus-within:ring-blue-500" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                                         <td class="relative px-2 py-2 flex items-center gap-2"><img
                                                 src="../assets/spicy.png" alt="spicy"
                                                 class="absolute left-[-45px] h-15 object-contain" /><span>72. Beef with Garlic Sauce</span></td>
@@ -1446,8 +1446,8 @@
                              class="flex justify-between items-start border-b border-gray-300 py-2 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                              role="menuitem" 
                              tabindex="0" 
-                             @keydown.enter="() => {}" 
-                             @keydown.space.prevent="() => {}">
+                             @click="handleMenuItemClick($event, item.name)" @keydown.enter="handleMenuItemClick($event, item.name)" 
+                             @keydown.space.prevent="$event.target.click()">
                             <div>
                                 <span class="font-semibold mr-2">{{ item.id }}</span>
                                 <span class="font-medium">{{ item.name }}</span>
@@ -1483,8 +1483,8 @@
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                              role="menuitem" 
                              tabindex="0" 
-                             @keydown.enter="() => {}" 
-                             @keydown.space.prevent="() => {}"
+                             @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                             @keydown.space.prevent="$event.target.click()"
                              aria-label="H1 Happy Family - $11.50">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-black">H1. HAPPY FAMILY</h2>
@@ -1499,8 +1499,8 @@
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                              role="menuitem" 
                              tabindex="0" 
-                             @keydown.enter="() => {}" 
-                             @keydown.space.prevent="() => {}">
+                             @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                             @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
@@ -1516,8 +1516,8 @@
                         <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                              role="menuitem" 
                              tabindex="0" 
-                             @keydown.enter="() => {}" 
-                             @keydown.space.prevent="() => {}">
+                             @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                             @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-black">H3. Four Seasons</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide">Jumbo Shrimp, Beef, Chicken Pork w. Mix Vegetables In House Special Sauce</p>
@@ -1527,7 +1527,7 @@
                                 <p class="text-lg font-bold">$10.50</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-black">H4. Triple Delight</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide">Jumbo Shrimp, Beef, Chicken w. Mix Chinese Vegetables In House Special Sauce</p>
@@ -1537,7 +1537,7 @@
                                 <p class="text-lg font-bold">$10.25</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-black">H5. Fresh Scallops With Beef</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide">Fresh Scallops Slices Beef W. Mix Vegetables In House Special Sauce</p>
@@ -1547,7 +1547,7 @@
                                 <p class="text-lg font-bold">$10.25</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-black">H6. Seafood Delight</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide">Jumbo Shrimp, Fresh Scallops, Crab Meat
@@ -1559,7 +1559,7 @@
                                 <p class="text-lg font-bold">$11.50</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
@@ -1571,7 +1571,7 @@
                                 <p class="text-lg font-bold">$9.95</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
@@ -1583,7 +1583,7 @@
                                 <p class="text-lg font-bold">$10.50</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
@@ -1596,7 +1596,7 @@
                                 <p class="text-lg font-bold">$10.50</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-black">H10. Tung Ting Shrimp</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide">Prawn &amp; Mixed Vegetable In Egg White Sauce</p>
@@ -1606,7 +1606,7 @@
                                 <p class="text-lg font-bold">10.50</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-black">H11. Sesame Chicken</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide"></p>
@@ -1616,7 +1616,7 @@
                                 <p class="text-lg font-bold">$8.95</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
@@ -1628,7 +1628,7 @@
                                 <p class="text-lg font-bold">$8.95</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-red-600"><img
                                         src="../assets/spicy.png" alt="spicy"
@@ -1640,7 +1640,7 @@
                                 <p class="text-lg font-bold">$8.95</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-black">H14. Sesame Bean Curd</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide"></p>
@@ -1650,7 +1650,7 @@
                                 <p class="text-lg font-bold">$8.95</p>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @keydown.enter="() => {}" @keydown.space.prevent="() => {}">
+                        <div class="w-full flex justify-between items-start mt-6 border-b pb-4 last:border-b-0 hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" role="menuitem" tabindex="0" @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" @keydown.space.prevent="$event.target.click()">
                             <div class="relative">
                                 <h2 class="text-xl font-semibold flex items-center text-black">H15. Hawaii Chicken</h2>
                                 <p class="mt-1 text-sm uppercase tracking-wide"></p>
@@ -1691,8 +1691,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1705,8 +1705,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1719,8 +1719,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1733,8 +1733,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1774,8 +1774,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1788,8 +1788,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1802,8 +1802,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1816,8 +1816,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1830,8 +1830,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1872,8 +1872,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1886,8 +1886,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2"><img src="../assets/spicy.png"
                                             alt="spicy" class="absolute left-[-45px] h-15 object-contain" />
                                         <p
@@ -1901,8 +1901,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2"><img src="../assets/spicy.png"
                                             alt="spicy" class="absolute left-[-45px] h-15 object-contain" />
                                         <p
@@ -1916,8 +1916,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2"><img src="../assets/spicy.png"
                                             alt="spicy" class="absolute left-[-45px] h-15 object-contain" />
                                         <p
@@ -1931,8 +1931,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1945,8 +1945,8 @@
                                 <div class="flex flex-col hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer rounded-md px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                                      role="menuitem" 
                                      tabindex="0" 
-                                     @keydown.enter="() => {}" 
-                                     @keydown.space.prevent="() => {}">
+                                     @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                                     @keydown.space.prevent="$event.target.click()">
                                     <div class="relative flex flex-row items-center gap-2">
                                         <p
                                             class="text-[12px] sm:text-[13px] lg:text-[14px] font-roboto font-medium leading-[14px] sm:leading-[15px] lg:leading-[17px] text-global-text-3 uppercase">
@@ -1967,8 +1967,8 @@
                     <div class="relative bg-white border-3 border-dashed border-red-600 w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                          role="menuitem" 
                          tabindex="0" 
-                         @keydown.enter="() => {}" 
-                         @keydown.space.prevent="() => {}"
+                         @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                         @keydown.space.prevent="$event.target.click()"
                          aria-label="Free Egg Drop Soup, Hot & Sour Soup or Egg Rolls with purchase of $20 or more"><span
                             class="absolute -top-5 left-1/2 -translate-x-1/2 text-black text-sm">自由的</span>
                         <h2 class="text-red-600 text-4xl font-bold">FREE</h2>
@@ -1981,8 +1981,8 @@
                     <div class="relative bg-white border-3 border-dashed border-red-600 w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                          role="menuitem" 
                          tabindex="0" 
-                         @keydown.enter="() => {}" 
-                         @keydown.space.prevent="() => {}"><span
+                         @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                         @keydown.space.prevent="$event.target.click()"><span
                             class="absolute -top-5 left-1/2 -translate-x-1/2 text-black text-sm">自由的</span>
                         <h2 class="text-red-600 text-4xl font-bold">FREE</h2>
                         <p class="text-red-600 mt-2 text-lg font-medium">Qt. Egg Drop Soup or 2 Liter Soda or 2 Egg
@@ -1994,8 +1994,8 @@
                     <div class="relative bg-white border-3 border-dashed border-red-600 w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                          role="menuitem" 
                          tabindex="0" 
-                         @keydown.enter="() => {}" 
-                         @keydown.space.prevent="() => {}"><span
+                         @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                         @keydown.space.prevent="$event.target.click()"><span
                             class="absolute -top-5 left-1/2 -translate-x-1/2 text-black text-sm">自由的</span>
                         <h2 class="text-red-600 text-4xl font-bold">FREE</h2>
                         <p class="text-red-600 mt-2 text-lg font-medium">Qt. Sweet &amp; Sour Chicken</p>
@@ -2006,8 +2006,8 @@
                     <div class="relative bg-white border-3 border-dashed border-red-600 w-52 p-4 text-center hover:scale-105 hover:bg-blue-50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-50" 
                          role="menuitem" 
                          tabindex="0" 
-                         @keydown.enter="() => {}" 
-                         @keydown.space.prevent="() => {}"><span
+                         @click="handleMenuItemClick" @keydown.enter="handleMenuItemClick" 
+                         @keydown.space.prevent="$event.target.click()"><span
                             class="absolute -top-5 left-1/2 -translate-x-1/2 text-black text-sm">自由的</span>
                         <h2 class="text-red-600 text-4xl font-bold">FREE</h2>
                         <p class="text-red-600 mt-2 text-lg font-medium">Qt. Sesame Chicken or General Tso’s Chicken</p>
@@ -2980,44 +2980,51 @@ export default {
 }
 
 // --- Extract Dish Name ---
+const isPriceLikeText = (text) => {
+  const compact = text.replace(/[$\s,]/g, '')
+  return compact === '' || compact === '-' || /^[\d.\-]+$/.test(compact)
+}
+
+const cleanDishName = (raw) => {
+  return raw
+    .replace(/\s+/g, ' ')
+    .replace(/\$[\d.]+/g, ' ')
+    .replace(/\b\d+\.\d+\b/g, ' ')
+    .replace(/小\s*(SM|PT)|大\s*(LG|QT)|均码|价格|ORDER/gi, ' ')
+    .replace(/[\u4e00-\u9fff]+/g, ' ')
+    .replace(/🌶️/g, ' ')
+    .replace(/^[A-Za-z]?\d+[a-z]?\.\s*/i, '')
+    .replace(/^[A-Za-z]\d+[a-z]?\s+/i, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+const isSkippableDishName = (text) => {
+  if (!text || text.length < 2) return true
+  if (isPriceLikeText(text)) return true
+  if (/^[A-Za-z]?\d+[a-z]?$/i.test(text)) return true
+  if (/^(free|order|hot and spicy|price|sm|lg|pt|qt)$/i.test(text)) return true
+  if (text.length > 80) return true
+  return false
+}
+
 const extractDishName = (element) => {
   try {
-    let dishName = ''
+    const candidates = []
+    const nodes = element.querySelectorAll('h1, h2, h3, p, span, td, div')
+    nodes.forEach((node) => {
+      const text = (node.textContent || '').trim()
+      if (text) candidates.push(text)
+    })
+    candidates.push((element.textContent || '').trim())
 
-    // Method 1: Look for bold/medium text
-    const dishNameElement = element.querySelector('.font-bold, .font-semibold, .font-medium')
-    if (dishNameElement) {
-      dishName = dishNameElement.textContent.trim()
+    for (const raw of candidates) {
+      if (isPriceLikeText(raw)) continue
+      const dishName = cleanDishName(raw)
+      if (!isSkippableDishName(dishName)) return dishName
     }
 
-    // Method 2: Fallback to text elements
-    if (!dishName) {
-      const textElements = element.querySelectorAll('p, span, div')
-      for (const textEl of textElements) {
-        const text = textEl.textContent.trim()
-        if (text && !text.includes('$') && !text.includes('价格') && text.length > 3) {
-          dishName = text
-          break
-        }
-      }
-    }
-
-    // Method 3: Fallback to entire element
-    if (!dishName) {
-      dishName = element.textContent.trim()
-    }
-
-    // Cleanup
-    dishName = dishName
-      .replace(/\s+/g, ' ')
-      .replace(/^\w+\./g, '')
-      .replace(/\$[\d.]+/g, '')
-      .replace(/\d+\.\d+/g, '')
-      .replace(/小\s*SM|大\s*LG|ORDER|均码/g, '')
-      .replace(/配.*$/g, '')
-      .trim()
-
-    return dishName
+    return 'Unknown Dish'
   } catch (error) {
     console.error('Error extracting dish name:', error)
     return 'Unknown Dish'
@@ -3052,10 +3059,10 @@ const askAIAboutDish = async (dishName) => {
 }
 
 // --- Handle Menu Item Click ---
-const handleMenuItemClick = async (event) => {
+const handleMenuItemClick = async (event, explicitName) => {
   try {
     const element = event.currentTarget || event.target
-    const dishName = extractDishName(element)
+    const dishName = (explicitName && String(explicitName).trim()) || extractDishName(element)
 
     if (dishName && dishName !== 'Unknown Dish') {
       await askAIAboutDish(dishName)

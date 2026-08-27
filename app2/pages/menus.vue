@@ -1,7 +1,5 @@
 <template>
     <div class="flex h-screen flex-col">
-<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-<!-- <script src="https://cdn.class="bg-slate-500"jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
 <header>
   <nav aria-label="Global" class="mx-auto flex items-center justify-between p-6 lg:px-8 bg-black">
     <div class="flex lg:flex-1">
