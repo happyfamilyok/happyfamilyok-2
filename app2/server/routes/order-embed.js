@@ -1,6 +1,6 @@
 export default defineWebSocketHandler({
   open(peer) {
-    addOrderEmbedPeer(peer)
+    addOrderEmbedPeer(peer, sessionIdFromRequestUrl(peer.url || peer.request?.url))
   },
   message(peer, message) {
     const text = message.text().trim()

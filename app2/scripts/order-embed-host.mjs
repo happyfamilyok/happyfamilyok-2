@@ -9,6 +9,7 @@ import {
   isOrderEmbedOriginAllowed,
   orderEmbedCorsHeaders,
   removeOrderEmbedPeer,
+  sessionIdFromRequestUrl,
   shutdownOrderEmbed,
 } from '../server/utils/order-embed.js'
 
@@ -47,7 +48,7 @@ const server = http.createServer((req, res) => {
   res.end('Not found')
 })
 
-const wss = new WebSocketServer({ server, path: '/order-embed' })
+const wss = new WebSocketServer({ server })
 
 wss.on('connection', (socket, req) => {
   const origin = req.headers.origin
@@ -56,7 +57,14 @@ wss.on('connection', (socket, req) => {
     return
   }
 
-  addOrderEmbedPeer(socket)
+  const requestUrl = req.url || '/'
+  const pathname = requestUrl.split('?')[0]
+  if (pathname !== '/order-embed') {
+    socket.close(1008, 'not found')
+    return
+  }
+
+  addOrderEmbedPeer(socket, sessionIdFromRequestUrl(requestUrl))
 
   socket.on('message', (raw) => {
     const text = String(raw).trim()

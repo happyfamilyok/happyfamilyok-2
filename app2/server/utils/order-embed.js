@@ -8,8 +8,13 @@ const MAX_FRAME_HEIGHT = 800
 const JPEG_QUALITY = 55
 const MIN_FRAME_INTERVAL_MS = 32
 const MAX_SESSIONS = Math.max(1, Number(process.env.ORDER_EMBED_MAX_SESSIONS) || 2)
-const STATE_KEY = '__happyFamilyOrderEmbedV3'
-const PREV_STATE_KEYS = ['__happyFamilyOrderEmbed', '__happyFamilyOrderEmbedV2']
+const IDLE_MS = Math.max(15_000, Number(process.env.ORDER_EMBED_IDLE_MS) || 10 * 60 * 1000)
+const STATE_KEY = '__happyFamilyOrderEmbedV4'
+const PREV_STATE_KEYS = [
+  '__happyFamilyOrderEmbed',
+  '__happyFamilyOrderEmbedV2',
+  '__happyFamilyOrderEmbedV3',
+]
 
 for (const key of PREV_STATE_KEYS) {
   const previous = globalThis[key]
@@ -25,6 +30,7 @@ function getState() {
       browser: null,
       startingBrowser: null,
       sessions: new Map(),
+      peers: new Map(),
       lastError: null,
     }
   }
@@ -32,7 +38,26 @@ function getState() {
 }
 
 function sessionFor(peer) {
-  return getState().sessions.get(peer) || null
+  return getState().peers.get(peer) || null
+}
+
+function sessionIsLive(session) {
+  return Boolean(session && getState().sessions.get(session.id) === session)
+}
+
+function normalizeSessionId(raw) {
+  const id = String(raw || '').trim()
+  if (/^[A-Za-z0-9_-]{8,80}$/.test(id)) return id
+  return crypto.randomUUID()
+}
+
+export function sessionIdFromRequestUrl(rawUrl) {
+  if (!rawUrl) return null
+  try {
+    return new URL(rawUrl, 'http://localhost').searchParams.get('session')
+  } catch {
+    return null
+  }
 }
 
 function framePixelSize(session) {
@@ -109,9 +134,11 @@ function sendJson(peer, payload) {
 }
 
 function emitScreencast(session, frame) {
-  if (!getState().sessions.has(session.peer)) return
+  if (!sessionIsLive(session)) return
   const bytes = Buffer.from(frame.data, 'base64')
+  session.latestFrame = bytes
   session.lastFrameAt = Date.now()
+  if (!session.peer) return
   try {
     session.peer.send(bytes)
   } catch {
@@ -271,7 +298,7 @@ async function pumpInput(session) {
   if (session.inputBusy) return
   session.inputBusy = true
   try {
-    while (session.page && getState().sessions.has(session.peer)) {
+    while (session.page && sessionIsLive(session)) {
       const move = session.pendingMove
       session.pendingMove = null
       const wheel = session.pendingWheel
@@ -301,6 +328,10 @@ async function pumpInput(session) {
 }
 
 export function handleOrderEmbedInput(peer, msg) {
+  if (msg?.type === 'session') {
+    addOrderEmbedPeer(peer, msg.id)
+    return
+  }
   const session = sessionFor(peer)
   if (!session || !session.page) return
   if (msg.type === 'move') {
@@ -346,8 +377,9 @@ async function ensureBrowser() {
   return state.startingBrowser
 }
 
-function createSession(peer) {
+function createSession(peer, id) {
   return {
+    id,
     peer,
     context: null,
     page: null,
@@ -361,14 +393,17 @@ function createSession(peer) {
     inputBusy: false,
     frameTimer: null,
     pendingScreencast: null,
+    latestFrame: null,
     lastFrameAt: 0,
     starting: null,
+    idleTimer: null,
+    lastActiveAt: Date.now(),
   }
 }
 
 async function startSession(session) {
   const browser = await ensureBrowser()
-  if (!getState().sessions.has(session.peer)) return
+  if (!sessionIsLive(session)) return
 
   const context = await browser.newContext({
     viewport: session.viewport,
@@ -377,7 +412,7 @@ async function startSession(session) {
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
     locale: 'en-US',
   })
-  if (!getState().sessions.has(session.peer)) {
+  if (!sessionIsLive(session)) {
     await context.close().catch(() => {})
     return
   }
@@ -385,31 +420,76 @@ async function startSession(session) {
   session.context = context
   session.page = await context.newPage()
   await waitForStore(session.page)
-  if (!getState().sessions.has(session.peer)) return
+  if (!sessionIsLive(session)) return
 
   session.cdp = await context.newCDPSession(session.page)
   session.cdp.on('Page.screencastFrame', (frame) => {
-    if (!getState().sessions.has(session.peer) || session.cdp == null) return
+    if (!sessionIsLive(session) || session.cdp == null) return
     session.cdp
       .send('Page.screencastFrameAck', { sessionId: frame.sessionId })
       .catch(() => {})
     queueScreencastFrame(session, frame)
   })
 
+  sendHello(session, true)
+  if (session.peer) await startScreencast(session)
+}
+
+function clearIdleTimer(session) {
+  if (session.idleTimer) {
+    clearTimeout(session.idleTimer)
+    session.idleTimer = null
+  }
+}
+
+function attachPeer(session, peer) {
+  const state = getState()
+  if (session.peer && session.peer !== peer) {
+    state.peers.delete(session.peer)
+    try {
+      session.peer.close?.()
+    } catch {
+      /* ignore */
+    }
+  }
+  session.peer = peer
+  session.lastActiveAt = Date.now()
+  clearIdleTimer(session)
+  state.peers.set(peer, session)
+}
+
+function sendHello(session, ready) {
+  if (!session.peer) return
   sendJson(session.peer, {
     type: 'hello',
     viewport: session.viewport,
-    ready: true,
+    ready,
     url: STORE_URL,
   })
-  await startScreencast(session)
+  if (ready && session.latestFrame) {
+    try {
+      session.peer.send(session.latestFrame)
+    } catch {
+      /* ignore */
+    }
+  }
 }
 
-async function destroySession(peer) {
+function oldestIdleSession() {
+  let oldest = null
+  for (const session of getState().sessions.values()) {
+    if (session.peer) continue
+    if (!oldest || session.lastActiveAt < oldest.lastActiveAt) oldest = session
+  }
+  return oldest
+}
+
+async function destroySession(session) {
   const state = getState()
-  const session = state.sessions.get(peer)
-  if (!session) return
-  state.sessions.delete(peer)
+  if (!session || state.sessions.get(session.id) !== session) return
+  state.sessions.delete(session.id)
+  if (session.peer) state.peers.delete(session.peer)
+  clearIdleTimer(session)
   if (session.frameTimer) {
     clearTimeout(session.frameTimer)
     session.frameTimer = null
@@ -418,6 +498,7 @@ async function destroySession(peer) {
   session.pendingWheel = null
   session.pendingDiscrete = []
   session.pendingScreencast = null
+  session.latestFrame = null
   await stopScreencast(session).catch(() => {})
   session.cdp = null
   session.page = null
@@ -432,13 +513,24 @@ async function destroySession(peer) {
   }
 }
 
+function parkSession(session) {
+  if (!sessionIsLive(session)) return
+  session.peer = null
+  session.lastActiveAt = Date.now()
+  stopScreencast(session).catch(() => {})
+  clearIdleTimer(session)
+  session.idleTimer = setTimeout(() => {
+    destroySession(session).catch(() => {})
+  }, IDLE_MS)
+}
+
 export async function ensureOrderEmbed() {
   if (!isOrderEmbedAvailable()) return getState()
   await ensureBrowser()
   return getState()
 }
 
-export function addOrderEmbedPeer(peer) {
+export function addOrderEmbedPeer(peer, sessionId) {
   if (!isOrderEmbedAvailable()) {
     sendJson(peer, {
       type: 'error',
@@ -448,34 +540,51 @@ export function addOrderEmbedPeer(peer) {
   }
 
   const state = getState()
-  if (state.sessions.has(peer)) return
-  if (state.sessions.size >= MAX_SESSIONS) {
-    sendJson(peer, {
-      type: 'error',
-      message: 'Online ordering is busy. Please try again in a moment.',
-    })
-    try {
-      peer.close?.()
-    } catch {
-      /* ignore */
-    }
+  const id = normalizeSessionId(
+    sessionId || sessionIdFromRequestUrl(peer.url || peer.request?.url)
+  )
+  const previous = sessionFor(peer)
+  if (previous && previous.id !== id) {
+    state.peers.delete(peer)
+    previous.peer = null
+    destroySession(previous).catch(() => {})
+  }
+  const existing = state.sessions.get(id)
+  if (existing) {
+    attachPeer(existing, peer)
+    sendHello(existing, Boolean(existing.page))
+    if (existing.page) startScreencast(existing).catch(() => {})
     return
   }
 
-  const session = createSession(peer)
-  state.sessions.set(peer, session)
-  sendJson(peer, {
-    type: 'hello',
-    viewport: session.viewport,
-    ready: false,
-    url: STORE_URL,
-  })
+  if (state.sessions.size >= MAX_SESSIONS) {
+    const idle = oldestIdleSession()
+    if (idle) {
+      destroySession(idle).catch(() => {})
+    } else {
+      sendJson(peer, {
+        type: 'error',
+        message: 'Online ordering is busy. Please try again in a moment.',
+      })
+      try {
+        peer.close?.()
+      } catch {
+        /* ignore */
+      }
+      return
+    }
+  }
+
+  const session = createSession(peer, id)
+  state.sessions.set(id, session)
+  attachPeer(session, peer)
+  sendHello(session, false)
   session.starting = startSession(session)
     .catch((err) => {
       state.lastError = String(err?.message || err)
       console.error('Failed to start private order session:', err)
       sendJson(peer, { type: 'error', message: state.lastError })
-      destroySession(peer).catch(() => {})
+      destroySession(session).catch(() => {})
     })
     .finally(() => {
       session.starting = null
@@ -483,13 +592,17 @@ export function addOrderEmbedPeer(peer) {
 }
 
 export function removeOrderEmbedPeer(peer) {
-  destroySession(peer).catch(() => {})
+  const session = sessionFor(peer)
+  if (!session) return
+  getState().peers.delete(peer)
+  if (session.peer !== peer) return
+  parkSession(session)
 }
 
 export async function shutdownOrderEmbed() {
   const state = getState()
-  const peers = [...state.sessions.keys()]
-  await Promise.all(peers.map((peer) => destroySession(peer)))
+  const sessions = [...state.sessions.values()]
+  await Promise.all(sessions.map((session) => destroySession(session)))
   if (state.browser) {
     await state.browser.close().catch(() => {})
     state.browser = null

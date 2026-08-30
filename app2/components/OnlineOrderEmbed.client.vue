@@ -87,11 +87,27 @@ function healthUrl() {
   return origin ? `${origin}/api/order-embed/health` : '/api/order-embed/health'
 }
 
+const SESSION_KEY = 'happyfamily-order-embed-session'
+
+function clientSessionId() {
+  try {
+    let id = sessionStorage.getItem(SESSION_KEY)
+    if (!id || !/^[A-Za-z0-9_-]{8,80}$/.test(id)) {
+      id = crypto.randomUUID()
+      sessionStorage.setItem(SESSION_KEY, id)
+    }
+    return id
+  } catch {
+    return crypto.randomUUID()
+  }
+}
+
 function socketUrl() {
   const origin = embedOrigin()
-  if (origin) return `${origin.replace(/^http/, 'ws')}/order-embed`
+  const session = encodeURIComponent(clientSessionId())
+  if (origin) return `${origin.replace(/^http/, 'ws')}/order-embed?session=${session}`
   const protocol = location.protocol === 'https:' ? 'wss' : 'ws'
-  return `${protocol}://${location.host}/order-embed`
+  return `${protocol}://${location.host}/order-embed?session=${session}`
 }
 
 function retryDelay() {
@@ -215,7 +231,10 @@ async function connect() {
   ws = new WebSocket(socketUrl())
   ws.binaryType = 'arraybuffer'
 
-  ws.onopen = () => sendResize(true)
+  ws.onopen = () => {
+    send({ type: 'session', id: clientSessionId() })
+    sendResize(true)
+  }
 
   ws.onmessage = (event) => {
     if (typeof event.data !== 'string') {
