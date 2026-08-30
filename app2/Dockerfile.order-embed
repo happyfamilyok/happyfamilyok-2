@@ -1,0 +1,15 @@
+FROM mcr.microsoft.com/playwright:v1.62.1-jammy
+
+WORKDIR /app
+COPY scripts/order-embed-host.mjs scripts/order-embed-host.mjs
+COPY server/utils/order-embed.js server/utils/order-embed.js
+RUN npm init -y && npm install playwright@1.62.1 ws
+
+ENV ORDER_EMBED_FORCE=1
+ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+ENV PLAYWRIGHT_NO_SANDBOX=1
+ENV PORT=8787
+ENV HOST=0.0.0.0
+
+EXPOSE 8787
+CMD ["node", "scripts/order-embed-host.mjs"]

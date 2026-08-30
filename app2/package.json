@@ -7,6 +7,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "order-embed": "node scripts/order-embed-host.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "mysql2": "^3.14.5",
     "nuxt": "^3.18.1",
     "playwright": "^1.62.1",
+    "ws": "^8.21.3",
     "tailwindcss": "^4.1.12",
     "vue": "^3.5.20",
     "vue-router": "^4.5.1"

@@ -51,14 +51,60 @@ function framePixelSize() {
   }
 }
 
+export function isOrderEmbedAvailable() {
+  if (process.env.ORDER_EMBED_FORCE === '1' || process.env.ORDER_EMBED_FORCE === 'true') {
+    return true
+  }
+  if (process.env.ORDER_EMBED_ENABLED === '0' || process.env.ORDER_EMBED_ENABLED === 'false') {
+    return false
+  }
+  if (process.env.NETLIFY || process.env.NETLIFY_LOCAL) return false
+  if (process.env.AWS_LAMBDA_FUNCTION_NAME) return false
+  if (process.env.VERCEL) return false
+  const preset = String(process.env.NITRO_PRESET || '')
+  if (/netlify|cloudflare|vercel|lambda/i.test(preset)) return false
+  return true
+}
+
+export function getOrderEmbedAllowedOrigins() {
+  const raw = process.env.ORDER_EMBED_ALLOWED_ORIGINS || '*'
+  return raw.split(',').map((origin) => origin.trim()).filter(Boolean)
+}
+
+export function isOrderEmbedOriginAllowed(origin) {
+  const allowed = getOrderEmbedAllowedOrigins()
+  if (allowed.includes('*')) return true
+  if (!origin) return true
+  return allowed.includes(origin)
+}
+
+export function orderEmbedCorsHeaders(requestOrigin) {
+  if (requestOrigin && isOrderEmbedOriginAllowed(requestOrigin)) {
+    return {
+      'Access-Control-Allow-Origin': requestOrigin,
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      Vary: 'Origin',
+    }
+  }
+  if (getOrderEmbedAllowedOrigins().includes('*')) {
+    return { 'Access-Control-Allow-Origin': '*' }
+  }
+  return {}
+}
+
 export function getOrderEmbedHealth() {
+  const supported = isOrderEmbedAvailable()
   const state = getState()
   return {
-    ready: Boolean(state.page),
+    ready: Boolean(supported && state.page),
+    supported,
     url: state.page ? state.page.url() : STORE_URL,
     clients: state.peers.size,
     starting: Boolean(state.starting),
-    error: state.lastError,
+    error: supported
+      ? state.lastError
+      : 'Live ordering needs a Node server with Chrome. Netlify cannot run it.',
   }
 }
 
@@ -113,6 +159,13 @@ async function launchBrowser() {
     '--disable-blink-features=AutomationControlled',
     '--disable-dev-shm-usage',
   ]
+  if (process.env.PLAYWRIGHT_NO_SANDBOX === '1' || process.getuid?.() === 0) {
+    args.push('--no-sandbox', '--disable-setuid-sandbox')
+  }
+  const executablePath = process.env.PLAYWRIGHT_CHROME_PATH || process.env.CHROMIUM_PATH
+  if (executablePath) {
+    return await chromium.launch({ executablePath, headless: true, args })
+  }
   try {
     return await chromium.launch({ channel: 'chrome', headless: true, args })
   } catch {
@@ -332,6 +385,7 @@ async function startStore() {
 }
 
 export async function ensureOrderEmbed() {
+  if (!isOrderEmbedAvailable()) return getState()
   const state = getState()
   if (state.page) return state
   if (state.starting) return state.starting
@@ -349,6 +403,15 @@ export async function ensureOrderEmbed() {
 }
 
 export function addOrderEmbedPeer(peer) {
+  if (!isOrderEmbedAvailable()) {
+    peer.send(
+      JSON.stringify({
+        type: 'error',
+        message: 'Live ordering is not available on this host.',
+      })
+    )
+    return
+  }
   const state = getState()
   state.peers.add(peer)
   peer.send(

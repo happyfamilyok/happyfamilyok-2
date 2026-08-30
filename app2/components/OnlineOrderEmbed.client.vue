@@ -8,10 +8,11 @@
           {{ statusDetail }}
           <a
             v-if="showFallback"
-            :href="fallbackUrl"
+            :href="fallbackHref"
             target="_blank"
             rel="nofollow noopener"
-          >Open in DoorDash</a>
+            class="fallback-btn"
+          >Order on DoorDash</a>
         </p>
       </div>
     </div>
@@ -39,6 +40,9 @@ const props = defineProps({
   },
 })
 
+const config = useRuntimeConfig()
+const fallbackHref = computed(() => props.fallbackUrl || config.public.orderStoreUrl)
+
 const shellRef = ref(null)
 const viewRef = ref(null)
 const statusVisible = ref(true)
@@ -53,6 +57,7 @@ let moveTimer = 0
 let wheelTimer = 0
 let retryTimer = 0
 let resizeTimer = 0
+let connectAttempts = 0
 let lastPointerEvent = null
 let wheelAcc = { x: 0, y: 0, deltaX: 0, deltaY: 0 }
 let alive = true
@@ -70,6 +75,27 @@ function setStatus(title, detail, spinning = true, fallback = false) {
 function hideStatus() {
   statusVisible.value = false
   showFallback.value = false
+  connectAttempts = 0
+}
+
+function embedOrigin() {
+  return String(config.public.orderEmbedOrigin || '').replace(/\/$/, '')
+}
+
+function healthUrl() {
+  const origin = embedOrigin()
+  return origin ? `${origin}/api/order-embed/health` : '/api/order-embed/health'
+}
+
+function socketUrl() {
+  const origin = embedOrigin()
+  if (origin) return `${origin.replace(/^http/, 'ws')}/order-embed`
+  const protocol = location.protocol === 'https:' ? 'wss' : 'ws'
+  return `${protocol}://${location.host}/order-embed`
+}
+
+function retryDelay() {
+  return Math.min(10_000, 1200 * Math.max(1, connectAttempts))
 }
 
 function viewportSize() {
@@ -146,9 +172,18 @@ function parseMessage(data) {
 
 async function connect() {
   if (!alive) return
+  clearTimeout(retryTimer)
+  if (!config.public.orderEmbed) {
+    setStatus(
+      'Online ordering',
+      'Live ordering is turned off on this host.',
+      false
+    )
+    return
+  }
 
   try {
-    const health = await $fetch('/api/order-embed/health', { cache: 'no-store' })
+    const health = await $fetch(healthUrl(), { cache: 'no-store' })
     if (typeof health?.ready !== 'boolean') throw new Error('wrong server')
     if (!health.ready) {
       setStatus(
@@ -158,20 +193,26 @@ async function connect() {
     }
   } catch {
     if (!alive) return
+    connectAttempts += 1
     setStatus(
       'Online ordering unavailable',
-      'Could not reach the ordering server. Retrying…',
-      false,
-      true
+      'Could not reach the ordering server. Retrying…'
     )
-    retryTimer = setTimeout(connect, 1500)
+    retryTimer = setTimeout(connect, retryDelay())
     return
   }
 
   if (!alive) return
 
-  const protocol = location.protocol === 'https:' ? 'wss' : 'ws'
-  ws = new WebSocket(`${protocol}://${location.host}/order-embed`)
+  if (ws) {
+    ws.onclose = null
+    ws.onerror = null
+    ws.onmessage = null
+    ws.close()
+    ws = null
+  }
+
+  ws = new WebSocket(socketUrl())
   ws.binaryType = 'arraybuffer'
 
   ws.onopen = () => sendResize(true)
@@ -201,18 +242,14 @@ async function connect() {
 
   ws.onclose = () => {
     if (!alive) return
-    setStatus('Disconnected', 'Reconnecting to online ordering…', false, true)
-    retryTimer = setTimeout(connect, 1500)
+    connectAttempts += 1
+    setStatus('Disconnected', 'Reconnecting to online ordering…')
+    retryTimer = setTimeout(connect, retryDelay())
   }
 
   ws.onerror = () => {
     if (!alive) return
-    setStatus(
-      'Could not open live view',
-      'Retrying the ordering connection…',
-      false,
-      true
-    )
+    setStatus('Could not open live view', 'Retrying the ordering connection…')
   }
 }
 
@@ -346,10 +383,15 @@ img:focus {
   max-width: 36em;
 }
 
-.status a {
+.status a.fallback-btn {
   display: inline-block;
-  margin-top: 8px;
-  color: #d92128;
+  margin-top: 16px;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  background: #d92128;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .spinner {

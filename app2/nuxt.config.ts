@@ -84,6 +84,18 @@ export default defineNuxtConfig({
       ]
     }
   },
+  runtimeConfig: {
+    public: {
+      orderEmbed: process.env.ORDER_EMBED_ENABLED !== '0',
+      orderEmbedOrigin: (
+        process.env.NUXT_PUBLIC_ORDER_EMBED_ORIGIN ||
+        'https://107-175-194-17.nip.io'
+      ).replace(/\/$/, ''),
+      orderStoreUrl:
+        process.env.ORDER_STORE_URL ||
+        'https://www.doordash.com/store/happy-family-chinese-restaurant-norman-36737771/82709946/',
+    },
+  },
 nitro: {
   experimental: {
     websocket: true,
