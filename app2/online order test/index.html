@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Family Chinese Restaurant — Order Online</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #111;
+      --bar: #fff;
+      --text: #111;
+      --muted: #6b7280;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: var(--bg);
+      font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .shell {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .store {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      background: #fff;
+    }
+    #view {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      image-rendering: auto;
+      background: #fff;
+      cursor: auto;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    #view:focus { outline: none; }
+    .status {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: var(--text);
+      text-align: center;
+      padding: 24px;
+      z-index: 2;
+    }
+    .status[hidden] { display: none; }
+    .status h1 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+    .status p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 36em;
+    }
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid #eee;
+      border-top-color: #d92128;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="store">
+      <div class="status" id="status">
+        <div>
+          <div class="spinner"></div>
+          <h1>Loading online ordering</h1>
+          <p>Connecting to Happy Family Chinese Restaurant pickup menu…</p>
+        </div>
+      </div>
+      <img id="view" alt="Happy Family Chinese Restaurant online ordering" tabindex="0" draggable="false">
+    </div>
+  </div>
+  <script>
+    const STORE = "https://order.online/store/36737771?pickup=true&redirected=true";
+    const view = document.getElementById("view");
+    const statusEl = document.getElementById("status");
+    let viewport = { width: 1280, height: 900 };
+    let ws;
+    let moveTimer = 0;
+
+    function setStatus(title, detail, spinning = true) {
+      statusEl.hidden = false;
+      statusEl.innerHTML = `
+        <div>
+          ${spinning ? '<div class="spinner"></div>' : ""}
+          <h1>${title}</h1>
+          <p>${detail}</p>
+        </div>`;
+    }
+
+    function hideStatus() {
+      statusEl.hidden = true;
+    }
+
+    function viewportSize() {
+      return {
+        width: window.innerWidth,
+        height: window.innerHeight,
+        dpr: window.devicePixelRatio || 2
+      };
+    }
+
+    function sendResize() {
+      const size = viewportSize();
+      send({ type: "resize", ...size });
+    }
+
+    function localPoint(event) {
+      const rect = view.getBoundingClientRect();
+      const naturalW = view.naturalWidth || viewport.width;
+      const naturalH = view.naturalHeight || viewport.height;
+      const scale = Math.min(rect.width / naturalW, rect.height / naturalH) || 1;
+      const contentW = naturalW * scale;
+      const contentH = naturalH * scale;
+      const offsetX = rect.left + (rect.width - contentW) / 2;
+      const offsetY = rect.top + (rect.height - contentH) / 2;
+      return {
+        x: ((event.clientX - offsetX) / contentW) * viewport.width,
+        y: ((event.clientY - offsetY) / contentH) * viewport.height
+      };
+    }
+
+    function send(payload) {
+      if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify(payload));
+    }
+
+    function buttonName(button) {
+      if (button === 1) return "middle";
+      if (button === 2) return "right";
+      return "left";
+    }
+
+    function parseMessage(data) {
+      if (typeof data !== "string") return null;
+      const raw = data.trim();
+      if (!raw || raw === "connected" || raw === "reload" || (raw[0] !== "{" && raw[0] !== "[")) {
+        return null;
+      }
+      try {
+        return JSON.parse(raw);
+      } catch {
+        return null;
+      }
+    }
+
+    async function connect() {
+      if (location.protocol === "file:") return;
+
+      try {
+        const health = await fetch("/health", { cache: "no-store" }).then((res) => {
+          if (!res.ok) throw new Error("health check failed");
+          return res.json();
+        });
+        if (typeof health.ready !== "boolean") throw new Error("wrong server");
+        if (!health.ready) {
+          setStatus("Loading online ordering", "Connecting to Happy Family Chinese Restaurant pickup menu…");
+        }
+      } catch {
+        setStatus(
+          "Start the embed server",
+          "Open this page at http://localhost:3000 after running <code>npm start</code> in the project folder.",
+          false
+        );
+        setTimeout(connect, 1500);
+        return;
+      }
+
+      const protocol = location.protocol === "https:" ? "wss" : "ws";
+      ws = new WebSocket(`${protocol}://${location.host}/embed-live`);
+
+      ws.onopen = () => sendResize();
+
+      ws.onmessage = (event) => {
+        const msg = parseMessage(event.data);
+        if (!msg) return;
+        if (msg.type === "hello" && msg.viewport) viewport = msg.viewport;
+        if (msg.type === "frame") {
+          if (msg.viewport) viewport = msg.viewport;
+          view.src = "data:image/jpeg;base64," + msg.data;
+          hideStatus();
+        }
+        if (msg.type === "error") {
+          setStatus("Could not load the store", msg.message, false);
+        }
+      };
+
+      ws.onclose = () => {
+        setStatus(
+          "Disconnected",
+          "The embed server stopped. From this folder run <code>npm start</code>, then open http://localhost:3000",
+          false
+        );
+        setTimeout(connect, 1500);
+      };
+
+      ws.onerror = () => {
+        setStatus(
+          "Start the embed server",
+          "This page has to be opened via the local server because order.online blocks iframes. Run <code>npm start</code> and visit http://localhost:3000",
+          false
+        );
+      };
+    }
+
+    view.addEventListener("pointermove", (event) => {
+      if (!moveTimer) {
+        moveTimer = requestAnimationFrame(() => {
+          moveTimer = 0;
+          const { x, y } = localPoint(event);
+          send({ type: "move", x, y });
+        });
+      }
+    });
+
+    view.addEventListener("pointerdown", (event) => {
+      event.preventDefault();
+      view.focus();
+      const { x, y } = localPoint(event);
+      send({ type: "down", x, y, button: buttonName(event.button) });
+    });
+
+    view.addEventListener("pointerup", (event) => {
+      const { x, y } = localPoint(event);
+      send({ type: "up", x, y, button: buttonName(event.button) });
+    });
+
+    view.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      const { x, y } = localPoint(event);
+      send({ type: "wheel", x, y, deltaX: event.deltaX, deltaY: event.deltaY });
+    }, { passive: false });
+
+    view.addEventListener("keydown", (event) => {
+      if (event.metaKey || event.ctrlKey) return;
+      event.preventDefault();
+      if (event.key.length === 1) send({ type: "key", text: event.key });
+      else send({ type: "key", key: event.key });
+    });
+
+    view.addEventListener("contextmenu", (event) => event.preventDefault());
+
+    window.addEventListener("resize", sendResize);
+
+    if (location.protocol === "file:") {
+      setStatus(
+        "Open this page through the server",
+        "order.online blocks iframes, so this embed runs through a local live view. Run <code>npm start</code> and open http://localhost:3000",
+        false
+      );
+    } else {
+      connect();
+    }
+  </script>
+</body>
+</html>

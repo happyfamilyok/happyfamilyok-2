@@ -16,10 +16,10 @@ export default defineNuxtConfig({
           name: 'Content-Security-Policy', 
           content: `
             default-src 'self' https:;
-            connect-src 'self' https: https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com https://script.hotjar.com wss://ws.hotjar.com;
-            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://www.googletagmanager.com https://static.hotjar.com https://script.hotjar.com https://googleads.g.doubleclick.net;
+            connect-src 'self' http: https: ws: wss: https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com https://script.hotjar.com wss://ws.hotjar.com;
+            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://cdn.featurable.com https://www.googletagmanager.com https://static.hotjar.com https://script.hotjar.com https://googleads.g.doubleclick.net;
             style-src 'self' 'unsafe-inline' https: https://static.hotjar.com;
-            img-src 'self' data: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com;
+            img-src 'self' data: blob: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com;
             font-src 'self' https: data: https://static.hotjar.com;
             frame-src https://static.hotjar.com https://www.googletagmanager.com;
             worker-src 'self' blob:;
@@ -29,10 +29,10 @@ export default defineNuxtConfig({
           'http-equiv': 'Content-Security-Policy', 
           content: `
             default-src 'self' https:;
-            connect-src 'self' https: https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com https://script.hotjar.com wss://ws.hotjar.com;
-            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://www.googletagmanager.com https://static.hotjar.com https://script.hotjar.com https://googleads.g.doubleclick.net;
+            connect-src 'self' http: https: ws: wss: https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com https://script.hotjar.com wss://ws.hotjar.com;
+            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://cdn.featurable.com https://www.googletagmanager.com https://static.hotjar.com https://script.hotjar.com https://googleads.g.doubleclick.net;
             style-src 'self' 'unsafe-inline' https: https://static.hotjar.com;
-            img-src 'self' data: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com;
+            img-src 'self' data: blob: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com;
             font-src 'self' https: data: https://static.hotjar.com;
             frame-src https://static.hotjar.com https://www.googletagmanager.com;
             worker-src 'self' blob:;
@@ -85,10 +85,16 @@ export default defineNuxtConfig({
     }
   },
 nitro: {
+  experimental: {
+    websocket: true,
+  },
+  externals: {
+    external: ['playwright', 'playwright-core'],
+  },
   routeRules: {
     '/**': {
       headers: {
-        'Content-Security-Policy': "default-src 'self' https:; connect-src 'self' https: https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com https://script.hotjar.com wss://ws.hotjar.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://www.googletagmanager.com https://static.hotjar.com https://script.hotjar.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https: https://static.hotjar.com; img-src 'self' data: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com; font-src 'self' https: data: https://static.hotjar.com; frame-src https://static.hotjar.com https://www.googletagmanager.com; worker-src 'self' blob:;",
+        'Content-Security-Policy': "default-src 'self' https:; connect-src 'self' http: https: ws: wss: https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://in.hotjar.com https://script.hotjar.com wss://ws.hotjar.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.apple-mapkit.com https://cdn.featurable.com https://www.googletagmanager.com https://static.hotjar.com https://script.hotjar.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https: https://static.hotjar.com; img-src 'self' data: blob: https: http: https://www.google-analytics.com https://www.googletagmanager.com https://static.hotjar.com https://in.hotjar.com; font-src 'self' https: data: https://static.hotjar.com; frame-src https://static.hotjar.com https://www.googletagmanager.com; worker-src 'self' blob:;",
         'X-Content-Type-Options': 'nosniff',
         'X-Frame-Options': 'DENY',
         'X-XSS-Protection': '1; mode=block'
