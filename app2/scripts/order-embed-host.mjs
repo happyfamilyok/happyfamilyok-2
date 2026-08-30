@@ -4,7 +4,6 @@ import http from 'node:http'
 import { WebSocketServer } from 'ws'
 import {
   addOrderEmbedPeer,
-  ensureOrderEmbed,
   getOrderEmbedHealth,
   handleOrderEmbedInput,
   isOrderEmbedOriginAllowed,
@@ -40,11 +39,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (url === '/' || url === '/health' || url === '/api/order-embed/health') {
-    const health = getOrderEmbedHealth()
-    if (health.supported && !health.ready) {
-      ensureOrderEmbed().catch(() => {})
-    }
-    sendJson(req, res, 200, health)
+    sendJson(req, res, 200, getOrderEmbedHealth())
     return
   }
 
@@ -67,7 +62,7 @@ wss.on('connection', (socket, req) => {
     const text = String(raw).trim()
     if (!text || text === 'connected' || (text[0] !== '{' && text[0] !== '[')) return
     try {
-      handleOrderEmbedInput(JSON.parse(text))
+      handleOrderEmbedInput(socket, JSON.parse(text))
     } catch (err) {
       socket.send(
         JSON.stringify({
@@ -93,7 +88,4 @@ process.on('SIGTERM', () => shutdown().then(() => process.exit(0)))
 
 server.listen(PORT, HOST, () => {
   console.log(`Order embed host listening on http://${HOST}:${PORT}`)
-  ensureOrderEmbed().catch((err) => {
-    console.error('Failed to start order embed store:', err)
-  })
 })

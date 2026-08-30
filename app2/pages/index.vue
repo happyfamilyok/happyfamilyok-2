@@ -2,7 +2,7 @@
   <div>
 <!--- 
 # Alert Banner
-<div v-if="isPriceBannerVisible" class="z-999 relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+    <div v-if="isPriceBannerVisible" class="z-999 relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
   <div aria-hidden="true" class="absolute top-1/2 left-[max(-7rem,calc(50%-52rem))] -z-10 -translate-y-1/2 transform-gpu blur-2xl">
     <div style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)" class="aspect-577/310 w-144.25 bg-linear-to-r from-[#ff80b5] to-[#9089fc] opacity-30"></div>
   </div>
@@ -334,9 +334,9 @@
         <p class="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-red-600"><i class="fa-solid fa-triangle-exclamation"></i>Prices between call in menu and online menu differ!</p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <NuxtLink to="/altmenu" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Click here to view the Call-In menu.</NuxtLink>
-        </div>
-      </div>
-    </div>
+                    </div>
+                        </div>
+                    </div>
     <svg viewBox="0 0 1024 1024" class="absolute top-1/2 left-1/2 -z-10 size-256 -translate-x-1/2 mask-[radial-gradient(closest-side,white,transparent)]" aria-hidden="true">
       <circle cx="512" cy="512" r="512" fill="url(#8d958450-c69f-4251-94bc-4e091a323369)" fill-opacity="0.7" />
       <defs>
@@ -346,7 +346,7 @@
         </radialGradient>
       </defs>
     </svg>
-  </div>
+                        </div>
 
 
 
@@ -373,18 +373,18 @@
         <template #fallback>
           <div class="grid h-full place-items-center text-center text-gray-500">
             Loading online ordering…
-          </div>
+                        </div>
         </template>
       </ClientOnly>
-    </div>
-  </div>
-
+                        </div>
+                    </div>
+                    
   <FeaturableReviews />
 
-            </div>
+                </div>
+                    </div>
+                            </div>
         </div>
-    </div>
-  </div>
 </template>
 <style>
 @keyframes pulseZoom {
