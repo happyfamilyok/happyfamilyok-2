@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="w-full bg-[#d1f8ff] min-h-screen">
+    <div class="w-full min-h-screen">
         <div class="w-full min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center">
                 <header
                     class="fixed top-4 left-1/2 w-11/12 max-w-[1440px] bg-global-5 shadow-md border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] rounded-[50px] px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-[26px] z-50 transition-all duration-300 backdrop-blur-md navbar-center">
