@@ -16,7 +16,7 @@ function setup(t, request) {
     release: id => released.push(id),
     request: async (...args) => {
       requests.push(args)
-      if (args[0] === '/api/order-embed/viewport') return { ok: true }
+      if (['/api/order-embed/viewport', '/api/order-embed/input'].includes(args[0])) return { ok: true }
       if (args[1].method === 'POST') {
         creates++
         return request ? request() : { sessionId: 'shared-session', liveViewUrl: 'https://example.com/live' }
@@ -134,5 +134,22 @@ test('uses the visible component dimensions for creation and resizes the shared 
   t.mock.timers.tick(150)
   await flush()
   assert.equal(app.requests.at(-1)[1].body.viewport.height, 500)
+  assert.equal(app.creates, 1)
+})
+
+
+test('only the active viewer can forward gestures without starting another session', async t => {
+  const app = setup(t)
+  const input = { type: 'scroll', x: 100, y: 300, deltaX: 0, deltaY: 150 }
+  await app.controller.sendInput('first', input)
+  assert.equal(app.requests.length, 0)
+  app.controller.setVisible('first', true)
+  await flush()
+  await app.controller.sendInput('second', input)
+  assert.equal(app.requests.length, 1)
+  await app.controller.sendInput('first', input)
+  assert.deepEqual(app.requests.at(-1), ['/api/order-embed/input', {
+    method: 'POST', body: { sessionId: 'shared-session', input },
+  }])
   assert.equal(app.creates, 1)
 })

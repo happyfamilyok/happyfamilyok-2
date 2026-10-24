@@ -143,11 +143,18 @@ export function createOrderSessionController({ state, request, release, isPageVi
     }
   }
 
+  async function sendInput(instance, input) {
+    if (state.activeInstance !== instance || !sessionId || state.phase !== 'active') return
+    await request('/api/order-embed/input', {
+      method: 'POST', body: { sessionId, input },
+    })
+  }
+
   function hideStatus() {
     if (state.phase !== 'active') return
     state.statusVisible = false
     state.showFallback = false
   }
 
-  return { setVisible, setViewport, removeInstance, ensureStarted, startSession, releaseSession, hideStatus }
+  return { setVisible, setViewport, sendInput, removeInstance, ensureStarted, startSession, releaseSession, hideStatus }
 }

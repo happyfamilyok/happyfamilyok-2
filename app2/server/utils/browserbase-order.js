@@ -1,4 +1,5 @@
 import { createIdleWatch } from './order-idle.js'
+import { dispatchOrderInput } from './order-input.js'
 import { normalizeOrderViewport } from './order-viewport.js'
 
 const BB_API = 'https://api.browserbase.com/v1'
@@ -123,7 +124,7 @@ async function navigateWithCdp(connectUrl, url, onIdle, viewport) {
     await sendCdp(ws, pending, nextId, 'Page.addScriptToEvaluateOnNewDocument', {
       source: `(() => {
         let lastSent = 0;
-        for (const type of ['pointerdown', 'pointermove', 'keydown', 'wheel', 'touchstart', 'input']) {
+        for (const type of ['pointerdown', 'pointermove', 'keydown', 'wheel', 'touchstart', 'touchmove', 'input']) {
           window.addEventListener(type, (event) => {
             if (!event.isTrusted) return;
             const now = Date.now();
@@ -134,6 +135,7 @@ async function navigateWithCdp(connectUrl, url, onIdle, viewport) {
         }
       })();`,
     }, sessionId)
+    let currentViewport = normalizeOrderViewport(viewport)
     const resize = async (size) => {
       const { width, height, mobile } = normalizeOrderViewport(size)
       await sendCdp(ws, pending, nextId, 'Emulation.setDeviceMetricsOverride', {
@@ -143,11 +145,16 @@ async function navigateWithCdp(connectUrl, url, onIdle, viewport) {
       await sendCdp(ws, pending, nextId, 'Emulation.setTouchEmulationEnabled', {
         enabled: mobile,
       }, sessionId)
+      currentViewport = { width, height, mobile }
     }
     await resize(viewport)
     await sendCdp(ws, pending, nextId, 'Page.navigate', { url }, sessionId)
     idleWatch = createIdleWatch(onIdle)
-    return { stop, resize }
+    const input = (event) => dispatchOrderInput(
+      (method, params) => sendCdp(ws, pending, nextId, method, params, sessionId),
+      currentViewport, event, () => idleWatch?.touch()
+    )
+    return { stop, resize, input }
   } catch (error) {
     stop()
     throw error
@@ -241,4 +248,12 @@ export async function resizeOrderSession(sessionId, viewport) {
     throw error
   }
   await browser.resize(normalizeOrderViewport(viewport))
+}
+
+export async function sendOrderSessionInput(sessionId, input) {
+  const browser = sessions.get(sessionId)
+  if (!browser?.input) {
+    throw Object.assign(new Error('Ordering session is no longer active'), { statusCode: 410 })
+  }
+  await browser.input(input)
 }

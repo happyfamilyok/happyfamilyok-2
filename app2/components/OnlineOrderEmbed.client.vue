@@ -26,10 +26,22 @@
       referrerpolicy="no-referrer"
       @load="hideStatus"
     />
+    <div
+      v-if="liveViewUrl && activeInstance === instance && mobileViewport"
+      class="mobile-gestures"
+      aria-hidden="true"
+      @pointerdown.prevent="beginTouch"
+      @pointermove.prevent="moveTouch"
+      @pointerup.prevent="endTouch"
+      @pointercancel="cancelTouch"
+      @lostpointercapture="cancelTouch"
+    />
   </div>
 </template>
 
 <script setup>
+import { createOrderTouch } from '../utils/order-touch.js'
+
 const props = defineProps({
   fallbackUrl: {
     type: String,
@@ -46,20 +58,66 @@ const fallbackHref = computed(
 let container = null
 const {
   liveViewUrl, activeInstance, statusVisible, statusSpinning, statusTitle, statusDetail,
-  showFallback, startSession, hideStatus, setVisible, setViewport, removeInstance,
+  showFallback, startSession, hideStatus, setVisible, setViewport, sendInput, removeInstance,
 } = useOrderSession()
 
 const instance = Symbol('ordering-window')
 let observer
 let resizeObserver
+const mobileViewport = ref(false)
+let inputTimer
+let sendingInput = false
+let disposed = false
+const pendingInput = []
+
+function enqueueInput(input) {
+  const previous = pendingInput.at(-1)
+  if (input.type === 'scroll' && previous?.type === 'scroll') {
+    previous.deltaX += input.deltaX
+    previous.deltaY += input.deltaY
+    previous.x = input.x
+    previous.y = input.y
+  } else pendingInput.push(input)
+  if (!sendingInput && !inputTimer) inputTimer = setTimeout(flushInput, 60)
+}
+
+async function flushInput() {
+  inputTimer = null
+  if (sendingInput || disposed) return
+  sendingInput = true
+  try {
+    while (pendingInput.length && !disposed) {
+      await sendInput(instance, pendingInput.shift())
+    }
+  } catch {
+    pendingInput.length = 0
+  } finally {
+    sendingInput = false
+  }
+}
+
+const touch = createOrderTouch(enqueueInput)
+function touchPoint(event) {
+  const rect = container.getBoundingClientRect()
+  return [event.pointerId, event.clientX - rect.left, event.clientY - rect.top]
+}
+function beginTouch(event) {
+  if (!event.isPrimary) return
+  event.currentTarget.setPointerCapture(event.pointerId)
+  touch.start(...touchPoint(event))
+}
+function moveTouch(event) { touch.move(...touchPoint(event)) }
+function endTouch(event) { touch.end(...touchPoint(event)) }
+function cancelTouch() { touch.cancel() }
 
 function measureViewport() {
   if (!container) return
   const { width, height } = container.getBoundingClientRect()
   if (width <= 0 || height <= 0) return
+  mobileViewport.value = window.matchMedia('(pointer: coarse)').matches && width < 1024
   setViewport(instance, {
     width, height,
-    mobile: window.matchMedia('(pointer: coarse)').matches && width < 1024,
+    mobile: mobileViewport.value,
   })
 }
 
@@ -97,6 +155,10 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
+  disposed = true
+  clearTimeout(inputTimer)
+  touch.cancel()
+  pendingInput.length = 0
   resizeObserver?.disconnect()
   observer?.disconnect()
   removeInstance(instance)
@@ -123,6 +185,13 @@ iframe {
   height: 100%;
   border: 0;
   background: #fff;
+}
+
+.mobile-gestures {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+  user-select: none;
 }
 
 .status {
