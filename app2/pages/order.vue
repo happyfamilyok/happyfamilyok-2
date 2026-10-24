@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-dvh flex-col bg-white">
+  <div class="flex h-dvh w-full shrink-0 flex-col overflow-hidden bg-white">
     <header class="flex shrink-0 items-center justify-between border-b border-gray-200 px-4 py-3">
       <NuxtLink
         to="/"
@@ -8,15 +8,15 @@
         ← Happy Family
       </NuxtLink>
       <a
-        href="https://www.doordash.com/store/happy-family-chinese-restaurant-norman-36737771/82709946/"
+        href="https://order.online/business/happy-family-chinese-restaurant-15185683"
         target="_blank"
         rel="nofollow noopener"
         class="text-sm text-gray-500 hover:text-gray-900"
       >
-        Open in DoorDash
+        Open in a new tab
       </a>
     </header>
-    <div class="min-h-0 flex-1">
+    <div class="relative flex min-h-0 min-w-0 flex-1 overflow-hidden">
       <ClientOnly>
         <OnlineOrderEmbed />
         <template #fallback>

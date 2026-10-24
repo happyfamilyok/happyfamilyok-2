@@ -151,7 +151,7 @@
     <div class="flex flex-1 justify-end">
       <button type="button" class="-m-3 p-3 focus-visible:-outline-offset-4">
         <span class="sr-only">Dismiss</span>
-        <XMarkIcon class="size-5 text-white" aria-hidden="true" />
+        <!---<XMarkIcon class="size-5 text-white" aria-hidden="true" />--> <!-- X icon, but no component-->
       </button>
     </div>
   </div>
@@ -296,7 +296,7 @@
                                     </div>
                                 </a>
                                 <!-- Phone Card - Clickable -->
-                                <a href="tel:405-366-0786"
+                                <a href="tel:405-366-0784"
                                    class="flex flex-row justify-start items-start w-full lg:w-[650px] bg-global-5 rounded-[22px] shadow-[0px_4px_32px_#888888ff] border border-solid border-transparent bg-[linear-gradient(180deg,#ffffff_0%,_#ffffff00_100%)] p-4 lg:p-[20px] cursor-pointer transform transition-all duration-200 hover:scale-105 hover:shadow-lg">
                                     <div
                                         class="flex flex-col gap-3 lg:gap-[16px] justify-start items-start w-full">
@@ -367,7 +367,7 @@
 
 
 
-  <div class="flex h-dvh flex-col bg-white">
+  <div class="flex h-dvh w-full shrink-0 flex-col overflow-hidden bg-white">
     <header class="flex shrink-0 items-center justify-between border-b border-gray-200 px-4 py-3">
       <NuxtLink
         to="/"
@@ -384,7 +384,7 @@
         Open in DoorDash
       </a>
     </header>
-    <div class="min-h-0 flex-1">
+    <div class="relative flex min-h-0 min-w-0 flex-1 overflow-hidden">
       <ClientOnly>
         <OnlineOrderEmbed />
         <template #fallback>
