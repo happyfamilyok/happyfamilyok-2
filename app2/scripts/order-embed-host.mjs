@@ -93,6 +93,13 @@ async function shutdown() {
 
 process.on('SIGINT', () => shutdown().then(() => process.exit(0)))
 process.on('SIGTERM', () => shutdown().then(() => process.exit(0)))
+process.on('uncaughtException', (err) => {
+  console.error('Order embed host crashed:', err)
+  process.exit(1)
+})
+process.on('unhandledRejection', (err) => {
+  console.error('Order embed host rejection:', err)
+})
 
 server.listen(PORT, HOST, () => {
   console.log(`Order embed host listening on http://${HOST}:${PORT}`)

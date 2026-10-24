@@ -1,0 +1,45 @@
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?Set SITE_DOMAIN in .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - anubis
+
+  anubis:
+    image: ghcr.io/techarohq/anubis:v1.27.0
+    restart: unless-stopped
+    environment:
+      BIND: ":8923"
+      TARGET: "http://website:3000"
+      COOKIE_SECURE: "true"
+      COOKIE_SAME_SITE: "Lax"
+      ED25519_PRIVATE_KEY_HEX: ${ANUBIS_SIGNING_KEY:?Generate ANUBIS_SIGNING_KEY as described in README.md}
+      USE_SIMPLIFIED_EXPLANATION: "true"
+    depends_on:
+      - website
+
+  website:
+    build:
+      context: ../../app2
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "3000"
+      NUXT_PUBLIC_ORDER_EMBED_ORIGIN: ${ORDER_EMBED_ORIGIN:-https://107-175-194-17.nip.io}
+    init: true
+    shm_size: "256mb"
+
+volumes:
+  caddy_data:
+  caddy_config:

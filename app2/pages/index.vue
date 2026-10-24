@@ -140,6 +140,23 @@
                     </div>
                 </header>
                 
+                <template>
+  <div class="flex items-center gap-x-6 bg-indigo-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 z-100">
+    <p class="text-sm/6 text-white">
+      <a href="#">
+        <strong class="font-semibold"><i class="fa-solid fa-triangle-exclamation"></i>Important Notice</strong><svg viewBox="0 0 2 2" class="mx-2 inline size-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>The number (405)-366-0786 has been temporarily taken out of service while we move the number to another carrier.  During this time, please phone in with us using our (405)-366-0784 number. We'll update you when this issue is resolved.
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+    </p>
+    <div class="flex flex-1 justify-end">
+      <button type="button" class="-m-3 p-3 focus-visible:-outline-offset-4">
+        <span class="sr-only">Dismiss</span>
+        <XMarkIcon class="size-5 text-white" aria-hidden="true" />
+      </button>
+    </div>
+  </div>
+</template>
+
                 <!-- Mobile menu overlay -->
                 <div v-if="isMobileMenuOpen" @click="closeMobileMenu" class="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity duration-300"></div>
                 <div class="flex flex-col lg:flex-row justify-between items-start px-8 lg:px-16 mt-32 gap-12">
@@ -233,7 +250,7 @@
                     </a>
                 </div>
 <a id="floating-phone"
-   href="tel:405-366-0786"
+   href="tel:405-366-0784"
    class="fixed bottom-6 right-6 w-16 h-16 rounded-full bg-red-500 flex items-center justify-center shadow-lg cursor-pointer hover:bg-red-600 transition-transform duration-200 z-[9999] animate-[pulseZoom_1.2s_ease-in-out_infinite]">
     <!--<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
          stroke-linecap="round" stroke-linejoin="round"

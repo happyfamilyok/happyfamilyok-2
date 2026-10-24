@@ -1,0 +1,20 @@
+[Unit]
+Description=Anubis protection for Happy Family
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+WorkingDirectory=/opt/happyfamily-anubis
+EnvironmentFile=/etc/happyfamily-anubis.env
+ExecStart=/opt/happyfamily-anubis/bin/anubis
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target

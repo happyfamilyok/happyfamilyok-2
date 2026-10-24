@@ -1,0 +1,23 @@
+[Unit]
+Description=Five-minute inactivity timeout for Happy Family Anubis
+After=network.target happyfamily-anubis.service
+Requires=happyfamily-anubis.service
+
+[Service]
+Type=simple
+DynamicUser=yes
+WorkingDirectory=/opt/happyfamily-anubis-idle
+ExecStart=/usr/local/bin/node /opt/happyfamily-anubis-idle/idle-proxy.mjs
+Environment=PORT=8924
+Environment=IDLE_TIMEOUT_MS=300000
+Environment=AUTH_COOKIE_PREFIX=happyfamily-anubis-idle
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+MemoryMax=256M
+
+[Install]
+WantedBy=multi-user.target

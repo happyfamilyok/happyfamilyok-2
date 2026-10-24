@@ -1,0 +1,26 @@
+[Unit]
+Description=Orbit Rust WebRTC signaling and message relay
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+WorkingDirectory=/opt/orbit
+Environment=BIND=127.0.0.1:8980
+Environment=WEB_DIR=/opt/orbit/empty
+EnvironmentFile=-/etc/orbit.env
+ExecStart=/opt/orbit/orbit-server
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+MemoryMax=160M
+TasksMax=64
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

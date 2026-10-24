@@ -73,3 +73,8 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Anubis protection
+
+See [the Apache deployment](../deploy/anubis/apache/README.md) for the existing
+server setup and DNS activation steps, or [the Docker alternative](../deploy/anubis/README.md).

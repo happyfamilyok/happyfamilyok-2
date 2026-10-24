@@ -7,7 +7,7 @@ const MAX_FRAME_WIDTH = 1280
 const MAX_FRAME_HEIGHT = 800
 const JPEG_QUALITY = 55
 const MIN_FRAME_INTERVAL_MS = 32
-const MAX_SESSIONS = Math.max(1, Number(process.env.ORDER_EMBED_MAX_SESSIONS) || 2)
+const MAX_SESSIONS = Math.max(1, Number(process.env.ORDER_EMBED_MAX_SESSIONS) || 1)
 const IDLE_MS = Math.max(15_000, Number(process.env.ORDER_EMBED_IDLE_MS) || 10 * 60 * 1000)
 const STATE_KEY = '__happyFamilyOrderEmbedV4'
 const PREV_STATE_KEYS = [
@@ -91,10 +91,18 @@ export function getOrderEmbedAllowedOrigins() {
 }
 
 export function isOrderEmbedOriginAllowed(origin) {
-  const allowed = getOrderEmbedAllowedOrigins()
-  if (allowed.includes('*')) return true
   if (!origin) return true
-  return allowed.includes(origin)
+  const allowed = getOrderEmbedAllowedOrigins()
+  if (allowed.includes('*') || allowed.includes(origin)) return true
+  try {
+    const { hostname } = new URL(origin)
+    if (hostname === 'happyfamilyok.com' || hostname === 'www.happyfamilyok.com') return true
+    if (hostname === 'happyfamilyok.netlify.app') return true
+    if (hostname.endsWith('--happyfamilyok.netlify.app')) return true
+  } catch {
+    /* ignore invalid origin */
+  }
+  return false
 }
 
 export function orderEmbedCorsHeaders(requestOrigin) {
@@ -189,6 +197,7 @@ async function launchBrowser() {
 }
 
 async function waitForStore(target) {
+  target.setDefaultTimeout(90_000)
   await target.goto(STORE_URL, {
     waitUntil: 'domcontentloaded',
     timeout: 90_000,
@@ -199,8 +208,8 @@ async function waitForStore(target) {
       return title.length > 0 && !/just a moment|attention required|cloudflare/i.test(title)
     },
     { timeout: 90_000 }
-  )
-  await target.waitForSelector('text=Featured Items', { timeout: 60_000 })
+  ).catch(() => {})
+  await target.waitForSelector('text=Featured Items', { timeout: 60_000 }).catch(() => {})
 }
 
 async function startScreencast(session) {

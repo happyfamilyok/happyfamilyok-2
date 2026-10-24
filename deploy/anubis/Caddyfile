@@ -1,0 +1,7 @@
+{$SITE_DOMAIN} {
+    reverse_proxy anubis:8923 {
+        # Overwrite client-supplied IP headers at the public entry point.
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+    }
+}
