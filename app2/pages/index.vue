@@ -367,7 +367,7 @@
 
 
 
-  <div class="flex h-dvh flex-col bg-white">
+  <div class="flex h-dvh w-full shrink-0 flex-col overflow-hidden bg-white">
     <header class="flex shrink-0 items-center justify-between border-b border-gray-200 px-4 py-3">
       <NuxtLink
         to="/"
@@ -384,7 +384,7 @@
         Open in DoorDash
       </a>
     </header>
-    <div class="min-h-0 flex-1">
+    <div class="relative flex min-h-0 min-w-0 flex-1 overflow-hidden">
       <ClientOnly>
         <OnlineOrderEmbed />
         <template #fallback>

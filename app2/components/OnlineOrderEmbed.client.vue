@@ -1,11 +1,12 @@
 <template>
-  <div class="online-order-embed">
-    <div v-show="statusVisible" class="status" role="status">
+  <div :ref="observeContainer" class="online-order-embed">
+    <div v-show="statusVisible || activeInstance !== instance" class="status" role="status">
       <div>
         <div v-if="statusSpinning" class="spinner" />
-        <h1>{{ statusTitle }}</h1>
+        <h1>{{ activeInstance !== instance && liveViewUrl ? 'Online ordering' : statusTitle }}</h1>
+        <button v-if="showFallback" type="button" @click="startSession">Try again</button>
         <p>
-          {{ statusDetail }}
+          {{ activeInstance !== instance && liveViewUrl ? 'The pickup menu appears when this window is fully in view.' : statusDetail }}
           <a
             v-if="showFallback"
             :href="fallbackHref"
@@ -17,7 +18,7 @@
       </div>
     </div>
     <iframe
-      v-if="liveViewUrl"
+      v-if="liveViewUrl && activeInstance === instance"
       :src="liveViewUrl"
       title="Happy Family Chinese Restaurant online ordering"
       sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"
@@ -42,75 +43,63 @@ const fallbackHref = computed(
   () => props.fallbackUrl || config.public.orderStoreUrl
 )
 
-const liveViewUrl = ref('')
-const statusVisible = ref(true)
-const statusSpinning = ref(true)
-const statusTitle = ref('Loading online ordering')
-const statusDetail = ref('Starting a Browserbase session for pickup ordering…')
-const showFallback = ref(false)
+let container = null
+const {
+  liveViewUrl, activeInstance, statusVisible, statusSpinning, statusTitle, statusDetail,
+  showFallback, startSession, hideStatus, setVisible, setViewport, removeInstance,
+} = useOrderSession()
 
-let alive = true
+const instance = Symbol('ordering-window')
+let observer
+let resizeObserver
 
-function setStatus(title, detail, spinning = true, fallback = false) {
-  statusVisible.value = true
-  statusSpinning.value = spinning
-  statusTitle.value = title
-  statusDetail.value = detail
-  showFallback.value = fallback
+function measureViewport() {
+  if (!container) return
+  const { width, height } = container.getBoundingClientRect()
+  if (width <= 0 || height <= 0) return
+  setViewport(instance, {
+    width, height,
+    mobile: window.matchMedia('(pointer: coarse)').matches && width < 1024,
+  })
 }
 
-function hideStatus() {
-  statusVisible.value = false
-  showFallback.value = false
-}
-
-async function startSession() {
-  if (!alive) return
-  liveViewUrl.value = ''
-  setStatus(
-    'Loading online ordering',
-    'Starting a Browserbase session for pickup ordering…'
-  )
-  try {
-    const session = await $fetch('/api/order-embed/session', {
-      method: 'POST',
-      cache: 'no-store',
-    })
-    if (!alive) return
-    if (!session?.liveViewUrl) throw new Error('missing live view')
-    liveViewUrl.value = session.liveViewUrl
-    setStatus('Loading online ordering', 'Opening the pickup menu…')
-  } catch {
-    if (!alive) return
-    setStatus(
-      'Online ordering unavailable',
-      'Could not start a Browserbase ordering session.',
-      false,
-      true
-    )
+function observeContainer(element) {
+  if (element === container) return
+  observer?.disconnect()
+  resizeObserver?.disconnect()
+  setVisible(instance, false)
+  container = element instanceof Element ? element : null
+  if (container && observer) {
+    measureViewport()
+    observer.observe(container)
+    resizeObserver?.observe(container)
   }
 }
 
-function onDisconnectMessage(event) {
-  if (event.data !== 'browserbase-disconnected') return
-  if (!alive) return
-  setStatus(
-    'Disconnected',
-    'The ordering session ended. Open the menu in a new tab or reload this page.',
-    false,
-    true
-  )
-}
-
 onMounted(() => {
-  alive = true
-  window.addEventListener('message', onDisconnectMessage)
-  startSession()
+  resizeObserver = new ResizeObserver(measureViewport)
+  observer = new IntersectionObserver(([entry]) => {
+    // Allow only subpixel rounding at viewport edges, never partial exposure.
+    const bounds = entry.rootBounds
+    const rect = entry.boundingClientRect
+    const fullyVisible = bounds && entry.isIntersecting &&
+      rect.top >= bounds.top - 0.5 && rect.left >= bounds.left - 0.5 &&
+      rect.bottom <= bounds.bottom + 0.5 && rect.right <= bounds.right + 0.5 &&
+      entry.intersectionRatio >= 0.999
+    measureViewport()
+    setVisible(instance, Boolean(fullyVisible))
+  }, { threshold: [0, 0.999, 1] })
+  if (container) {
+    measureViewport()
+    observer.observe(container)
+    resizeObserver.observe(container)
+  }
 })
 
 onBeforeUnmount(() => {
-  alive = false
-  window.removeEventListener('message', onDisconnectMessage)
+  resizeObserver?.disconnect()
+  observer?.disconnect()
+  removeInstance(instance)
 })
 </script>
 
@@ -119,12 +108,16 @@ onBeforeUnmount(() => {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 24rem;
+  flex: 1 1 0%;
+  min-width: 0;
+  min-height: 0;
   background: #fff;
   overflow: hidden;
 }
 
 iframe {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
