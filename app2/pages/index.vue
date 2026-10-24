@@ -138,24 +138,32 @@
                             </nav>
                         </div>
                     </div>
+                <div
+                    v-if="isPhoneBannerVisible"
+                    class="mt-4 flex items-center gap-x-4 rounded-xl bg-indigo-600 px-4 py-2.5 text-white sm:px-6"
+                    role="status"
+                >
+                    <p class="min-w-0 flex-1 text-sm/6">
+                        <strong class="font-semibold">Phone notice:</strong>
+                        (405) 366-0786 is temporarily unavailable while we transfer carriers.
+                        Please call
+                        <a href="tel:+14053660784" class="whitespace-nowrap font-semibold underline underline-offset-2">(405) 366-0784</a>
+                        to place your order.
+                    </p>
+                    <button
+                        type="button"
+                        class="-m-2 shrink-0 rounded p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        @click="isPhoneBannerVisible = false"
+                    >
+                        <span class="sr-only">Dismiss phone notice</span>
+                        <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+                        </svg>
+                    </button>
+                </div>
                 </header>
                 
-                <template>
-  <div class="flex items-center gap-x-6 bg-indigo-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 z-100">
-    <p class="text-sm/6 text-white">
-      <a href="#">
-        <strong class="font-semibold"><i class="fa-solid fa-triangle-exclamation"></i>Important Notice</strong><svg viewBox="0 0 2 2" class="mx-2 inline size-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>The number (405)-366-0786 has been temporarily taken out of service while we move the number to another carrier.  During this time, please phone in with us using our (405)-366-0784 number. We'll update you when this issue is resolved.
-        <span aria-hidden="true">&rarr;</span>
-      </a>
-    </p>
-    <div class="flex flex-1 justify-end">
-      <button type="button" class="-m-3 p-3 focus-visible:-outline-offset-4">
-        <span class="sr-only">Dismiss</span>
-        <!---<XMarkIcon class="size-5 text-white" aria-hidden="true" />--> <!-- X icon, but no component-->
-      </button>
-    </div>
-  </div>
-</template>
+
 
                 <!-- Mobile menu overlay -->
                 <div v-if="isMobileMenuOpen" @click="closeMobileMenu" class="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity duration-300"></div>
@@ -437,6 +445,8 @@ import { ref, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 
 // Mobile menu state
 const isMobileMenuOpen = ref(false)
+
+const isPhoneBannerVisible = ref(true)
 
 // Price banner dismiss state
 const isPriceBannerVisible = ref(true)
