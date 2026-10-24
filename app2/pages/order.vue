@@ -8,12 +8,12 @@
         ← Happy Family
       </NuxtLink>
       <a
-        href="https://www.doordash.com/store/happy-family-chinese-restaurant-norman-36737771/82709946/"
+        href="https://order.online/business/happy-family-chinese-restaurant-15185683"
         target="_blank"
         rel="nofollow noopener"
         class="text-sm text-gray-500 hover:text-gray-900"
       >
-        Open in DoorDash
+        Open in a new tab
       </a>
     </header>
     <div class="min-h-0 flex-1">

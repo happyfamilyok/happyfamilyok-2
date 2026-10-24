@@ -109,7 +109,7 @@ export function orderEmbedCorsHeaders(requestOrigin) {
   if (requestOrigin && isOrderEmbedOriginAllowed(requestOrigin)) {
     return {
       'Access-Control-Allow-Origin': requestOrigin,
-      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
       Vary: 'Origin',
     }
